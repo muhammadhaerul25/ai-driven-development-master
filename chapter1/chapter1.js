@@ -205,9 +205,11 @@ function setupTwitterVideos() {
   const containers = document.querySelectorAll('.twitter-video-sync, .vibe-video-embed');
   
   containers.forEach(container => {
+    const tweetId = container.getAttribute('data-tweet-id');
+    if (!tweetId) return;
+
     const video = container.querySelector('video');
     const fallback = container.querySelector('.video-fallback, .vibe-video-fallback');
-    const tweetId = container.getAttribute('data-tweet-id') || '1924399746447269963';
 
     if (!video) return;
 
