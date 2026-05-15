@@ -1,0 +1,24 @@
+{
+  "name": "ai-driven-development",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muhammadhaerul25/ai-driven-development.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/muhammadhaerul25/ai-driven-development/issues"
+  },
+  "homepage": "https://github.com/muhammadhaerul25/ai-driven-development#readme",
+  "description": "",
+  "devDependencies": {
+    "puppeteer": "^24.43.1"
+  }
+}

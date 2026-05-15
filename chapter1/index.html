@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 1 — AI Changed the Software Development Industry</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="chapter1.css" />
+</head>
+
+<body>
+
+  <!-- Slide Scaler — Fixed 16:9 -->
+  <div class="slide-scaler" id="slideScaler">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">
+      <span class="counter-chapter">Ch.1</span>
+      <span class="divider">·</span>
+      <span id="currentSlide">1</span>
+      <span class="divider">/</span>
+      <span id="totalSlides">8</span>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+    </button>
+
+    <!-- Slides Container -->
+    <div class="slides-container" id="slidesContainer">
+
+      <!-- SLIDE 1 — CHAPTER 1 COVER (moved from base.html) -->
+      <section class="slide slide-chapter" id="slide-1">
+        <div class="slide-label">Chapter 1</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">01</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge"><span class="gdg-dot dot-blue"></span> Chapter 1</div>
+          <h2 class="chapter-heading">AI Changed the<br>Software Development Industry!</h2>
+          <!-- two-line enforced via CSS white-space on chapter-heading -->
+          <p class="chapter-desc">Understanding the shift from traditional coding to AI-assisted development<br>and the
+            rise of natural language interfaces.</p>
+          <div class="chapter-accent-line"></div>
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-2 — EVOLUTION TIMELINE
+         ============================ -->
+      <section class="slide slide-evolution" id="slide-2">
+        <div class="slide-label">Software Development Evolution</div>
+        <div class="evo-bg">
+          <div class="evo-dot-grid"></div>
+        </div>
+        <div class="slide-content evo-layout">
+          <div class="evo-header">
+            <p class="evo-eyebrow">A 80-Year Journey</p>
+            <h2 class="evo-title">Software Development Evolution</h2>
+          </div>
+          <div class="evo-timeline">
+            <!-- Era 1 -->
+            <div class="era-card era-1">
+              <div class="era-period">
+                <span class="era-years">1940s – 1950s</span>
+                <div class="era-line"></div>
+              </div>
+              <div class="era-body">
+                <div class="era-icon-wrap"
+                  style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M8 21h8M12 17v4" />
+                  </svg>
+                </div>
+                <div class="era-text">
+                  <h3 class="era-name">Assembly Language</h3>
+                  <p class="era-desc">Machine-oriented programming</p>
+                  <div class="era-code">
+                    <span class="ec-muted">; x86 Assembly</span><br />
+                    <span class="ec-blue">MOV</span> <span class="ec-white">CX, 10</span><br />
+                    <span class="ec-white">LOOP_START:</span><br />
+                    <span class="ec-blue">ADD</span> <span class="ec-white">AX, [SI]</span><br />
+                    <span class="ec-blue">INC</span> <span class="ec-white">SI</span><br />
+                    <span class="ec-blue">LOOP</span> <span class="ec-white">LOOP_START</span>
+                  </div>
+                </div>
+              </div>
+              <div class="era-tag"
+                style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.2);">
+                Machine-Oriented</div>
+            </div>
+
+            <div class="era-arrow">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            <!-- Era 2 -->
+            <div class="era-card era-2">
+              <div class="era-period">
+                <span class="era-years">1950s – 2020s</span>
+                <div class="era-line" style="background:#EA4335"></div>
+              </div>
+              <div class="era-body">
+                <div class="era-icon-wrap" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.06);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                    <polyline points="16 18 22 12 16 6" />
+                    <polyline points="8 6 2 12 8 18" />
+                  </svg>
+                </div>
+                <div class="era-text">
+                  <h3 class="era-name">High-Level Languages</h3>
+                  <p class="era-desc">Readable programming</p>
+                  <div class="era-code">
+                    <span class="ec-muted"># Python</span><br />
+                    <span class="ec-red">def</span> <span class="ec-yellow">ask_ai</span><span
+                      class="ec-white">(query):</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;res = openai.Chat.create(</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;&nbsp;&nbsp;model=</span><span
+                      class="ec-green">"gpt-4"</span><span class="ec-white">,</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;&nbsp;&nbsp;prompt=query</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;)</span><br />
+                    <span class="ec-white">&nbsp;&nbsp;return res.choices[0]</span>
+                  </div>
+                </div>
+              </div>
+              <div class="era-tag"
+                style="color:#EA4335; background:rgba(234,67,53,0.07); border-color:rgba(234,67,53,0.2);">Human-Readable
+              </div>
+            </div>
+
+            <div class="era-arrow">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            <!-- Era 3 -->
+            <div class="era-card era-3 era-present">
+              <div class="era-present-badge">NOW</div>
+              <div class="era-period">
+                <span class="era-years">2020s – Present</span>
+                <div class="era-line" style="background: linear-gradient(90deg,#34A853,#4285F4)"></div>
+              </div>
+              <div class="era-body">
+                <div class="era-icon-wrap" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <div class="era-text">
+                  <h3 class="era-name">Natural Languages</h3>
+                  <p class="era-desc">Human-language programming</p>
+                  <div class="era-code era-code-nl">
+                    <span class="ec-muted">// Prompt</span><br />
+                    <span class="ec-green">"Build a web sentiment analysis app:</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>Front-end:</strong> React</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>Back-end:</strong> FastAPI</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>AI-Integration:</strong> Gemini</span><br />
+                    <span class="ec-green">&nbsp;&nbsp;• <strong>Feature:</strong> CSV reviews dashboard"</span>
+                  </div>
+                </div>
+              </div>
+              <div class="era-tag"
+                style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.2);">Natural
+                Language</div>
+            </div>
+          </div>
+
+          <div class="evo-insight">
+            <div class="evo-insight-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4M12 16h.01" />
+              </svg>
+            </div>
+            <p>The most important programming language today is the one we speak every day.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-3 — EMERGING AI TECH OVERVIEW
+         ============================ -->
+      <section class="slide slide-emerging" id="slide-3">
+        <div class="slide-label">Emerging AI Technologies</div>
+        <div class="emerging-bg">
+          <div class="em-dot-grid"></div>
+          <div class="em-glow"></div>
+        </div>
+        <div class="slide-content emerging-layout">
+          <div class="em-header">
+            <p class="em-eyebrow">What's Reshaping the Industry</p>
+            <h2 class="em-title">Emerging AI Technologies</h2>
+          </div>
+          <div class="em-cards">
+            <div class="em-card em-card-genai">
+              <div class="em-card-num">01</div>
+              <div class="em-card-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5" />
+                  <path d="M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <h3 class="em-card-title">Generative AI</h3>
+              <p class="em-card-desc">Generate new original content — text, images, code, audio, and video — from
+                natural language.</p>
+              <div class="em-card-tag"
+                style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">Generate
+                Content</div>
+            </div>
+            <div class="em-card em-card-workflow">
+              <div class="em-card-num">02</div>
+              <div class="em-card-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="1.5">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <h3 class="em-card-title">AI Workflows</h3>
+              <p class="em-card-desc">Multi-step pipelines connecting AI models to automate complex processes at scale.
+              </p>
+              <div class="em-card-tag"
+                style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">Automate
+                Processes</div>
+            </div>
+            <div class="em-card em-card-agents">
+              <div class="em-card-num">03</div>
+              <div class="em-card-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M20 21a8 8 0 1 0-16 0" />
+                  <path d="M12 12v9" />
+                  <path d="M9 18l3 3 3-3" />
+                </svg>
+              </div>
+              <h3 class="em-card-title">AI Agents</h3>
+              <p class="em-card-desc">Autonomous systems that plan, decide, and execute multi-step tasks without human
+                direction.</p>
+              <div class="em-card-tag"
+                style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">Autonomous
+                Execution</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-4 — GENERATIVE AI
+         ============================ -->
+      <section class="slide slide-genai" id="slide-4">
+        <div class="slide-label">Generative AI</div>
+        <div class="slide-content genai-layout">
+
+          <div class="genai-left">
+            <div class="genai-badge">
+              <span class="gdg-dot dot-blue"></span> Emerging AI Technologies
+            </div>
+            <h2 class="genai-title">Generative AI</h2>
+            <p class="genai-def">Generative AI is a category of AI that can generate new, original content — text,
+              images, code, audio, and video.</p>
+            <blockquote class="genai-quote">
+              "It enables us to create content, code, and entirely new ideas simply by describing what we want in plain
+              natural language."
+            </blockquote>
+
+            <div class="genai-tools-label">Examples</div>
+            <div class="genai-tools-grid">
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Language Models
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#4285F4">
+                        <path d="M12 2L14.85 9.15L22 12L14.85 14.85L12 22L9.15 14.85L2 12L9.15 9.15L12 2Z" />
+                      </svg>
+                    </span>
+                    Gemini
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#4285F4">
+                        <path
+                          d="M22.28 12.12c0-1.81-1.47-3.28-3.28-3.28-1.02 0-1.92.47-2.52 1.21-.49-.24-1.04-.38-1.63-.38-.45 0-.87.08-1.25.23-.49-.78-1.36-1.3-2.35-1.3-.99 0-1.86.52-2.35 1.3-.38-.15-.8-.23-1.25-.23-.59 0-1.14.14-1.63.38-.6-.74-1.5-1.21-2.52-1.21-1.81 0-3.28 1.47-3.28 3.28 0 .47.1.91.28 1.31-.78.49-1.3 1.36-1.3 2.35 0 .99.52 1.86 1.3 2.35-.18.4-.28.84-.28 1.31 0 1.81 1.47 3.28 3.28 3.28 1.02 0 1.92-.47 2.52-1.21.49.24 1.04.38 1.63.38.45 0 .87-.08 1.25-.23.49.78 1.36 1.3 2.35 1.3.99 0 1.86-.52 2.35-1.3.38.15.8.23 1.25.23.59 0 1.14-.14 1.63-.38.6.74 1.5 1.21 2.52 1.21 1.81 0 3.28-1.47 3.28-3.28 0-.47-.1-.91-.28-1.31.78-.49 1.3-1.36 1.3-2.35 0-.99-.52-1.86-1.3-2.35.18-.4.28-.84.28-1.31z" />
+                      </svg>
+                    </span>
+                    GPT
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#4285F4">
+                        <path d="M12 2L4.5 20.29L5.21 21L12 18L18.79 21L19.5 20.29L12 2Z" />
+                      </svg>
+                    </span>
+                    Claude
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(66,133,244,0.3); color:#4285F4; background:rgba(66,133,244,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#4285F4">
+                        <path
+                          d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.341-3.369-1.341-.454-1.152-1.11-1.459-1.11-1.459-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z" />
+                      </svg>
+                    </span>
+                    Copilot
+                  </span>
+                </div>
+              </div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                  Image Models
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(234,67,53,0.3); color:#EA4335; background:rgba(234,67,53,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#EA4335">
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm4 0h-2V7h2v10z" />
+                      </svg>
+                    </span>
+                    Nano Banana
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(234,67,53,0.3); color:#EA4335; background:rgba(234,67,53,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#EA4335">
+                        <path
+                          d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8.5 8.5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5-1.5-.67-1.5-1.5.67-1.5 1.5-1.5zM7 18l2.5-3.5 2.5 3.01L15.5 13l3.5 5H7z" />
+                      </svg>
+                    </span>
+                    DALL-E
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(234,67,53,0.3); color:#EA4335; background:rgba(234,67,53,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#EA4335">
+                        <path d="M12 2l2.4 7.4h7.6l-6.1 4.5 2.3 7.1-6.2-4.4-6.2 4.4 2.3-7.1-6.1-4.5h7.6z" />
+                      </svg>
+                    </span>
+                    Firefly
+                  </span>
+                </div>
+              </div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
+                  </svg>
+                  Audio Models
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#FBBC04">
+                        <path
+                          d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+                      </svg>
+                    </span>
+                    ElevenLabs
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#FBBC04">
+                        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" />
+                        <path
+                          d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" />
+                      </svg>
+                    </span>
+                    Whisper
+                  </span>
+                </div>
+              </div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <polygon points="23 7 16 12 23 17 23 7" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" />
+                  </svg>
+                  Video Models
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#34A853">
+                        <path
+                          d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z" />
+                      </svg>
+                    </span>
+                    Veo
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#34A853">
+                        <path
+                          d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-10 12.5l-3.5-3.5 3.5-3.5 1.41 1.41L10.33 11.5l2.08 2.09L11 15.5z" />
+                      </svg>
+                    </span>
+                    Sora
+                  </span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)">
+                    <span class="tc-pill-icon">
+                      <svg viewBox="0 0 24 24" fill="#34A853">
+                        <path
+                          d="M13 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V9l-7-7zm0 1.5L18.5 9H13V3.5zM6 20V4h6v6h6v10H6z" />
+                      </svg>
+                    </span>
+                    Runway
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="genai-right">
+            <div class="genai-usecases">
+              <div class="genai-uc-label">Use Cases</div>
+              <div class="genai-uc-pills">
+                <span class="uc-pill">💬 AI Chatbot</span>
+                <span class="uc-pill">✏️ AI Editors</span>
+                <span class="uc-pill">💻 Code Generation</span>
+                <span class="uc-pill">🎙️ Voice Synthesis</span>
+              </div>
+            </div>
+
+            <div class="genai-system-design">
+              <div class="genai-uc-label">System Design</div>
+              <div class="sd-card">
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Prompt</span>
+                </div>
+
+                <div class="sd-arrow">+</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2">
+                      <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Context</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
+                      <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"></path>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Generate</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Output</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="genai-media-showcase" style="margin-top: 10px;">
+              <div class="media-frame frame-main">
+                <video loop muted playsinline preload="none" src="assets/videos/Creating in Flow _ How to use Google’s new AI Filmmaking Tool.mp4" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+                <div class="frame-label">AI Filmmaking — Google VEO & Flow</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-5 — AI WORKFLOWS
+         ============================ -->
+      <section class="slide slide-workflows" id="slide-5">
+        <div class="slide-label">AI Workflows</div>
+        <div class="wf-bg">
+          <div class="wf-dot-grid"></div>
+        </div>
+        <div class="slide-content workflows-layout">
+
+          <div class="workflows-left">
+            <div class="wf-badge">
+              <span class="gdg-dot dot-yellow"></span> Emerging AI Technologies
+            </div>
+            <h2 class="wf-title">AI Workflows</h2>
+            <p class="wf-def">AI Workflows are structured, multi-step pipelines where AI models and tools are connected
+              in sequence to automate complex tasks.</p>
+            <blockquote class="wf-quote">
+              "It enables us to automate complex &amp; multi-step processes so that work that used to take hours of
+              manual effort can be completed in minutes, consistently and at scale."
+            </blockquote>
+            <div class="genai-tools-label">Examples</div>
+            <div class="genai-tools-grid">
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Frameworks
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)"><span class="tc-pill-icon">🦜</span> LangChain</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)"><span class="tc-pill-icon">🕸️</span> LangGraph</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)"><span class="tc-pill-icon">🦙</span> LlamaIndex</span>
+                </div>
+              </div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                  Platforms
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)"><span
+                      class="tc-pill-icon">⚡</span> N8N</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)"><span
+                      class="tc-pill-icon">🔗</span> Zapier</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)"><span
+                      class="tc-pill-icon">🌊</span> Flowise</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(251,188,4,0.3); color:#9A7400; background:rgba(251,188,4,0.07)"><span
+                      class="tc-pill-icon">🧠</span> Dify</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="workflows-right">
+            <div class="genai-usecases">
+              <div class="genai-uc-label">Use Cases</div>
+              <div class="genai-uc-pills">
+                <span class="uc-pill uc-pill-yellow">📝 AI Note Takers</span>
+                <span class="uc-pill uc-pill-yellow">🐛 AI Bug Reporting</span>
+                <span class="uc-pill uc-pill-yellow">✉️ Email Triage</span>
+                <span class="uc-pill uc-pill-yellow">📊 Data Processing</span>
+              </div>
+            </div>
+
+            <div class="genai-system-design">
+              <div class="genai-uc-label">System Design</div>
+              <div class="sd-card">
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Input</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">AI Model</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Process</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon" style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Output</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="genai-media-showcase">
+              <div class="media-frame frame-main">
+                <video loop muted playsinline preload="none" src="assets/videos/Using Workflows _ Runway Academy.mp4" style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
+                <div class="frame-label">AI Workflows — Runway Academy</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-6 — AI AGENTS
+         ============================ -->
+      <section class="slide slide-agents" id="slide-6">
+        <div class="slide-label">AI Agents</div>
+        <div class="agents-bg">
+          <div class="ag-grid-lines"></div>
+        </div>
+        <div class="slide-content agents-layout">
+
+          <div class="agents-left">
+            <div class="ag-badge">
+              <span class="gdg-dot dot-green"></span> Emerging AI Technologies
+            </div>
+            <h2 class="ag-title">AI Agents</h2>
+            <p class="ag-def">AI Agents are autonomous AI systems that can plan, make decisions, and take actions over
+              multiple steps to achieve a goal — without needing a human to direct every move.</p>
+            <blockquote class="ag-quote">
+              "It enables us to delegate complex, open-ended tasks to an AI that can think, decide, and execute
+              independently."
+            </blockquote>
+            <div class="genai-tools-label">Examples</div>
+            <div class="genai-tools-grid">
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                  Frameworks
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)"><span class="tc-pill-icon">🚣</span> CrewAI</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)"><span class="tc-pill-icon">🤖</span> AutoGen</span>
+                </div>
+              </div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                  Platforms
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)"><span
+                      class="tc-pill-icon">☁️</span> VertexAI</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)"><span
+                      class="tc-pill-icon">🪨</span> Bedrock</span>
+                </div>
+              </div>
+              <div class="tools-category">
+                <div class="tc-header">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <polygon points="23 7 16 12 23 17 23 7" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" />
+                  </svg>
+                  Products
+                </div>
+                <div class="tc-pills">
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)"><span
+                      class="tc-pill-icon">💻</span> Cursor</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)"><span
+                      class="tc-pill-icon">🏄</span> Windsurf</span>
+                  <span class="tc-pill"
+                    style="border-color:rgba(52,168,83,0.3); color:#34A853; background:rgba(52,168,83,0.06)"><span
+                      class="tc-pill-icon">🛠️</span> Devin</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="agents-right">
+            <div class="genai-usecases">
+              <div class="genai-uc-label">Use Cases</div>
+              <div class="genai-uc-pills">
+                <span class="uc-pill uc-pill-green">💻 Coding Agents</span>
+                <span class="uc-pill uc-pill-green">🔍 Deep Research Agents</span>
+                <span class="uc-pill uc-pill-green">🌐 Browser Automation Agents</span>
+              </div>
+            </div>
+
+            <div class="genai-system-design">
+              <div class="genai-uc-label">System Design</div>
+              <div class="sd-card">
+                <div class="sd-step">
+                  <div class="sd-step-icon"
+                    style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Observe</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon"
+                    style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4l3 3" />
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Plan</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon"
+                    style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2">
+                      <path d="M9 12l2 2 4-4" />
+                      <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Decide</span>
+                </div>
+
+                <div class="sd-arrow">→</div>
+
+                <div class="sd-step">
+                  <div class="sd-step-icon"
+                    style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.07);">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
+                      <polyline points="13 17 18 12 13 7" />
+                      <polyline points="6 17 11 12 6 7" />
+                    </svg>
+                  </div>
+                  <span class="sd-step-title">Execute</span>
+                </div>
+
+                <div class="sd-arrow" style="font-size:24px;">↺</div>
+              </div>
+            </div>
+
+            <div class="genai-media-showcase">
+              <div class="media-frame frame-main">
+                <div class="twitter-video-sync" data-tweet-id="1767548763134964000">
+                  <video loop muted playsinline preload="none"></video>
+                  <div class="video-fallback">
+                    <div class="vibe-play-icon">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10" /><polygon points="10 8 16 12 10 16 10 8" fill="rgba(255,255,255,0.9)" stroke="none" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="frame-label">Devin — The First AI Software Engineer</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-7 — ANYONE CAN START BUILDING
+         ============================ -->
+      <section class="slide slide-vibe-code" id="slide-vibe">
+        <div class="slide-label">Anyone Can Start Building</div>
+        <div class="vibe-bg">
+          <div class="vibe-grid-lines"></div>
+          <div class="vibe-glow"></div>
+        </div>
+        <div class="slide-content vibe-layout">
+
+          <!-- Left: Text content -->
+          <div class="vibe-left">
+            <div class="vibe-eyebrow">
+              <span class="gdg-dot dot-green"></span>
+              <span>The New Reality</span>
+            </div>
+            <h2 class="vibe-title">Anyone Can Start Building</h2>
+            <p class="vibe-desc">A new era of software creation is here — where age, background, and technical expertise
+              are no longer barriers to building real products.</p>
+            <div class="vibe-stat-row">
+              <div class="vibe-stat">
+                <span class="vibe-stat-num" style="color:#34A853">↑ 10×</span>
+                <span class="vibe-stat-label">faster prototyping<br />with AI assistance</span>
+              </div>
+              <div class="vibe-stat-divider"></div>
+              <div class="vibe-stat">
+                <span class="vibe-stat-num" style="color:#4285F4">~0</span>
+                <span class="vibe-stat-label">prior coding<br />experience needed</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Video card — uses a hosted looping mp4 clip via yt-dlp style redirect -->
+          <div class="vibe-right">
+            <div class="vibe-video-card">
+              <div class="vibe-video-chrome">
+                <div class="vibe-video-dots">
+                  <span style="background:#EA4335"></span>
+                  <span style="background:#FBBC04"></span>
+                  <span style="background:#34A853"></span>
+                </div>
+                <span class="vibe-video-url">x.com/Thom_Wolf/status/1924399746447269963</span>
+              </div>
+              <div class="vibe-video-embed" data-tweet-id="1924399746447269963">
+                <video loop muted playsinline preload="none"
+                  style="width:100%;height:100%;object-fit:cover;display:block;">
+                </video>
+                <div class="vibe-video-fallback">
+                  <div class="vibe-play-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)"
+                      stroke-width="1.5">
+                      <circle cx="12" cy="12" r="10" />
+                      <polygon points="10 8 16 12 10 16 10 8" fill="rgba(255,255,255,0.9)" stroke="none" />
+                    </svg>
+                  </div>
+                  <p class="vibe-fallback-title">Vibe Coding with Cursor AI</p>
+                </div>
+              </div>
+              <div class="vibe-video-caption">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4M12 16h.01" />
+                </svg>
+                <span>Real kids building real apps — no coding background required</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-8 — AI IS CHANGING WHO CAN BUILD
+         ============================ -->
+      <section class="slide slide-who-builds" id="slide-who">
+        <div class="slide-label">AI Is Changing Who Can Build Software</div>
+        <div class="who-bg">
+          <div class="who-dot-grid"></div>
+        </div>
+        <div class="slide-content who-layout">
+
+          <div class="who-header">
+            <p class="who-eyebrow">The Shift</p>
+            <h2 class="who-title">AI Is Changing <em>Who Can Build</em> Software</h2>
+          </div>
+
+          <div class="who-comparison">
+
+            <!-- Before -->
+            <div class="who-col who-col-before">
+              <div class="who-col-badge who-before-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="15" y1="9" x2="9" y2="15" />
+                  <line x1="9" y1="9" x2="15" y2="15" />
+                </svg>
+                Before AI
+              </div>
+              <div class="who-items">
+                <div class="who-item who-item-before">
+                  <div class="who-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4M12 16h.01" />
+                    </svg>
+                  </div>
+                  <div class="who-item-text">
+                    <strong>Learning programming took years</strong>
+                    <span>Months of study before writing your first real app</span>
+                  </div>
+                </div>
+                <div class="who-item who-item-before">
+                  <div class="who-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4M12 16h.01" />
+                    </svg>
+                  </div>
+                  <div class="who-item-text">
+                    <strong>Software development required technical expertise</strong>
+                    <span>Degrees, bootcamps, and years of practice were required</span>
+                  </div>
+                </div>
+                <div class="who-item who-item-before">
+                  <div class="who-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M12 8v4M12 16h.01" />
+                    </svg>
+                  </div>
+                  <div class="who-item-text">
+                    <strong>Prototyping ideas was expensive and time-consuming</strong>
+                    <span>Weeks of dev time just to test a concept</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="who-arrow">
+              <div class="who-arrow-line"></div>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              <span class="who-arrow-label">AI Changed Everything</span>
+            </div>
+
+            <!-- After -->
+            <div class="who-col who-col-after">
+              <div class="who-col-badge who-after-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+                After AI
+              </div>
+              <div class="who-items">
+                <div class="who-item who-item-after">
+                  <div class="who-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <div class="who-item-text">
+                    <strong>Anyone can start building with natural language</strong>
+                    <span>Describe what you want — AI writes the code</span>
+                  </div>
+                </div>
+                <div class="who-item who-item-after">
+                  <div class="who-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <div class="who-item-text">
+                    <strong>AI can generate UI, code, and documentation</strong>
+                    <span>Full-stack features from a single plain-language prompt</span>
+                  </div>
+                </div>
+                <div class="who-item who-item-after">
+                  <div class="who-item-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                      <polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <div class="who-item-text">
+                    <strong>Fast and easy to turn ideas into products</strong>
+                    <span>Hours instead of weeks — prototype in an afternoon</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="who-footer-quote">
+            “AI is reducing the gap between developers and non-developers in software development.”
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-9 — KARPATHY QUOTE
+         ============================ -->
+      <section class="slide slide-karpathy" id="slide-karpathy">
+        <div class="slide-label">Natural Language Is the New Interface</div>
+        <div class="karp-bg">
+          <div class="karp-grid"></div>
+          <div class="karp-glow-left"></div>
+          <div class="karp-glow-right"></div>
+        </div>
+        <div class="slide-content karp-layout">
+          <div class="karp-inner">
+            <!-- <div class="karp-quote-mark">"</div> -->
+            <blockquote class="karp-quote">
+              "Everyone is now a programmer<br />
+              because<br />
+              everyone can speak <span class="karp-highlight">natural language</span>"
+            </blockquote>
+            <div class="karp-attribution">
+              <div class="karp-avatar">
+                <img
+                  src="https://yt3.googleusercontent.com/ytc/AIdro_nDvyq2NoPL626bk1IbxQ94SfQsD-B0qgZchghtQNkLWoEz=s900-c-k-c0x00ffffff-no-rj"
+                  alt="Andrej Karpathy">
+              </div>
+              <div class="karp-attr-text">
+                <strong>Andrej Karpathy</strong>
+                <span>Co-Founder of OpenAI &nbsp;·&nbsp; 2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-9 — THE PREMISE
+         ============================ -->
+      <section class="slide slide-skill-premise" id="slide-skill-premise">
+        <div class="slide-label">The New Reality</div>
+        <div class="skill-bg">
+          <div class="skill-dots"></div>
+        </div>
+        <div class="slide-content skill-hero-layout">
+          <h2 class="skill-hero-title">
+            Since everyone could be a<br />
+            <span class="skill-highlight">programmer with AI...</span>
+          </h2>
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C1-10 — MOST VALUABLE SKILL
+         ============================ -->
+      <section class="slide slide-skill-pivot" id="slide-skill">
+        <div class="slide-label">The Most Valuable Skill in the AI Era</div>
+        <div class="skill-bg">
+          <div class="skill-dots"></div>
+        </div>
+        <div class="slide-content skill-hero-layout">
+          <h2 class="skill-hero-title">
+            What is the<br />
+            <span class="skill-highlight">Most Valuable Skill</span><br />
+            to Have Now?
+          </h2>
+        </div>
+      </section>
+
+    </div><!-- /slides-container -->
+
+  </div><!-- /slide-scaler -->
+
+  <script src="scaler.js"></script>
+  <script src="chapter1.js"></script>
+</body>
+
+</html>

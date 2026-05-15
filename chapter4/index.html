@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Driven Development — GDGoC Makassar 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="chapter4.css" />
+</head>
+
+<body>
+
+  <div class="slide-scaler" id="slideScaler">
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="slide-counter" id="slideCounter">
+      <span class="counter-chapter">AI-Dev</span>
+      <span class="divider">·</span>
+      <span id="currentSlide">1</span>
+      <span class="divider">/</span>
+      <span id="totalSlides">12</span>
+    </div>
+
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+    </div>
+
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+    </button>
+
+    <div class="slides-container" id="slidesContainer">
+
+      <!-- SLIDE 1 — CHAPTER 4 COVER (moved from base.html) -->
+      <section class="slide slide-chapter chapter-green active" id="slide-1">
+        <div class="slide-label">Chapter 4</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">04</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge" style="color:#34A853"><span class="gdg-dot dot-green"></span> Chapter 4</div>
+          <h2 class="chapter-heading">AI-Driven Development<br>with Antigravity</h2>
+          <p class="chapter-desc">Unleashing the power of agentic coding with Antigravity to build complex<br>systems
+            through autonomous, multi-step execution.</p>
+          <div class="chapter-accent-line" style="background:#34A853"></div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 1 — COVER
+         ============================================================ -->
+      <section class="slide slide-cover" id="slide-2">
+        <div class="cover-bg">
+          <div class="cover-grid"></div>
+          <div class="cover-glow-tl"></div>
+          <div class="cover-glow-br"></div>
+        </div>
+        <div class="slide-content cover-layout">
+          <div class="cover-left">
+            <div class="cover-tag">
+              <span class="gdg-dot dot-green"></span>
+              GDGoC Makassar 2026 · Build with AI
+            </div>
+            <h1 class="cover-title">AI-Driven<span>Development</span></h1>
+            <p class="cover-subtitle">Building Software in the Age of AI — A complete methodology for working with AI at
+              every stage of the development lifecycle.</p>
+          </div>
+          <div class="cover-right">
+            <div class="cover-formula">
+              <div class="cover-formula-label">The Formula</div>
+              <div class="cover-formula-eq">
+                <div class="cover-f-row">
+                  <span style="color:rgba(255,255,255,0.5); font-family:var(--font-mono);">AI-Dev =</span>
+                </div>
+                <div class="cover-f-row">
+                  <span class="cover-f-op">+</span>
+                  <div class="cover-f-content">
+                    <span class="cover-f-chip"
+                      style="color:#61AFEF; border-color:rgba(97,175,239,0.3); background:rgba(97,175,239,0.08);">Vibe
+                      Coding</span>
+                    <span class="cover-f-desc">Humans maintain <strong>intent and design</strong> while delegating
+                      details to AI
+                      agents.</span>
+                    <div class="pillar-analogy">💡 <strong>Analogy:</strong> The Visionary — You define the "soul" and
+                      direction; the AI handles the heavy technical lifting.</div>
+                  </div>
+                </div>
+                <div class="cover-f-row">
+                  <span class="cover-f-op">+</span>
+                  <div class="cover-f-content">
+                    <span class="cover-f-chip"
+                      style="color:#EA4335; border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.08);">Spec-Driven
+                      Development</span>
+                    <span class="cover-f-desc">Building the blueprint (PRD + Design) first with AI. The spec
+                      is your ground truth.</span>
+                    <div class="pillar-analogy">🏗️ <strong>Analogy:</strong> The Architect — You design the structural
+                      logic that keeps the AI's generation grounded in truth.</div>
+                  </div>
+                </div>
+                <div class="cover-f-row">
+                  <span class="cover-f-op">+</span>
+                  <div class="cover-f-content">
+                    <span class="cover-f-chip"
+                      style="color:#FBBC04; border-color:rgba(251,188,4,0.35); background:rgba(251,188,4,0.08);">Test-Driven
+                      Dev</span>
+                    <span class="cover-f-desc">AI-powered verification. <strong>Spec-based tests</strong> ensure quality
+                      and correctness at every step of the development cycle.</span>
+                    <div class="pillar-analogy">🛡️ <strong>Analogy:</strong> The Guardian — You set the high bar for
+                      quality; the AI ensures every line of code meets it.</div>
+                  </div>
+                </div>
+                <div class="cover-f-row">
+                  <span class="cover-f-op">+</span>
+                  <div class="cover-f-content">
+                    <span class="cover-f-chip"
+                      style="color:#34A853; border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.08);">Human-in-the-Loop</span>
+                    <span class="cover-f-desc">The essential practice where the <strong>human developer</strong> reviews
+                      every AI change, runs tests, and directs the final outcome.</span>
+                    <div class="pillar-analogy">🧠 <strong>Analogy:</strong> The Mastermind — The AI provides the
+                      infinite labor, but you provide the final, expert judgment.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 2 — GOOGLE ANTIGRAVITY
+         ============================================================ -->
+      <section class="slide slide-vibe-dark" id="slide-3">
+        <div class="slide-label">The Tools</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid" style="opacity:0.2;"></div>
+        </div>
+        <div class="slide-content antigravity-layout">
+          <div class="antigravity-left">
+            <div class="antigravity-badge">Google Antigravity</div>
+            <h2 class="display-title">The Agentic IDE <br>for <span>Vibe Coding</span></h2>
+            <p class="antigravity-desc">The next generation of development environments. Google Antigravity is an
+              agentic
+              IDE designed to handle the complexity of modern codebases, allowing you to focus on intent while it
+              handles the execution.</p>
+
+            <div class="antigravity-features">
+              <div class="feature-row">
+                <div class="feature-icon" style="border-color:rgba(66,133,244,0.3); background:rgba(66,133,244,0.1);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#61AFEF" stroke-width="2">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>
+                </div>
+                <div class="feature-text">
+                  <strong>Massive Context</strong>
+                  <span>Understand millions of lines of code instantly with codebase-wide RAG.</span>
+                </div>
+              </div>
+              <div class="feature-row">
+                <div class="feature-icon" style="border-color:rgba(52,168,83,0.3); background:rgba(52,168,83,0.1);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </div>
+                <div class="feature-text">
+                  <strong>Agentic Execution</strong>
+                  <span>Runs terminal commands, manages git, and executes test suites autonomously.</span>
+                </div>
+              </div>
+              <div class="feature-row">
+                <div class="feature-icon" style="border-color:rgba(251,188,4,0.4); background:rgba(251,188,4,0.12);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBC04" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                      d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
+                </div>
+                <div class="feature-text">
+                  <strong>Multimodal Reasoning</strong>
+                  <span>Sees your UI, processes logs, and reads diagrams to solve complex bugs.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="antigravity-right">
+            <div class="video-card">
+              <div class="video-card-header">
+                <div class="v-dots">
+                  <span class="v-dot r"></span>
+                  <span class="v-dot y"></span>
+                  <span class="v-dot g"></span>
+                </div>
+                <div class="v-title">Antigravity Demo.mp4</div>
+              </div>
+              <div class="video-card-body">
+                <video src="assets/videos/Antigravity Demo.mp4" loop muted playsinline preload="none"></video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 3 — METHODOLOGY: THE 5 STAGES
+         ============================================================ -->
+      <section class="slide slide-agenda" id="slide-4">
+        <div class="slide-label">The AI-Dev Framework</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid"></div>
+        </div>
+        <div class="slide-content agenda-layout">
+          <div class="agenda-header">
+            <p class="eyebrow">Methodology Overview</p>
+            <h2 class="display-title">5-Stage AI-Driven Workflow</h2>
+          </div>
+          <div class="agenda-grid">
+
+            <div class="agenda-card">
+              <div class="agenda-num">01</div>
+              <div class="pillar-tag sdd">SDD</div>
+              <div class="agenda-icon" style="border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.06);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+              </div>
+              <div class="agenda-name">Planning</div>
+              <div class="agenda-desc"><strong>Spec-Driven:</strong> Turn a vague idea into a structured, AI-ready PRD.
+                The spec is your ground truth.</div>
+              <div class="agenda-tag"
+                style="color:#EA4335; border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.05);">📄 PRD</div>
+            </div>
+
+            <div class="agenda-card">
+              <div class="agenda-num">02</div>
+              <div class="pillar-tag sdd">SDD</div>
+              <div class="agenda-icon" style="border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.06);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <line x1="9" y1="9" x2="15" y2="9" />
+                </svg>
+              </div>
+              <div class="agenda-name">Architecture &amp; Design</div>
+              <div class="agenda-desc"><strong>Spec-Driven:</strong> Define tech stack, schema, and API contracts. Build
+                the technical blueprint.</div>
+              <div class="agenda-tag"
+                style="color:#EA4335; border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.05);">🏗️ Design Doc
+              </div>
+            </div>
+
+            <div class="agenda-card">
+              <div class="agenda-num">03</div>
+              <div class="pillar-tag vibe">Vibe</div>
+              <div class="agenda-icon" style="border-color:rgba(66,133,244,0.2); background:rgba(66,133,244,0.06);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+              </div>
+              <div class="agenda-name">Implementation</div>
+              <div class="agenda-desc"><strong>Vibe Coding:</strong> Natural language intent. Focus on logic while AI
+                handles the code generation.</div>
+              <div class="agenda-tag"
+                style="color:#4285F4; border-color:rgba(66,133,244,0.2); background:rgba(66,133,244,0.06);">⚡ Codebase
+              </div>
+            </div>
+
+            <div class="agenda-card">
+              <div class="agenda-num">04</div>
+              <div class="pillar-tag tdd">TDD</div>
+              <div class="agenda-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                  <path d="M9 12l2 2 4-4" />
+                  <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+                </svg>
+              </div>
+              <div class="agenda-name">Testing</div>
+              <div class="agenda-desc"><strong>Test-Driven:</strong> AI-generated tests from your specs. Verification at
+                every single checkpoint.</div>
+              <div class="agenda-tag"
+                style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">🧪 Test Suite
+              </div>
+            </div>
+
+            <div class="agenda-card">
+              <div class="agenda-num">05</div>
+              <div class="pillar-tag hitl">HITL</div>
+              <div class="agenda-icon" style="border-color:rgba(52,168,83,0.2); background:rgba(52,168,83,0.06);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                </svg>
+              </div>
+              <div class="agenda-name">Review &amp; Iteration</div>
+              <div class="agenda-desc"><strong>Human-in-the-Loop:</strong> You review, you approve, you direct. Human
+                remains the ultimate pilot.</div>
+              <div class="agenda-tag"
+                style="color:#34A853; border-color:rgba(52,168,83,0.2); background:rgba(52,168,83,0.05);">🔁 Refined
+                Product</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 3 — STAGE 1: PLANNING & REQUIREMENTS
+         ============================================================ -->
+      <section class="slide slide-vibe" id="slide-5">
+        <div class="slide-label">Stage 01 — Planning &amp; Requirements</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid" style="opacity:0.4;"></div>
+        </div>
+        <div class="slide-content vibe-layout">
+
+          <!-- LEFT: Goal + Todo -->
+          <div class="vibe-col">
+            <div class="vibe-col-header">
+              <div class="stage-badge"
+                style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.25);">Stage 01 ·
+                Planning</div>
+              <h3 class="vibe-stage-title">Build the PRD with AI</h3>
+              <div class="vibe-deliverable"
+                style="color:#4285F4; background:rgba(66,133,244,0.06); border-color:rgba(66,133,244,0.2);">📄
+                Deliverable: Product Requirements Doc</div>
+            </div>
+
+            <div class="vibe-goal">
+              <strong>Goal:</strong> Turn a vague product idea into a structured, AI-ready PRD that defines what you're
+              building, who it's for, what features it needs, and what success looks like.
+            </div>
+
+            <div class="vibe-todo">
+              <div class="vibe-todo-label">To-Do Checklist</div>
+              <div class="vibe-todo-list">
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">1.1</span>
+                  <span class="vibe-todo-text"><strong>Write a 1-paragraph product brief</strong> — describe the
+                    product, target user, and core problem in plain language.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">1.2</span>
+                  <span class="vibe-todo-text"><strong>Prompt AI to expand into a full PRD</strong> — problem statement,
+                    user personas, user stories, acceptance criteria.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">1.3</span>
+                  <span class="vibe-todo-text"><strong>Define priority levels</strong> — mark each feature as P0 (must),
+                    P1 (should), or P2 (nice-to-have).</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">1.4</span>
+                  <span class="vibe-todo-text"><strong>Define out-of-scope items</strong> — explicitly tell AI what NOT
+                    to build to keep scope clear.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">1.5</span>
+                  <span class="vibe-todo-text"><strong>Human review &amp; sign-off</strong> — read every line. Edit
+                    until it reflects your real intent. Save as <code>PRD.md</code>.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span><code>PRD.md</code> (Structured Requirements)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Defined Scope (P0/P1/P2 features)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vibe-divider"></div>
+
+          <!-- RIGHT: Prompt Guide -->
+          <div class="vibe-col">
+            <div class="vibe-prompt-label">Starter Prompt Template</div>
+            <div class="vibe-prompt-card">
+              <div class="vibe-prompt-header">
+                <div class="vibe-prompt-dots">
+                  <div class="vibe-prompt-dot vibe-prompt-dot-r"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-y"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-g"></div>
+                </div>
+                <span class="vibe-prompt-chip">PRD GENERATOR PROMPT</span>
+              </div>
+              <div class="vibe-prompt-body">
+                <div class="vibe-prompt-line vibe-prompt-comment"># ROLE</div>
+                <div class="vibe-prompt-line">You are a <span class="vibe-prompt-val">senior product manager</span>.
+                </div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># TASK</div>
+                <div class="vibe-prompt-line">Based on this brief, write a <span class="vibe-prompt-string">complete
+                    PRD</span>:</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[BRIEF]</span> <span
+                    class="vibe-prompt-val">{paste your 1-paragraph idea here}</span></div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># OUTPUT FORMAT</div>
+                <div class="vibe-prompt-line">Include: <span class="vibe-prompt-highlight">Problem Statement</span>,
+                  <span class="vibe-prompt-highlight">Target Users</span>,
+                </div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">User Stories</span> (As a... I want...
+                  So that...),</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">Acceptance Criteria</span>, <span
+                    class="vibe-prompt-highlight">Priority</span> (P0/P1/P2),</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">Out of Scope</span>, <span
+                    class="vibe-prompt-highlight">Success Metrics</span>.</div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># FORMAT: Markdown. Be structured and specific.</div>
+              </div>
+            </div>
+
+            <div class="vibe-context-section">
+              <div class="vibe-context-label">Context to Feed the AI</div>
+              <div class="vibe-context-chips">
+                <span class="vibe-chip"
+                  style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">📝 Your
+                  1-para product brief</span>
+                <span class="vibe-chip"
+                  style="color:#EA4335; border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.06);">👤 Target
+                  user description</span>
+                <span class="vibe-chip"
+                  style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">🔍
+                  Competitor references</span>
+                <span class="vibe-chip"
+                  style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">📊 Any
+                  existing research</span>
+              </div>
+            </div>
+
+            <div class="vibe-ai-bar">
+              <span class="vibe-ai-icon">✦</span>
+              <span><strong>Pro tip:</strong> After the AI generates the PRD, ask it: <em>"What edge cases am I missing?
+                  What assumptions am I making?"</em> — this catches gaps before you write a single line of code.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 4 — STAGE 2: DESIGN
+         ============================================================ -->
+      <section class="slide slide-vibe" id="slide-6">
+        <div class="slide-label">Stage 02 — Architecture &amp; Design</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid"></div>
+        </div>
+        <div class="slide-content vibe-layout">
+
+          <!-- LEFT -->
+          <div class="vibe-col">
+            <div class="vibe-col-header">
+              <div class="stage-badge"
+                style="color:#EA4335; background:rgba(234,67,53,0.06); border-color:rgba(234,67,53,0.25);">Stage 02 ·
+                Architecture &amp; Design</div>
+              <h3 class="vibe-stage-title">Architect &amp; Design with AI</h3>
+              <div class="vibe-deliverable"
+                style="color:#EA4335; background:rgba(234,67,53,0.05); border-color:rgba(234,67,53,0.2);">🏗️
+                Deliverable: System Design Doc</div>
+            </div>
+
+            <div class="vibe-goal">
+              <strong>Goal:</strong> Transform your PRD into a concrete technical blueprint — tech stack decisions,
+              database schema (ERD), API structure, and infrastructure plan — all reviewed by you before a single file
+              is created.
+            </div>
+
+            <div class="vibe-todo">
+              <div class="vibe-todo-label">To-Do Checklist</div>
+              <div class="vibe-todo-list">
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">2.1</span>
+                  <span class="vibe-todo-text"><strong>Paste your PRD</strong> and ask AI to recommend a tech stack with
+                    clear reasoning for each choice.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">2.2</span>
+                  <span class="vibe-todo-text"><strong>Generate the ERD</strong> — ask AI to produce a database schema
+                    (entity-relationship diagram) from your features.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">2.3</span>
+                  <span class="vibe-todo-text"><strong>Generate the API contract</strong> — endpoints, request/response
+                    shapes, auth method (OpenAPI spec format).</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">2.4</span>
+                  <span class="vibe-todo-text"><strong>Map the system layers</strong> — Frontend → Backend → AI API →
+                    Database → Storage → Infra.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">2.5</span>
+                  <span class="vibe-todo-text"><strong>Human review &amp; finalize</strong> — edit, question AI's
+                    choices, then save as <code>DESIGN.md</code>.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span><code>DESIGN.md</code> (Tech Stack + Schema)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>API Contract (OpenAPI/JSON Spec)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vibe-divider"></div>
+
+          <!-- RIGHT -->
+          <div class="vibe-col">
+            <div class="vibe-prompt-label">Starter Prompt Template</div>
+            <div class="vibe-prompt-card">
+              <div class="vibe-prompt-header">
+                <div class="vibe-prompt-dots">
+                  <div class="vibe-prompt-dot vibe-prompt-dot-r"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-y"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-g"></div>
+                </div>
+                <span class="vibe-prompt-chip">DESIGN PROMPT</span>
+              </div>
+              <div class="vibe-prompt-body">
+                <div class="vibe-prompt-line vibe-prompt-comment"># ROLE</div>
+                <div class="vibe-prompt-line">You are a <span class="vibe-prompt-val">senior software architect</span>.
+                </div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># CONTEXT</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[PRD]</span> <span
+                    class="vibe-prompt-val">{paste full PRD.md here}</span></div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># TASK</div>
+                <div class="vibe-prompt-line">Design the <span class="vibe-prompt-string">full system
+                    design</span>:</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">1.</span> Recommend tech stack (with
+                  reasons)</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">2.</span> Database schema + ERD
+                  (Markdown table)</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">3.</span> API endpoints list (REST or
+                  GraphQL)</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">4.</span> System layers diagram (text
+                  ASCII)</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">5.</span> Identify top 3 technical
+                  risks</div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># Prioritize: simplicity over complexity.</div>
+              </div>
+            </div>
+
+            <div class="vibe-context-section">
+              <div class="vibe-context-label">Context to Feed the AI</div>
+              <div class="vibe-context-chips">
+                <span class="vibe-chip"
+                  style="color:#EA4335; border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.06);">📄 Full
+                  PRD.md</span>
+                <span class="vibe-chip"
+                  style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">🧑‍💻
+                  Team skill level</span>
+                <span class="vibe-chip"
+                  style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">☁️
+                  Deployment target</span>
+                <span class="vibe-chip"
+                  style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">💰 Budget
+                  constraints</span>
+              </div>
+            </div>
+
+            <div class="vibe-ai-bar">
+              <span class="vibe-ai-icon">✦</span>
+              <span><strong>Pro tip:</strong> Ask AI: <em>"What would break at 10,000 users? What would you simplify if
+                  we only had 2 weeks?"</em> Forces it to prioritize ruthlessly — exactly what a good designer
+                does.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 5 — STAGE 3: IMPLEMENTATION
+         ============================================================ -->
+      <section class="slide slide-vibe" id="slide-7">
+        <div class="slide-label">Stage 03 — Implementation (Vibe Coding)</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid" style="opacity:0.4;"></div>
+        </div>
+        <div class="slide-content vibe-layout">
+
+          <!-- LEFT -->
+          <div class="vibe-col">
+            <div class="vibe-col-header">
+              <div class="stage-badge"
+                style="color:#9A7400; background:rgba(251,188,4,0.07); border-color:rgba(251,188,4,0.3);">Stage 03 ·
+                Implementation</div>
+              <h3 class="vibe-stage-title">Build Layer by Layer</h3>
+              <div class="vibe-deliverable"
+                style="color:#9A7400; background:rgba(251,188,4,0.06); border-color:rgba(251,188,4,0.25);">⚡
+                Deliverable: Working Codebase</div>
+            </div>
+
+            <div class="vibe-goal">
+              <strong>Goal:</strong> Transform design into functional code in structured layers,
+              always with the full context (PRD + Design) loaded, and always checkpointing before moving to the
+              next task.
+            </div>
+
+            <div class="vibe-todo">
+              <div class="vibe-todo-label">To-Do Checklist (Layer Order)</div>
+              <div class="vibe-todo-list">
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">3.1</span>
+                  <span class="vibe-todo-text"><strong>Load full context first</strong> — paste PRD + Design Doc
+                    into the AI before writing any code.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">3.2</span>
+                  <span class="vibe-todo-text"><strong>Layer 1 — Frontend:</strong> Setup → UI Components → API
+                    connection. ✅ Checkpoint: UI renders correctly.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">3.3</span>
+                  <span class="vibe-todo-text"><strong>Layer 2 — Backend:</strong> Server setup → DB schema → API
+                    endpoints → Auth. ✅ Checkpoint: API responds.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">3.4</span>
+                  <span class="vibe-todo-text"><strong>Layer 3 — AI Integration:</strong> Connect Gemini → implement AI
+                    feature logic → test responses. ✅ Checkpoint: E2E works.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">3.5</span>
+                  <span class="vibe-todo-text"><strong>One task at a time</strong> — never queue multiple tasks.
+                    Complete → checkpoint → commit → proceed.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Functional Codebase (Frontend + Backend)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Integrated AI Reasoning Pipeline</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vibe-divider"></div>
+
+          <!-- RIGHT -->
+          <div class="vibe-col">
+            <div class="vibe-prompt-label">Context-Loading Prompt (use at session start)</div>
+            <div class="vibe-prompt-card">
+              <div class="vibe-prompt-header">
+                <div class="vibe-prompt-dots">
+                  <div class="vibe-prompt-dot vibe-prompt-dot-r"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-y"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-g"></div>
+                </div>
+                <span class="vibe-prompt-chip">IMPLEMENTATION CONTEXT PROMPT</span>
+              </div>
+              <div class="vibe-prompt-body">
+                <div class="vibe-prompt-line vibe-prompt-comment"># PROJECT CONTEXT — Read before doing anything.</div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[PRD]</span> <span
+                    class="vibe-prompt-val">{full PRD.md}</span></div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[DESIGN]</span> <span
+                    class="vibe-prompt-val">{full DESIGN.md}</span></div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[CODEBASE]</span> <span
+                    class="vibe-prompt-val">{current file tree}</span></div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># CURRENT TASK</div>
+                <div class="vibe-prompt-line">Implement: <span class="vibe-prompt-string">"{one specific task}"</span>
+                </div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># RULES</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Only implement what's in this
+                  task.</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">-</span> Follow the design
+                  system strictly.</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Tell me when done + what to
+                  test next.</div>
+              </div>
+            </div>
+
+            <div class="vibe-context-section">
+              <div class="vibe-context-label">Context to Feed the AI Every Session</div>
+              <div class="vibe-context-chips">
+                <span class="vibe-chip"
+                  style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">📄
+                  PRD.md</span>
+                <span class="vibe-chip"
+                  style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">🏗️
+                  DESIGN.md</span>
+                <span class="vibe-chip"
+                  style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">📁 File
+                  tree</span>
+                <span class="vibe-chip"
+                  style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">🐛 Error
+                  logs</span>
+                <span class="vibe-chip"
+                  style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">✅ Last
+                  checkpoint status</span>
+              </div>
+            </div>
+
+            <div class="vibe-ai-bar">
+              <span class="vibe-ai-icon" style="color:#FBBC04;">⚠️</span>
+              <span><strong>Golden Rule:</strong> Never give the agent more than one task at a time. Parallel tasks →
+                file conflicts → untraceable bugs. One task, one checkpoint, one commit.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 6 — STAGE 4: TESTING
+         ============================================================ -->
+      <section class="slide slide-vibe" id="slide-8">
+        <div class="slide-label">Stage 04 — Testing</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid"></div>
+        </div>
+        <div class="slide-content vibe-layout">
+
+          <!-- LEFT -->
+          <div class="vibe-col">
+            <div class="vibe-col-header">
+              <div class="stage-badge"
+                style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.25);">Stage 04 ·
+                Testing</div>
+              <h3 class="vibe-stage-title">Test with AI, Verify as Human</h3>
+              <div class="vibe-deliverable"
+                style="color:#34A853; background:rgba(52,168,83,0.05); border-color:rgba(52,168,83,0.2);">🧪
+                Deliverable: Test Suite + Bug Report</div>
+            </div>
+
+            <div class="vibe-goal">
+              <strong>Goal:</strong> Use AI to generate comprehensive tests from your code and PRD acceptance criteria —
+              then you (the human) run them, evaluate the results, and sign off before shipping.
+            </div>
+
+            <div class="vibe-todo">
+              <div class="vibe-todo-label">To-Do Checklist</div>
+              <div class="vibe-todo-list">
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">4.1</span>
+                  <span class="vibe-todo-text"><strong>Unit tests:</strong> Paste each function → ask AI to write tests
+                    covering happy path, edge cases, and failure modes.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">4.2</span>
+                  <span class="vibe-todo-text"><strong>Integration tests:</strong> Feed the API contract → ask AI to
+                    generate end-to-end test scripts for each endpoint.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">4.3</span>
+                  <span class="vibe-todo-text"><strong>AI feature tests:</strong> Manually test AI outputs for accuracy,
+                    hallucination, and edge case handling — this requires HUMAN judgment.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">4.4</span>
+                  <span class="vibe-todo-text"><strong>Bug report generation:</strong> Paste failing test output → ask
+                    AI to identify root cause and suggest a fix.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">4.5</span>
+                  <span class="vibe-todo-text"><strong>UAT checklist:</strong> Ask AI to generate a user acceptance
+                    testing checklist from PRD acceptance criteria.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span><code>tests/</code> (Unit & E2E Test Suite)</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span><code>bug_report.md</code> (Verification Log)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vibe-divider"></div>
+
+          <!-- RIGHT -->
+          <div class="vibe-col">
+            <div class="vibe-prompt-label">Test Generation Prompt Template</div>
+            <div class="vibe-prompt-card">
+              <div class="vibe-prompt-header">
+                <div class="vibe-prompt-dots">
+                  <div class="vibe-prompt-dot vibe-prompt-dot-r"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-y"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-g"></div>
+                </div>
+                <span class="vibe-prompt-chip">TEST GENERATION PROMPT</span>
+              </div>
+              <div class="vibe-prompt-body">
+                <div class="vibe-prompt-line vibe-prompt-comment"># ROLE: Senior QA Engineer</div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># CONTEXT</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[FUNCTION]</span> <span
+                    class="vibe-prompt-val">{paste the function/component}</span></div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[ACCEPTANCE]</span> <span
+                    class="vibe-prompt-val">{paste acceptance criteria from PRD}</span></div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># TASK</div>
+                <div class="vibe-prompt-line">Write <span class="vibe-prompt-string">complete test cases</span>
+                  covering:</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Happy path (expected inputs)
+                </div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Edge cases (boundary values)
+                </div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Failure modes (invalid
+                  inputs)</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">—</span> Security edge cases</div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># Use: {testing framework, e.g. Jest / Pytest}</div>
+              </div>
+            </div>
+
+            <div class="vibe-context-section">
+              <div class="vibe-context-label">Context to Feed the AI</div>
+              <div class="vibe-context-chips">
+                <span class="vibe-chip"
+                  style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">📋
+                  Acceptance criteria</span>
+                <span class="vibe-chip"
+                  style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">🔧 The
+                  function/endpoint</span>
+                <span class="vibe-chip"
+                  style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">🐛 Failing
+                  test output</span>
+                <span class="vibe-chip"
+                  style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">📊 Test
+                  framework name</span>
+              </div>
+            </div>
+
+            <div class="vibe-ai-bar">
+              <span class="vibe-ai-icon">✦</span>
+              <span><strong>HITL Rule:</strong> AI-generated tests must be run and verified by a human. AI output
+                quality evaluation — especially for LLM features — cannot be automated. Your judgment is the final
+                checkpoint.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 7 — STAGE 5: REVIEW & ITERATE
+         ============================================================ -->
+      <section class="slide slide-vibe" id="slide-9">
+        <div class="slide-label">Stage 05 — Review &amp; Iterate</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid" style="opacity:0.4;"></div>
+        </div>
+        <div class="slide-content vibe-layout">
+
+          <!-- LEFT -->
+          <div class="vibe-col">
+            <div class="vibe-col-header">
+              <div class="stage-badge"
+                style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.25);">Stage 05 ·
+                Review &amp; Iterate</div>
+              <h3 class="vibe-stage-title">Review, Refine, Ship</h3>
+              <div class="vibe-deliverable"
+                style="color:#4285F4; background:rgba(66,133,244,0.06); border-color:rgba(66,133,244,0.2);">🔍
+                Deliverable: Refined, Production-Ready Product</div>
+            </div>
+
+            <div class="vibe-goal">
+              <strong>Goal:</strong> Use AI as a code reviewer, performance auditor, and security checker — then make
+              the final calls yourself. Iterate in tight loops until the product meets your PRD's success metrics.
+            </div>
+
+            <div class="vibe-todo">
+              <div class="vibe-todo-label">To-Do Checklist</div>
+              <div class="vibe-todo-list">
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">5.1</span>
+                  <span class="vibe-todo-text"><strong>Code review:</strong> Paste code → ask AI to review for
+                    readability, maintainability, and anti-patterns.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">5.2</span>
+                  <span class="vibe-todo-text"><strong>Security audit:</strong> Feed backend routes and auth logic → ask
+                    AI to identify injection, CSRF, and auth vulnerabilities.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">5.3</span>
+                  <span class="vibe-todo-text"><strong>Performance check:</strong> Ask AI to identify N+1 queries,
+                    unnecessary re-renders, and unoptimized API calls.</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">5.4</span>
+                  <span class="vibe-todo-text"><strong>PRD alignment check:</strong> Paste PRD + current features → ask
+                    AI: "What's missing? What doesn't match the spec?"</span>
+                </div>
+                <div class="vibe-todo-item">
+                  <span class="vibe-todo-num">5.5</span>
+                  <span class="vibe-todo-text"><strong>Iteration loop:</strong> Fix → test → review → commit. Repeat
+                    until all P0 criteria are met and approved by you.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-output">
+              <div class="vibe-output-label">Expected Output</div>
+              <div class="vibe-output-list">
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Production-Ready Application</span>
+                </div>
+                <div class="vibe-output-item">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Final Performance & Security Sign-off</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vibe-divider"></div>
+
+          <!-- RIGHT -->
+          <div class="vibe-col">
+            <div class="vibe-prompt-label">Code Review Prompt Template</div>
+            <div class="vibe-prompt-card">
+              <div class="vibe-prompt-header">
+                <div class="vibe-prompt-dots">
+                  <div class="vibe-prompt-dot vibe-prompt-dot-r"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-y"></div>
+                  <div class="vibe-prompt-dot vibe-prompt-dot-g"></div>
+                </div>
+                <span class="vibe-prompt-chip">CODE REVIEW PROMPT</span>
+              </div>
+              <div class="vibe-prompt-body">
+                <div class="vibe-prompt-line vibe-prompt-comment"># ROLE: Principal Engineer doing code review</div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># CONTEXT</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[CODE]</span> <span
+                    class="vibe-prompt-val">{paste file or function}</span></div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-key">[PRD]</span> <span
+                    class="vibe-prompt-val">{paste relevant section}</span></div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># REVIEW FOR</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">1.</span> <span
+                    class="vibe-prompt-string">Correctness</span> — does it do what the PRD says?</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">2.</span> <span
+                    class="vibe-prompt-string">Security</span> — any vulnerabilities?</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">3.</span> <span
+                    class="vibe-prompt-string">Performance</span> — any bottlenecks?</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">4.</span> <span
+                    class="vibe-prompt-string">Readability</span> — is this maintainable?</div>
+                <div class="vibe-prompt-line"><span class="vibe-prompt-highlight">5.</span> <span
+                    class="vibe-prompt-string">Missing cases</span> — what could break?</div>
+                <div class="vibe-prompt-line">&nbsp;</div>
+                <div class="vibe-prompt-line vibe-prompt-comment"># Output: Prioritized list of issues (P0/P1/P2)</div>
+              </div>
+            </div>
+
+            <div class="vibe-context-section">
+              <div class="vibe-context-label">Context to Feed the AI</div>
+              <div class="vibe-context-chips">
+                <span class="vibe-chip"
+                  style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">💻 Code
+                  file(s)</span>
+                <span class="vibe-chip"
+                  style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">📄
+                  Relevant PRD section</span>
+                <span class="vibe-chip"
+                  style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">📊
+                  Performance metrics</span>
+                <span class="vibe-chip"
+                  style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">🔒
+                  Auth/security context</span>
+              </div>
+            </div>
+
+            <div class="vibe-ai-bar">
+              <span class="vibe-ai-icon">✦</span>
+              <span><strong>Remember:</strong> AI makes the suggestions — <em>you</em> make the decisions. Review every
+                recommendation critically. AI can miss business context, user nuance, and organizational
+                constraints.</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 8 — BEST PRACTICES
+         ============================================================ -->
+      <section class="slide slide-best" id="slide-10">
+        <div class="slide-label">Best Practices for AI-Driven Development</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid"></div>
+        </div>
+        <div class="slide-content" style="gap:20px;">
+          <div style="flex-shrink:0;">
+            <p class="eyebrow">8 Rules Every AI-Driven Developer Must Follow</p>
+            <h2 class="display-title">Best Practices</h2>
+          </div>
+          <div class="bp-grid">
+            <div class="bp-card">
+              <div class="bp-card-num">01</div>
+              <div>
+                <div class="bp-card-title">One task at a time — always</div>
+                <div class="bp-card-desc">Never queue multiple tasks for the agent. One task → checkpoint → commit →
+                  next task. Sequential is faster and safer.</div>
+              </div>
+            </div>
+            <div class="bp-card">
+              <div class="bp-card-num">02</div>
+              <div>
+                <div class="bp-card-title">Load full context every session</div>
+                <div class="bp-card-desc">Start every new session by pasting your PRD, design
+                  doc, and current file tree before any task.</div>
+              </div>
+            </div>
+            <div class="bp-card">
+              <div class="bp-card-num">03</div>
+              <div>
+                <div class="bp-card-title">Commit before every agent task</div>
+                <div class="bp-card-desc">If the agent breaks something, you need a clean rollback.
+                  <code>git commit</code> is your safety net — use it religiously.
+                </div>
+              </div>
+            </div>
+            <div class="bp-card">
+              <div class="bp-card-num">04</div>
+              <div>
+                <div class="bp-card-title">Always review before merging</div>
+                <div class="bp-card-desc">AI is fast, not infallible. Read every line it writes. You are the last line
+                  of defense between AI output and production.</div>
+              </div>
+            </div>
+            <div class="bp-card">
+              <div class="bp-card-num">05</div>
+              <div>
+                <div class="bp-card-title">Store prompts in <code>/docs</code> or <code>/ai</code></div>
+                <div class="bp-card-desc">Your PRD, design doc, and key prompts are source-of-truth documents.
+                  Commit them to the repo alongside the code.</div>
+              </div>
+            </div>
+            <div class="bp-card">
+              <div class="bp-card-num">06</div>
+              <div>
+                <div class="bp-card-title">Reset context when agent gets stuck</div>
+                <div class="bp-card-desc">A confused agent produces garbage. If output quality drops, start a fresh
+                  session with a clean, focused prompt.</div>
+              </div>
+            </div>
+            <div class="bp-card">
+              <div class="bp-card-num">07</div>
+              <div>
+                <div class="bp-card-title">Test with messy real-world inputs</div>
+                <div class="bp-card-desc">AI outputs are unpredictable with edge case inputs. Always test with
+                  unexpected, malformed data before shipping.</div>
+              </div>
+            </div>
+            <div class="bp-card">
+              <div class="bp-card-num">08</div>
+              <div>
+                <div class="bp-card-title">You are the architect — AI is the engineer</div>
+                <div class="bp-card-desc">Set goals. Define constraints. Make decisions. Review output. AI generates;
+                  you direct, approve, and take responsibility.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ============================================================
+         SLIDE 9 — MINDSET SHIFT
+         ============================================================ -->
+      <section class="slide slide-vibe" id="slide-11">
+        <div class="slide-label">The AI-Driven Developer Mindset</div>
+        <div style="position:absolute;inset:0;pointer-events:none;overflow:hidden;">
+          <div class="dot-grid" style="opacity:0.35;"></div>
+        </div>
+        <div class="slide-content" style="gap:24px; justify-content:center;">
+
+          <div style="flex-shrink:0;">
+            <p class="eyebrow">From Old to New</p>
+            <h2 class="display-title">The Mindset Shift</h2>
+          </div>
+
+          <div style="display:flex; gap:0; flex:1; align-items:stretch;">
+
+            <!-- Old -->
+            <div
+              style="flex:1; display:flex; flex-direction:column; gap:12px; padding:28px 28px; border-radius:24px; border:1px solid rgba(234,67,53,0.15); background:rgba(234,67,53,0.02);">
+              <div
+                style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:6px 16px; border-radius:100px; align-self:flex-start; border:1px solid rgba(234,67,53,0.2); color:var(--red); background:rgba(234,67,53,0.07);">
+                ✕ Old Mindset</div>
+              <div style="display:flex; flex-direction:column; gap:8px; flex:1;">
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(234,67,53,0.1); background:rgba(234,67,53,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  Write every line of code manually</div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(234,67,53,0.1); background:rgba(234,67,53,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  Debug by reading stack traces alone</div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(234,67,53,0.1); background:rgba(234,67,53,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  Syntax and APIs are the bottleneck</div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(234,67,53,0.1); background:rgba(234,67,53,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  Speed = typing fast</div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(234,67,53,0.1); background:rgba(234,67,53,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  Code is the product</div>
+              </div>
+            </div>
+
+            <!-- Arrows -->
+            <div
+              style="display:flex; flex-direction:column; align-items:center; justify-content:space-around; padding:52px 20px 12px; flex-shrink:0;">
+              <div style="font-size:36px; color:var(--border); opacity:0.6;">→</div>
+              <div style="font-size:36px; color:var(--border); opacity:0.6;">→</div>
+              <div style="font-size:36px; color:var(--border); opacity:0.6;">→</div>
+              <div style="font-size:36px; color:var(--border); opacity:0.6;">→</div>
+              <div style="font-size:36px; color:var(--border); opacity:0.6;">→</div>
+            </div>
+
+            <!-- New -->
+            <div
+              style="flex:1; display:flex; flex-direction:column; gap:12px; padding:28px 28px; border-radius:24px; border:1px solid rgba(52,168,83,0.15); background:rgba(52,168,83,0.02);">
+              <div
+                style="display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; padding:6px 16px; border-radius:100px; align-self:flex-start; border:1px solid rgba(52,168,83,0.2); color:var(--green); background:rgba(52,168,83,0.07);">
+                ✦ New Mindset</div>
+              <div style="display:flex; flex-direction:column; gap:8px; flex:1;">
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(52,168,83,0.1); background:rgba(52,168,83,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  <span style="color:var(--green); font-weight:700;">Direct &amp; review</span> — AI writes, you approve
+                </div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(52,168,83,0.1); background:rgba(52,168,83,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  <span style="color:var(--green); font-weight:700;">Prompt the error</span> — AI diagnoses + suggests
+                  fix
+                </div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(52,168,83,0.1); background:rgba(52,168,83,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  <span style="color:var(--green); font-weight:700;">Clarity of thought</span> is the new bottleneck
+                </div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(52,168,83,0.1); background:rgba(52,168,83,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  Speed = <span style="color:var(--green); font-weight:700;">prompting smart</span></div>
+                <div
+                  style="display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:12px; border:1px solid rgba(52,168,83,0.1); background:rgba(52,168,83,0.03); font-family:var(--font-display); font-size:18px; font-weight:500; color:var(--text-primary);">
+                  <span style="color:var(--green); font-weight:700;">Outcome</span> is the product
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div
+            style="display:flex; align-items:flex-start; gap:16px; padding:22px 32px; border-radius:16px; background:rgba(66,133,244,0.04); border:1px solid rgba(66,133,244,0.12); flex-shrink:0;">
+            <div
+              style="font-family:var(--font-display); font-size:44px; font-weight:700; color:rgba(66,133,244,0.2); line-height:0.8; flex-shrink:0;">
+              "</div>
+            <blockquote style="font-size:18px; color:var(--text-secondary); line-height:1.6; font-style:italic;">The
+              best AI-Driven developers are not the ones who know every syntax. They are the ones who think clearly,
+              communicate precisely, and review critically.</blockquote>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SLIDE 10 — CLOSING (2 steps)
+         ============================================================ -->
+      <section class="slide slide-closing" id="slide-12" data-steps="2">
+        <div class="slide-label" style="color:rgba(255,255,255,0.3);">What We've Learned</div>
+        <div class="closing-bg">
+          <div class="closing-grid"></div>
+          <div class="cover-glow-tl" style="opacity:0.6;"></div>
+          <div class="cover-glow-br" style="opacity:0.6;"></div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="reveal-step active-step">
+          <div class="slide-content closing-center">
+            <p class="closing-pre">Stage 01 → 02 → 03 → 04 → 05</p>
+            <h2
+              style="font-family:var(--font-display); font-size:82px; font-weight:700; color:#fff; letter-spacing:-0.03em; line-height:1.05; text-align:center;">
+              You now have the<br />
+              <span style="color:var(--green);">Mindset</span>,
+              <span style="color:var(--blue);">Technique</span>,<br />
+              <span style="color:var(--yellow);">Tools</span> &amp;
+              <span style="color:var(--red);">Methodology</span>
+            </h2>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="reveal-step">
+          <div class="slide-content closing-center">
+            <p class="closing-pre">Stage 01 → 02 → 03 → 04 → 05</p>
+            <h2
+              style="font-family:var(--font-display); font-size:28px; font-weight:700; color:rgba(255,255,255,0.4); letter-spacing:-0.02em; line-height:1.2; text-align:center;">
+              You now have the <span style="color:var(--green);">Mindset</span>, <span
+                style="color:var(--blue);">Technique</span>, <span style="color:var(--yellow);">Tools</span> &amp; <span
+                style="color:var(--red);">Methodology</span>
+            </h2>
+            <div class="closing-headline closing-headline-gradient">Time to Build.</div>
+
+            <p class="closing-sub">Build with AI · GDGoC Makassar 2026</p>
+          </div>
+        </div>
+
+      </section>
+
+    </div><!-- /slides-container -->
+  </div><!-- /slide-scaler -->
+
+  <script src="scaler.js"></script>
+  <script src="chapter4.js"></script>
+</body>
+
+</html>

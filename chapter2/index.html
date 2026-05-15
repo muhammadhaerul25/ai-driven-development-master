@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 2 — Prompt & Context Engineering for Developers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="chapter2.css" />
+</head>
+
+<body>
+
+  <!-- Slide Scaler — Fixed 16:9 -->
+  <div class="slide-scaler" id="slideScaler">
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="slide-counter" id="slideCounter">
+      <span class="counter-chapter">Ch.2</span>
+      <span class="divider">·</span>
+      <span id="currentSlide">1</span>
+      <span class="divider">/</span>
+      <span id="totalSlides">10</span>
+    </div>
+
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+    </button>
+
+    <div class="slides-container" id="slidesContainer">
+
+      <!-- SLIDE 1 — CHAPTER 2 COVER (moved from base.html) -->
+      <section class="slide slide-chapter chapter-red active" id="slide-1">
+        <div class="slide-label">Chapter 2</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">02</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge" style="color:#EA4335"><span class="gdg-dot dot-red"></span> Chapter 2</div>
+          <h2 class="chapter-heading">Prompt &amp; Context<br>Engineering for Developers</h2>
+          <p class="chapter-desc">Mastering the art of crafting effective prompts and managing context<br>to maximize AI
+            model performance and reliability.</p>
+          <div class="chapter-accent-line" style="background:#EA4335"></div>
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-1 — WHAT IS PROMPT & CONTEXT ENGINEERING?
+         ============================ -->
+      <section class="slide slide-pce-intro" id="slide-2">
+        <div class="slide-label">What Is Prompt &amp; Context Engineering?</div>
+        <div class="pce-bg">
+          <div class="pce-dot-grid"></div>
+          <div class="pce-glow"></div>
+        </div>
+        <div class="slide-content pce-intro-layout">
+
+          <!-- Top row: 3 concept cards -->
+          <div class="pce-top-row">
+
+            <!-- Prompt -->
+            <div class="pce-concept-card pce-card-prompt">
+              <div class="pce-card-header">
+                <div class="pce-card-icon" style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="pce-card-badge"
+                    style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.2);">Prompt
+                  </div>
+                </div>
+              </div>
+              <p class="pce-card-def">A request given to an AI model. It could be:</p>
+              <div class="pce-tag-list">
+                <span class="pce-tag pce-tag-blue">💬 Question</span>
+                <span class="pce-tag pce-tag-blue">📋 Instruction</span>
+                <span class="pce-tag pce-tag-blue">🚫 Constraint</span>
+                <span class="pce-tag pce-tag-blue">✅ Task</span>
+              </div>
+              <div class="pce-example-list">
+                <div class="pce-example-item pce-ex-prompt">
+                  <span class="pce-example-label">e.g.</span>
+                  <span class="pce-example-text">"Write a Python script to fetch data from a REST API."</span>
+                </div>
+                <div class="pce-example-item pce-ex-prompt">
+                  <span class="pce-example-label">e.g.</span>
+                  <span class="pce-example-text">"Why is my code throwing a TypeError?"</span>
+                </div>
+              </div>
+              <div class="pce-eng-block">
+                <div class="pce-eng-label">Prompt Engineering</div>
+                <p class="pce-eng-desc">The process of designing prompts to get better, more accurate, and more useful
+                  outputs from AI.</p>
+              </div>
+            </div>
+
+            <!-- Arrow -->
+            <div class="pce-flow-arrow">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            <!-- Context -->
+            <div class="pce-concept-card pce-card-context">
+              <div class="pce-card-header">
+                <div class="pce-card-icon" style="background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="pce-card-badge"
+                    style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.2);">Context
+                  </div>
+                </div>
+              </div>
+              <p class="pce-card-def">Additional information that helps AI understand the task better. It could be:</p>
+              <div class="pce-tag-list">
+                <span class="pce-tag pce-tag-green">📄 Requirements</span>
+                <span class="pce-tag pce-tag-green">🎨 UI/UX Design</span>
+                <span class="pce-tag pce-tag-green">💻 Codebase</span>
+                <span class="pce-tag pce-tag-green">🐛 Error Logs</span>
+              </div>
+              <div class="pce-example-list">
+                <div class="pce-example-item pce-ex-context">
+                  <span class="pce-example-label">e.g.</span>
+                  <span class="pce-example-text">File: <code>api_docs.md</code> (Contains API endpoint schema)</span>
+                </div>
+                <div class="pce-example-item pce-ex-context">
+                  <span class="pce-example-label">e.g.</span>
+                  <span class="pce-example-text">Error log: <code>TimeoutException at line 42</code></span>
+                </div>
+              </div>
+              <div class="pce-eng-block" style="border-color:rgba(52,168,83,0.15); background:rgba(52,168,83,0.03);">
+                <div class="pce-eng-label" style="color:#34A853;">Context Engineering</div>
+                <p class="pce-eng-desc">The process of providing structured, relevant, and sufficient information to AI
+                  systems.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Improved Pipeline: Input → Process → Output -->
+          <div class="pce-pipeline-v2">
+            <div class="pce-pipe-stage pce-stage-input">
+              <div class="pce-stage-icon" style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <div class="pce-stage-label" style="color:#4285F4;">Prompt</div>
+              <div class="pce-stage-sub">+</div>
+              <div class="pce-stage-icon" style="background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14 2 14 8 20 8" />
+                </svg>
+              </div>
+              <div class="pce-stage-label" style="color:#34A853;">Context</div>
+              <div class="pce-stage-caption">INPUT</div>
+            </div>
+
+            <div class="pce-pipe-connector">
+              <div class="pce-pipe-line"></div>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            <div class="pce-pipe-stage pce-stage-process">
+              <div class="pce-stage-icon pce-icon-ai"
+                style="background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                  <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+              </div>
+              <div class="pce-stage-label" style="color:#9A7400;">LLMs</div>
+              <div class="pce-stage-caption">PROCESS</div>
+            </div>
+
+            <div class="pce-pipe-connector">
+              <div class="pce-pipe-line"></div>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--border)" stroke-width="1.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+            <div class="pce-pipe-stage pce-stage-output">
+              <div class="pce-stage-icon" style="background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <div class="pce-stage-label" style="color:#EA4335;">Output</div>
+              <div class="pce-stage-caption">OUTPUT</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-2 — WHY DOES IT MATTER?
+         ============================ -->
+      <section class="slide slide-why-matter" id="slide-3">
+        <div class="slide-label">Why Does It Matter?</div>
+        <div class="why-bg">
+          <div class="why-grid"></div>
+        </div>
+        <div class="slide-content why-layout">
+
+          <div class="why-header">
+            <p class="why-eyebrow">How LLMs Actually Work</p>
+            <h2 class="why-title">Why Does It Matter?</h2>
+          </div>
+
+          <div class="why-body">
+            <!-- Left: LLM Token Prediction Illustration -->
+            <div class="why-left">
+              <div class="why-mech-card">
+                <div class="why-mech-header">
+                  <div class="why-mech-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                    </svg>
+                  </div>
+                  <span>LLM: Next-Token Prediction</span>
+                </div>
+
+                <!-- Interactive Token Prediction Visual -->
+                <div class="llm-token-visual">
+                  <div class="llm-token-row">
+                    <div class="llm-token t-done">Artificial</div>
+                    <div class="llm-token t-done">→ Intelligence</div>
+                    <div class="llm-token t-done">→ is</div>
+                    <div class="llm-token t-done">→ the</div>
+                    <div class="llm-token t-done">→ ability</div>
+                    <div class="llm-token t-done">→ of</div>
+                    <div class="llm-token t-done">→ machines</div>
+                    <div class="llm-token t-done">→ to</div>
+                    <div class="llm-token t-predicting" id="predToken">???</div>
+                  </div>
+                  <div class="llm-pred-bar-group" id="predBars">
+                    <div class="llm-pred-row">
+                      <span class="llm-pred-word">learn</span>
+                      <div class="llm-pred-bar">
+                        <div class="llm-pred-fill" style="width:65%; background:#34A853;"></div>
+                      </div>
+                      <span class="llm-pred-pct">65%</span>
+                    </div>
+                    <div class="llm-pred-row">
+                      <span class="llm-pred-word">reason</span>
+                      <div class="llm-pred-bar">
+                        <div class="llm-pred-fill" style="width:22%; background:#FBBC04;"></div>
+                      </div>
+                      <span class="llm-pred-pct">22%</span>
+                    </div>
+                    <div class="llm-pred-row">
+                      <span class="llm-pred-word">think</span>
+                      <div class="llm-pred-bar">
+                        <div class="llm-pred-fill" style="width:13%; background:#EA4335;"></div>
+                      </div>
+                      <span class="llm-pred-pct">13%</span>
+                    </div>
+                  </div>
+                  <div class="llm-token-result">
+                    <span class="llm-chosen">✓ Chosen: <strong>"learn"</strong></span>
+                    <span class="llm-loop">→ Repeat for every next token</span>
+                  </div>
+                </div>
+
+                <div class="why-mech-items">
+                  <div class="why-mech-item">
+                    <div class="why-mech-num">01</div>
+                    <div><strong>LLMs are not databases</strong><span>LLMs contain billions of parameters encoding
+                        patterns — not stored facts</span></div>
+                  </div>
+                  <div class="why-mech-item">
+                    <div class="why-mech-num">02</div>
+                    <div><strong>LLMs predict tokens</strong><span>Works by predicting the most probable next token from
+                        the entire context</span></div>
+                  </div>
+                  <div class="why-mech-item">
+                    <div class="why-mech-num">03</div>
+                    <div><strong>Better input → better output</strong><span>Clear prompts and relevant context reshape
+                        the probability distribution toward more accurate outputs</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: quality cards -->
+            <div class="why-right">
+              <div class="why-quality-card why-quality-good">
+                <div class="why-quality-badge why-badge-good">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  Clear &amp; Detailed Prompt
+                </div>
+                <p class="why-quality-text">LLM predicts <strong>better, more accurate output</strong></p>
+                <div class="why-quality-bar">
+                  <div class="why-bar-fill why-bar-good" style="width:88%"></div>
+                </div>
+                <span class="why-bar-label">Output Quality</span>
+              </div>
+
+              <div class="why-quality-card why-quality-bad">
+                <div class="why-quality-badge why-badge-bad">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                  Vague &amp; Incomplete Prompt
+                </div>
+                <p class="why-quality-text">LLM predicts <strong>scattered, generic, or wrong output</strong></p>
+                <div class="why-quality-bar">
+                  <div class="why-bar-fill why-bar-bad" style="width:28%"></div>
+                </div>
+                <span class="why-bar-label">Output Quality</span>
+              </div>
+
+              <div class="why-insight">
+                <div class="why-insight-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 8v4M12 16h.01" />
+                  </svg>
+                </div>
+                <p>Better input → better probability distribution → better predicted tokens → better output. Prompt
+                  &amp; Context Engineering shapes that probability distribution.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-3 — TECHNIQUES OVERVIEW
+         ============================ -->
+      <section class="slide slide-techniques" id="slide-4">
+        <div class="slide-label">Prompt &amp; Context Engineering Techniques</div>
+        <div class="tech-bg">
+          <div class="tech-dot-grid"></div>
+        </div>
+        <div class="slide-content techniques-layout">
+
+          <div class="tech-header">
+            <p class="tech-eyebrow">5 Core Techniques</p>
+            <h2 class="tech-title">Prompt &amp; Context Engineering Techniques</h2>
+          </div>
+
+          <div class="tech-cards">
+            <div class="tech-card">
+              <div class="tech-card-num">01</div>
+              <div class="tech-card-icon" style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M20 21a8 8 0 1 0-16 0" />
+                </svg>
+              </div>
+              <h3 class="tech-card-title">Persona &amp; System</h3>
+              <p class="tech-card-desc">Set the role, expertise, behaviour, and tone for the AI before the task begins.
+              </p>
+              <div class="tech-card-tag"
+                style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.05);">Role
+                Definition</div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-num">02</div>
+              <div class="tech-card-icon" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.06);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                  <path d="M9 11l3 3L22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+              </div>
+              <h3 class="tech-card-title">Few Shot</h3>
+              <p class="tech-card-desc">Provide examples to control the structure and style of the expected output.</p>
+              <div class="tech-card-tag"
+                style="color:#EA4335; border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.05);">Examples
+              </div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-num">03</div>
+              <div class="tech-card-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <h3 class="tech-card-title">Chain of Thought</h3>
+              <p class="tech-card-desc">Guide AI to solve problems step by step, showing its reasoning before the final
+                answer.</p>
+              <div class="tech-card-tag"
+                style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">Step-by-Step
+              </div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-num">04</div>
+              <div class="tech-card-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                  <line x1="6" y1="3" x2="6" y2="15" />
+                  <circle cx="18" cy="6" r="3" />
+                  <circle cx="6" cy="18" r="3" />
+                  <path d="M18 9a9 9 0 0 1-9 9" />
+                </svg>
+              </div>
+              <h3 class="tech-card-title">Tree of Thought</h3>
+              <p class="tech-card-desc">Explore multiple reasoning paths simultaneously, evaluate each, and select the
+                best.</p>
+              <div class="tech-card-tag"
+                style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.05);">Multi-Path
+              </div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-card-num">05</div>
+              <div class="tech-card-icon" style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                  <rect x="3" y="3" width="6" height="6" rx="1" />
+                  <rect x="15" y="3" width="6" height="6" rx="1" />
+                  <rect x="9" y="15" width="6" height="6" rx="1" />
+                  <path d="M6 9v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9" />
+                  <path d="M12 12v3" />
+                </svg>
+              </div>
+              <h3 class="tech-card-title">Multi Stages</h3>
+              <p class="tech-card-desc">Break complex tasks into a sequence of focused prompts — output of one feeds the
+                next.</p>
+              <div class="tech-card-tag"
+                style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.05);">Pipeline
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-4 — TECHNIQUE 1: PERSONA & SYSTEM
+         ============================ -->
+      <section class="slide slide-technique-detail slide-persona" id="slide-5">
+        <div class="slide-label">Technique 01 — Persona &amp; System</div>
+        <div class="slide-content technique-layout">
+
+          <div class="technique-left">
+            <div class="technique-badge"
+              style="color:#4285F4; background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+              Technique 1
+            </div>
+            <h2 class="technique-title">Persona &amp; System</h2>
+            <p class="technique-def">Set the role, expertise, behaviour, constraint, and tone for the AI before the task
+              begins — for the entire conversation.</p>
+
+            <div class="technique-structure">
+              <div class="ts-label">Structure</div>
+              <div class="ts-items">
+                <div class="ts-item"><span class="ts-key" style="color:#4285F4">Role</span><span class="ts-val">Assign a
+                    <em>specific persona</em> and role</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#34A853">Expertise</span><span
+                    class="ts-val">Define the <em>knowledge domain</em></span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#FBBC04">Behavior</span><span
+                    class="ts-val">Instruct <em>how</em> to act and respond</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#EA4335">Constraints</span><span
+                    class="ts-val">Set <em>strict rules</em> on what to avoid</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#4285F4">Audience</span><span
+                    class="ts-val">Define the <em>target profile</em> for the tone</span></div>
+              </div>
+            </div>
+
+            <div class="technique-usage" style="margin-top: 10px;">
+              <div class="ts-label">When to Use</div>
+              <p style="color: var(--text-secondary); font-size: 20px; line-height: 1.55; margin-top: 10px;">
+                When you need a consistent <strong>persona</strong>, specific domain <strong>expertise</strong>, or
+                strict <strong>behavioral constraints</strong> across a conversation.
+              </p>
+            </div>
+
+            <div class="technique-reference">
+              <div class="ts-label">References</div>
+              <div class="technique-ref">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                <div class="ref-content">
+                  <span class="ref-meaning">Role-play prompting consistently surpasses the standard zero-shot approach
+                    across most benchmarks.</span>
+                  <span class="ref-highlight">Notably, accuracy on AQuA rises from 53.5% → <strong>63.8%</strong>
+                    (+10.3%).</span>
+                  <span class="ref-citation">(Kong et al., 2023; Expert Prompting paper, 2023)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-right">
+            <div class="compare-blocks">
+              <div class="compare-block compare-block-bad">
+                <span class="compare-badge compare-bad" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>Bad Prompt</span>
+                <div class="cb-label">Input</div>
+                <div class="cb-text">"Explain what AI Agents are"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text" style="color: var(--text-secondary);">"An AI agent is an autonomous software entity
+                  that perceives its environment through sensors and takes actions using effectors to maximize expected
+                  utility. It relies on a continuous perception-cognition-action cycle and utilizes complex Markov
+                  Decision Processes..."</div>
+                <div class="cb-output-tag"
+                  style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  Generic, jargon-heavy</div>
+              </div>
+
+              <div class="compare-block compare-block-good">
+                <span class="compare-badge compare-good" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Good Prompt</span>
+                <div class="cb-label cb-label-system" style="color: #4285F4;">Prompt & System</div>
+                <div class="cb-code" style="line-height: 1.6;">
+                  <span class="cc-muted">// Role &amp; Expertise</span><br />
+                  <span class="cc-blue">"You are an AI Engineer </span><span class="cc-green">specializing in Agentic
+                    Workflows.</span><br /><br />
+                  <span class="cc-muted">// Behavior &amp; Constraints</span><br />
+                  <span class="cc-white">Explain technical concepts using simple, everyday analogies. </span><br />
+                  <span class="cc-red">Rule: Absolutely no academic jargon.</span><br /><br />
+                  <span class="cc-muted">// Tone &amp; Audience</span><br />
+                  <span class="cc-yellow">Target Audience: A junior front-end developer transitioning to AI."</span>
+                </div>
+                <div class="cb-label" style="margin-top: 12px;">Input</div>
+                <div class="cb-text">"Explain what AI Agents are"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text" style="color: var(--text-secondary); line-height: 1.5;">"An <strong
+                    style="color: #4285F4">AI Agent</strong> is an autonomous system that uses an LLM as its core
+                  reasoning engine to perceive its environment, use tools, and take actions to achieve a
+                  goal.<br /><br />Think of a standard LLM as a <em>brilliant researcher</em> locked in a library—they
+                  can give you the recipe but can't cook. An <strong style="color: #4285F4">AI Agent</strong> is that
+                  same researcher, but with hands, a kitchen, and a credit card.<br /><br />Instead of just writing
+                  code, an Agent <strong>executes and tests</strong> it. Instead of just planning a trip, it
+                  <strong>uses APIs</strong> to book the flight."
+                </div>
+                <div class="cb-output-tag"
+                  style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  Clear, junior-friendly, with examples</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-5 — TECHNIQUE 2: FEW SHOT
+         ============================ -->
+      <section class="slide slide-technique-detail slide-fewshot" id="slide-6">
+        <div class="slide-label">Technique 02 — Few Shot</div>
+        <div class="slide-content technique-layout">
+
+          <div class="technique-left">
+            <div class="technique-badge"
+              style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">
+              Technique 2
+            </div>
+            <h2 class="technique-title">Few Shot</h2>
+            <p class="technique-def">Provide the AI with context and examples to control the structure and style of the
+              expected output.</p>
+
+            <div class="technique-structure">
+              <div class="ts-label">Structure</div>
+              <div class="ts-items">
+                <div class="ts-item"><span class="ts-key" style="color:#EA4335">Context</span><span
+                    class="ts-val">Background of the situation</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#4285F4">Objective</span><span class="ts-val">The
+                    specific task you want done</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#FBBC04">Rules</span><span
+                    class="ts-val">Constraints, tech stack, requirements</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#34A853">Examples</span><span
+                    class="ts-val">Example the AI should follow</span></div>
+              </div>
+            </div>
+
+            <div class="technique-usage" style="margin-top: 10px;">
+              <div class="ts-label">When to Use</div>
+              <p style="color: var(--text-secondary); font-size: 20px; line-height: 1.55; margin-top: 10px;">
+                When you need the AI to follow a <strong>strict format</strong> or learn from specific
+                <strong>contextual examples</strong> not found in general data.
+              </p>
+            </div>
+
+            <div class="technique-reference">
+              <div class="ts-label">References</div>
+              <div class="technique-ref">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                <div class="ref-content">
+                  <span class="ref-meaning">Providing in-context examples significantly improves the model's ability to
+                    follow strict formatting and complex logic.</span>
+                  <span class="ref-highlight">Few-shot examples pushed GPT-4o pass@1: 47.1% → <strong>57.5%</strong>
+                    (+10.4%).</span>
+                  <span class="ref-citation">(CodePromptEval Benchmark, 2024)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-right">
+            <div class="compare-blocks">
+              <div class="compare-block compare-block-bad">
+                <span class="compare-badge compare-bad" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>Bad Prompt</span>
+                <div class="cb-label">Input</div>
+                <div class="cb-text">"Create a login page for this web application"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text"
+                  style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 14.5px; line-height: 1.6;">
+                  <span style="color:#EA4335;">// Output A: Vanilla HTML (No Styling)</span><br>
+                  &lt;form action="/login" method="POST"&gt;<br>
+                  &nbsp;&nbsp;&lt;label&gt;Username:&lt;/label&gt;&lt;input type="text"&gt;<br>
+                  &nbsp;&nbsp;&lt;button&gt;Submit&lt;/button&gt;<br>
+                  &lt;/form&gt;<br><br>
+                  <span style="color:#EA4335;">// Output B: Python Console Script</span><br>
+                  def login_user():<br>
+                  &nbsp;&nbsp;username = input("Username: ")<br>
+                  &nbsp;&nbsp;password = input("Password: ")<br>
+                  &nbsp;&nbsp;print(f"Logging in {username}...")<br><br>
+                  <span style="color:#EA4335;">// Output C: PHP Backend File</span><br>
+                  &lt;?php<br>
+                  if ($_POST) {<br>
+                  &nbsp;&nbsp;echo "Processing login for " . $_POST['user'];<br>
+                  }<br>
+                  ?&gt;
+                </div>
+                <div class="cb-output-tag"
+                  style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  Inconsistent stack &amp; unpredictable style</div>
+              </div>
+
+              <div class="compare-block compare-block-good">
+                <span class="compare-badge compare-good" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Good Prompt</span>
+                <div class="cb-label cb-label-system" style="color: #EA4335;">Prompt & System</div>
+                <div class="cb-code" style="line-height: 1.6;">
+                  <span class="cc-muted">// Context</span><br />
+                  <span class="cc-green">Build a social media app for local community</span><br /><br />
+                  <span class="cc-muted">// Objective</span><br />
+                  <span class="cc-white">Generate the code for the Authentication UI.</span><br /><br />
+                  <span class="cc-muted">// Rules</span><br />
+                  <span class="cc-blue">Stack: React.js · TailwindCSS · Lucide Icons</span><br />
+                  <span class="cc-blue">Requirement: Mobile-first, glassmorphism design.</span><br /><br />
+                  <span class="cc-muted">// Example</span><br />
+                  <span class="cc-yellow">Input: "Register Component"</span><br />
+                  <span class="cc-yellow">Output: export const Register = ();</span>
+                </div>
+                <div class="cb-label" style="margin-top: 12px;">Input</div>
+                <div class="cb-text">"Create a login page for this web application"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text"
+                  style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 15px; line-height: 1.6;">
+                  <span class="cc-muted">// AuthComponent.jsx</span><br />
+                  <span class="cc-blue">import</span> { useState } <span class="cc-blue">from</span> <span
+                    class="cc-green">'react'</span>;<br />
+                  <span class="cc-blue">import</span> { Mail, Lock } <span class="cc-blue">from</span> <span
+                    class="cc-green">'lucide-react'</span>;<br /><br />
+                  <span class="cc-blue">export const</span> <span class="cc-yellow">Login</span> = () =&gt; {<br />
+                  &nbsp;&nbsp;<span class="cc-blue">return</span> (<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="cc-red">div</span> <span
+                    class="cc-blue">className</span>=<span class="cc-green">"min-h-screen bg-gray-50/50
+                    backdrop-blur-xl"</span>&gt;<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<span class="cc-muted">/* Follows glassmorphism rule perfectly
+                    */</span>}<br />
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;/<span class="cc-red">div</span>&gt;<br />
+                  &nbsp;&nbsp;);<br />
+                  };
+                </div>
+                <div class="cb-output-tag"
+                  style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  Exact stack, matches example pattern</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-6 — TECHNIQUE 3: CHAIN OF THOUGHT
+         ============================ -->
+      <section class="slide slide-technique-detail slide-cot" id="slide-7">
+        <div class="slide-label">Technique 03 — Chain of Thought</div>
+        <div class="slide-content technique-layout">
+
+          <div class="technique-left">
+            <div class="technique-badge"
+              style="color:#9A7400; background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
+              Technique 3
+            </div>
+            <h2 class="technique-title">Chain of Thought</h2>
+            <p class="technique-def">Guide the AI to solve a problem step by step — showing its reasoning process before
+              giving the final answer.</p>
+
+            <div class="technique-structure">
+              <div class="ts-label">Structure</div>
+              <div class="ts-items">
+                <div class="ts-item"><span class="ts-key" style="color:#FBBC04">Problem</span><span class="ts-val">The
+                    core task or question to solve</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#4285F4">Trigger</span><span
+                    class="ts-val">Explicit instruction to <em>"Think step by step"</em></span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#34A853">Process</span><span
+                    class="ts-val">Sequential <em>reasoning steps</em> before result</span></div>
+              </div>
+            </div>
+
+            <div class="technique-usage" style="margin-top: 10px;">
+              <div class="ts-label">When to Use</div>
+              <p style="color: var(--text-secondary); font-size: 20px; line-height: 1.55; margin-top: 10px;">
+                When solving <strong>logic puzzles</strong>, math, or complex diagnostic tasks where the reasoning
+                process is as important as the result.
+              </p>
+            </div>
+
+            <div class="technique-reference">
+              <div class="ts-label">References</div>
+              <div class="technique-ref">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                <div class="ref-content">
+                  <span class="ref-meaning">Eliciting intermediate reasoning steps significantly enhances the model's
+                    ability to solve complex arithmetic, commonsense, and symbolic reasoning tasks.</span>
+                  <span class="ref-highlight">CoT prompting shows accuracy improvements of up to <strong>+18%</strong>
+                    on arithmetic tasks.</span>
+                  <span class="ref-citation">(Wei et al., 2022; Chain-of-Thought Prompting Elicits Reasoning)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-right">
+            <div class="compare-blocks">
+              <div class="compare-block compare-block-bad">
+                <span class="compare-badge compare-bad" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>Bad Prompt</span>
+                <div class="cb-label">Input</div>
+                <div class="cb-text">"Why is the RAG Chatbot response inaccurate?"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text" style="color: var(--text-secondary); line-height: 1.5;">"The inaccuracy is almost
+                  certainly due to your vector database configuration. You should try swapping your current embedding
+                  model for a larger one, as the current one likely lacks the semantic depth needed for your specific
+                  domain."</div>
+                <div class="cb-output-tag"
+                  style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  Single guess, no reasoning</div>
+              </div>
+
+              <div class="compare-block compare-block-good">
+                <span class="compare-badge compare-good" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Good Prompt</span>
+                <div class="cb-label cb-label-system" style="color: #9A7400;">Prompt & System</div>
+                <div class="cb-code" style="line-height: 1.6;">
+                  <span class="cc-muted">// Problem Context</span><br />
+                  <span class="cc-white">"Diagnose the root cause of RAG inaccuracies by evaluating:</span><br />
+                  <span class="cc-green">Step 1: Vector Embeddings | Step 2: Chunking | Step 3:
+                    Retrieval</span><br /><br />
+                  <span class="cc-muted">// Trigger</span><br />
+                  <span class="cc-blue">"Think step by step."</span><br /><br />
+                  <span class="cc-muted">// Process</span><br />
+                  <span class="cc-yellow">"Show your reasoning for each component before concluding."</span>
+                </div>
+                <div class="cb-label" style="margin-top: 12px;">Input</div>
+                <div class="cb-text">"Why is the RAG Chatbot response inaccurate?"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text"
+                  style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 14.5px; line-height: 1.6;">
+                  <strong style="color: #9A7400">Step 1: Vector Embeddings</strong><br />
+                  → Uses text-embedding-3-large (high semantic quality). Pass.<br />
+                  <strong style="color: #9A7400">Step 2: Chunking Strategy</strong><br />
+                  → Documents are chunked at 2,000 tokens. This dilutes context density. Fail.<br />
+                  <strong style="color: #9A7400">Step 3: Retrieval Mechanism</strong><br />
+                  → Top-K is set to 5 (standard). Pass.<br />
+                  <strong style="color: #EA4335">Root Cause:</strong> Chunk size is too large for the Top-K limit.<br />
+                  <strong style="color: #34A853">Resolution:</strong> Reduce chunk size to 512 tokens.
+                </div>
+                <div class="cb-output-tag"
+                  style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  Systematic diagnosis + root fix</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-7 — TECHNIQUE 4: TREE OF THOUGHT
+         ============================ -->
+      <section class="slide slide-technique-detail slide-tot" id="slide-8">
+        <div class="slide-label">Technique 04 — Tree of Thought</div>
+        <div class="slide-content technique-layout">
+
+          <div class="technique-left">
+            <div class="technique-badge"
+              style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
+              Technique 4
+            </div>
+            <h2 class="technique-title">Tree of Thought</h2>
+            <p class="technique-def">Guide AI to explore multiple reasoning paths simultaneously, evaluate each one, and
+              select the best solution.</p>
+
+            <div class="technique-structure">
+              <div class="ts-label">Structure</div>
+              <div class="ts-items">
+                <div class="ts-item"><span class="ts-key" style="color:#34A853">Problem</span><span
+                    class="ts-val">Define the complex task with multiple potential paths</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#4285F4">Explore</span><span
+                    class="ts-val">Brainstorm <em>N different approaches</em> (A, B, C...)</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#FBBC04">Evaluate</span><span
+                    class="ts-val">Compare trade-offs of <em>each reasoning tree</em></span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#EA4335">Decide</span><span class="ts-val">Select
+                    the <em>optimal path</em> based on logic</span></div>
+              </div>
+            </div>
+
+            <div class="technique-usage" style="margin-top: 10px;">
+              <div class="ts-label">When to Use</div>
+              <p style="color: var(--text-secondary); font-size: 20px; line-height: 1.55; margin-top: 10px;">
+                When there is <strong>no single "right" answer</strong>, and you need to compare multiple strategic
+                paths or expert opinions.
+              </p>
+            </div>
+
+            <div class="technique-reference">
+              <div class="ts-label">References</div>
+              <div class="technique-ref">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                <div class="ref-content">
+                  <span class="ref-meaning">Exploring and evaluating multiple reasoning paths allows models to backtrack
+                    and recover from errors during complex problem-solving.</span>
+                  <span class="ref-highlight">ToT achieves <strong>74%</strong> accuracy vs GPT-4 default 7.3% on the
+                    Game of 24 multi-step task.</span>
+                  <span class="ref-citation">(Yao et al., 2023; Tree of Thoughts: Deliberate Problem Solving)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-right">
+            <div class="compare-blocks">
+              <div class="compare-block compare-block-bad" style="flex:0.8;">
+                <span class="compare-badge compare-bad" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>Bad Prompt</span>
+                <div class="cb-label">Input</div>
+                <div class="cb-text">"Design the best architecture for Identity Verification Agent"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text" style="color: var(--text-secondary); line-height: 1.5;">"I recommend a simple
+                  monolithic architecture. Use one API endpoint to receive the image, pass it to a multimodal LLM to
+                  extract the data and verify the person's identity in one single prompt. This is the most
+                  cost-effective way to build it."</div>
+                <div class="cb-output-tag"
+                  style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  One random guess</div>
+              </div>
+
+              <div class="compare-block compare-block-good" style="padding:14px;">
+                <span class="compare-badge compare-good" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Good Prompt</span>
+                <div class="cb-label cb-label-system" style="color: #34A853;">Prompt & System</div>
+                <div class="cb-code" style="line-height: 1.6;">
+                  <span class="cc-muted">// Problem</span><br />
+                  <span class="cc-white">"Imagine 3 expert AI architects designing an Identity Verification
+                    Agent."</span><br /><br />
+                  <span class="cc-muted">// Explore</span><br />
+                  <span class="cc-green">Architect A: Single LLM | Architect B: Multi-Agent | Architect C:
+                    HITL</span><br /><br />
+                  <span class="cc-muted">// Evaluate &amp; Decide</span><br />
+                  <span class="cc-yellow">"Evaluate latency, cost, and accuracy for Fintech. Debate trade-offs, then
+                    select the optimal path."</span>
+                </div>
+                <div class="cb-label" style="margin-top: 12px;">Input</div>
+                <div class="cb-text">"Design the best architecture for Identity Verification Agent"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text"
+                  style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 14.5px; line-height: 1.6;">
+                  <span class="cc-muted">// Exploration Phase</span><br />
+                  <strong style="color: #4285F4">Architect A:</strong> Lowest latency, highest hallucination risk. Fails
+                  compliance.<br />
+                  <strong style="color: #FBBC04">Architect C:</strong> Perfect accuracy, unscalable latency (24+
+                  hours).<br />
+                  <strong style="color: #34A853">Architect B:</strong> Moderate latency (2-3s). Agents verify video,
+                  OCR, and
+                  databases simultaneously. Maximum accuracy.<br /><br />
+                  <span class="cc-muted">// Conclusion</span><br />
+                  <strong style="color: #34A853">[Architect B Selected]</strong> Deploying a Multi-Agent swarm
+                  architecture.
+                </div>
+                <div class="cb-output-tag"
+                  style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2); margin-top:8px;">
+                  Evaluates all paths → picks best</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-8 — TECHNIQUE 5: MULTI STAGES
+         ============================ -->
+      <section class="slide slide-technique-detail slide-multistage" id="slide-9">
+        <div class="slide-label">Technique 05 — Multi Stages</div>
+        <div class="slide-content technique-layout">
+
+          <div class="technique-left">
+            <div class="technique-badge"
+              style="color:#4285F4; background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+              Technique 5
+            </div>
+            <h2 class="technique-title">Multi Stages</h2>
+            <p class="technique-def">Break a complex task into a sequence of smaller, focused prompts — where the output
+              of one stage becomes the input of the next.</p>
+
+            <div class="technique-structure">
+              <div class="ts-label">Structure</div>
+              <div class="ts-items">
+                <div class="ts-item"><span class="ts-key" style="color:#4285F4">Identify</span><span
+                    class="ts-val">Define core goal and requirements</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#EA4335">Design</span><span class="ts-val">Map
+                    out the <em>system architecture</em></span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#FBBC04">Execute</span><span
+                    class="ts-val">Generate <em>production-ready</em> code stage by stage</span></div>
+                <div class="ts-item"><span class="ts-key" style="color:#34A853">Validate</span><span
+                    class="ts-val">Write tests and <em>refine</em> the final integration</span></div>
+              </div>
+            </div>
+
+            <div class="technique-usage" style="margin-top: 10px;">
+              <div class="ts-label">When to Use</div>
+              <p style="color: var(--text-secondary); font-size: 20px; line-height: 1.55; margin-top: 10px;">
+                When a task is <strong>too large</strong> for a single prompt, involving distinct phases like
+                identification, system design, and validation.
+              </p>
+            </div>
+
+            <div class="technique-reference">
+              <div class="ts-label">References</div>
+              <div class="technique-ref">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                <div class="ref-content">
+                  <span class="ref-meaning">Decomposing complex tasks into directed acyclic graphs of smaller prompts
+                    drastically reduces hallucination and logical errors.</span>
+                  <span class="ref-highlight">Multi-stage approach vs direct: success rate 29.2% →
+                    <strong>78.5%</strong> (+49.3%).</span>
+                  <span class="ref-citation">(Prompt2DAG paper, 2025)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="technique-right">
+            <div class="compare-blocks">
+              <div class="compare-block compare-block-bad" style="flex:0.75;">
+                <span class="compare-badge compare-bad" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>Bad Prompt</span>
+                <div class="cb-label">Input</div>
+                <div class="cb-text">"Build a complete AI Price Comparison Agent"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text"
+                  style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 14px; line-height: 1.5;">
+                  import requests<br>
+                  from bs4 import BeautifulSoup<br><br>
+                  def get_price(url):<br>
+                  &nbsp;&nbsp;page = requests.get(url)<br>
+                  &nbsp;&nbsp;soup = BeautifulSoup(page.content, 'html.parser')<br>
+                  &nbsp;&nbsp;price = soup.find(id='price').get_text()<br>
+                  &nbsp;&nbsp;return price<br><br>
+                  # Note: This is just a basic scraper script.
+                </div>
+                <div class="cb-output-tag"
+                  style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2); border-radius:100px; padding:6px 16px; font-size:14px; font-weight:600; border:1px solid; align-self:flex-start; margin-top:auto;">
+                  Incomplete, missing edge cases</div>
+              </div>
+
+              <div class="compare-block compare-block-good">
+                <span class="compare-badge compare-good" style="align-self: flex-start; margin-bottom: -4px;"><svg
+                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>Good Prompt</span>
+                <div class="cb-label cb-label-system" style="color: #4285F4;">Prompt & System</div>
+                <div class="cb-code" style="line-height: 1.6;">
+                  <span class="cc-muted">// Identify</span><br />
+                  <span class="cc-white">"Analyze </span><span class="cc-green">pricing logic for flight
+                    aggregators</span><span class="cc-white"> and define edge cases."</span><br /><br />
+                  <span class="cc-muted">// Design</span><br />
+                  <span class="cc-white">"Based on [Stage 1 Output], </span><span class="cc-blue">design a robust system
+                    architecture.</span><span class="cc-white">"</span><br /><br />
+                  <span class="cc-muted">// Execute</span><br />
+                  <span class="cc-white">"Based on [Stage 2], </span><span class="cc-yellow">generate the core
+                    scraper_module.py.</span><span class="cc-white">"</span><br /><br />
+                  <span class="cc-muted">// Validate</span><br />
+                  <span class="cc-white">"Write </span><span class="cc-red">unit tests</span><span class="cc-white"> for
+                    [Stage 3] targeting the edge cases."</span>
+                </div>
+                <div class="cb-label" style="margin-top: 12px;">Input</div>
+                <div class="cb-text">"Build a complete AI Price Comparison Agent"</div>
+                <div class="cb-label" style="margin-top: 12px;">Output</div>
+                <div class="cb-text"
+                  style="color: var(--text-secondary); font-family: var(--font-mono); font-size: 14.5px; line-height: 1.6;">
+                  <strong style="color: #4285F4">✓ Stage 1 Complete:</strong> 12 edge cases identified (e.g., dynamic
+                  pricing delays).<br />
+                  <strong style="color: #EA4335">✓ Stage 2 Complete:</strong> Microservices architecture mapped.<br />
+                  <strong style="color: #FBBC04">✓ Stage 3 Complete:</strong> `scraper_module.py` generated with
+                  fallback.<br />
+                  <strong style="color: #34A853">✓ Stage 4 Complete:</strong> `test_scraper.py` passed 12/12 edge
+                  cases.<br /><br />
+                  <span style="color: #34A853;">Pipeline Execution Successful. Production-ready code delivered.</span>
+                </div>
+                <div class="cb-output-tag"
+                  style="color:#34A853; background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2); margin-top:8px;">
+                  Structured → complete → production-ready</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C2-9 — WHAT CAN WE BUILD? (Reveal style)
+         ============================ -->
+      <section class="slide slide-reveal" id="slide-10" data-steps="2">
+        <div class="slide-label">What Can We Build?</div>
+
+        <!-- Step 1: Question only -->
+        <div class="reveal-step step-1 active-step">
+          <div class="reveal-bg">
+            <div class="reveal-dot-grid"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question">
+              What Can We Build with<br /><span class="rq-highlight-blue">Prompt &amp; Context</span><br />Engineering
+              Techniques?
+            </h2>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /slides-container -->
+
+  </div><!-- /slide-scaler -->
+
+  <script src="scaler.js"></script>
+  <script src="chapter2.js"></script>
+</body>
+
+</html>

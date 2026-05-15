@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Driven Development — GDGoC Makassar 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="base.css" />
+</head>
+
+<body>
+
+  <div class="slide-scaler" id="slideScaler">
+
+    <div class="progress-bar" id="progressBar"></div>
+
+    <div class="slide-counter" id="slideCounter">
+      <span id="currentSlide">1</span>
+      <span class="divider">/</span>
+      <span id="totalSlides">11</span>
+    </div>
+
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <button class="fullscreen-btn" id="fullscreenBtn" onclick="toggleFullscreen()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+    </button>
+
+    <div class="slides-container" id="slidesContainer">
+
+      <!-- SLIDE 1 — COVER -->
+      <section class="slide slide-cover active" id="slide-1">
+        <div class="slide-label">Cover</div>
+        <div class="cover-bg">
+          <div class="cover-dots"></div>
+          <div class="cover-gradient"></div>
+        </div>
+        <div class="slide-content cover-layout">
+          <div class="cover-meta">
+            <div class="event-badge">
+              <span class="gdg-dot dot-blue"></span>
+              <span class="gdg-dot dot-red"></span>
+              <span class="gdg-dot dot-yellow"></span>
+              <span class="gdg-dot dot-green"></span>
+              <span class="event-text">Build with AI · GDGoC Makassar 2026</span>
+            </div>
+          </div>
+          <div class="cover-body">
+            <div class="cover-headline">
+              <h1 class="cover-title">
+                <span class="title-line accent-underline">AI-Driven<br>Development</span>
+              </h1>
+              <h2 class="cover-subtitle">Building Software in the Age of AI</h2>
+              <p class="cover-presenter">Presented by <strong>Muhammad Haerul</strong></p>
+            </div>
+            <div class="cover-visual">
+              <div class="ai-orb">
+                <div class="orb-ring ring-1"></div>
+                <div class="orb-ring ring-2"></div>
+                <div class="orb-ring ring-3"></div>
+                <div class="orb-core">
+                  <svg width="56" height="56" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#4285F4"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tags footer -->
+          <div class="cover-tags-footer">
+            <div class="cover-tags-footer-row">
+              <span class="tag tag-red">Prompt Engineering</span>
+              <span class="tag tag-green">Context Engineering</span>
+              <span class="tag tag-blue">Generative AI</span>
+              <span class="tag tag-blue">AI Workflows</span>
+              <span class="tag tag-blue">AI Agents</span>
+              <span class="tag tag-purple">Vibe Coding</span>
+              <span class="tag tag-purple">Spec-Driven</span>
+              <span class="tag tag-purple">Test-Driven</span>
+              <span class="tag tag-google-solid tag-gai">Google AI Studio</span>
+              <span class="tag tag-google-solid tag-gem">Gemini</span>
+              <span class="tag tag-google-solid tag-anti">Antigravity</span>
+              <span class="cover-tags-spacer"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2 — SPEAKER INTRO (Redesigned) -->
+      <section class="slide slide-speaker" id="slide-2">
+        <div class="slide-label">Speaker Introduction</div>
+        <div class="spk-bg">
+          <div class="spk-bg-grid"></div>
+          <div class="spk-bg-glow-left"></div>
+          <div class="spk-bg-glow-right"></div>
+        </div>
+        <div class="slide-content spk-layout">
+
+          <!-- LEFT — Identity card -->
+          <div class="spk-identity">
+            <div class="spk-card">
+              <div class="spk-avatar-wrap">
+                <div class="spk-avatar-ring"></div>
+                <div class="spk-avatar">
+                  <img src="assets/images/muhammad haerul_formal photo.png" alt="Muhammad Haerul"
+                    onerror="this.style.display='none'" />
+                </div>
+              </div>
+              <div class="spk-name-block">
+                <h2 class="spk-name">Muhammad Haerul, S.Kom</h2>
+                <p class="spk-title-role">AI Engineer · 4 Years of Experience</p>
+              </div>
+              <div class="spk-edu-badge">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>haerulmuhammad01@gmail.com</span>
+              </div>
+              <div class="spk-socials">
+                <a href="https://github.com/muhammadhaerul25" target="_blank" class="spk-social-pill">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  github.com/muhammadhaerul25
+                </a>
+                <a href="https://www.linkedin.com/in/muhammadhaerul" target="_blank"
+                  class="spk-social-pill spk-social-accent">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                  linkedin.com/in/muhammadhaerul
+                </a>
+                <span class="spk-social-pill">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                  @muhammadhaerul.25
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT — Education + Experience + Awards + Speakership -->
+          <div class="spk-details spk-details-scrollable">
+
+            <!-- Education -->
+            <div class="spk-section">
+              <div class="spk-section-header">
+                <span class="spk-section-label">Education</span>
+                <div class="spk-section-line"></div>
+              </div>
+              <div class="spk-timeline">
+                <div class="spk-tl-item">
+                  <div class="spk-tl-meta"><span class="spk-tl-year">2020</span></div>
+                  <div class="spk-tl-dot" style="background:#4285F4"></div>
+                  <div class="spk-tl-content">
+                    <span class="spk-tl-role">Bachelor of Computer Science</span>
+                    <span class="spk-tl-org">Universitas Hasanuddin</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="spk-section">
+              <div class="spk-section-header">
+                <span class="spk-section-label">Professional Experience</span>
+                <div class="spk-section-line"></div>
+              </div>
+              <div class="spk-timeline">
+                <div class="spk-tl-item">
+                  <div class="spk-tl-meta"><span class="spk-tl-year present">Now</span></div>
+                  <div class="spk-tl-dot" style="background:#34A853;box-shadow:0 0 0 5px rgba(52,168,83,0.15)"></div>
+                  <div class="spk-tl-content">
+                    <span class="spk-tl-role">Co-Founder</span>
+                    <span class="spk-tl-org">Aksarahub.id</span>
+                  </div>
+                </div>
+                <div class="spk-tl-item">
+                  <div class="spk-tl-meta"><span class="spk-tl-year present">2026</span></div>
+                  <div class="spk-tl-dot" style="background:#34A853;box-shadow:0 0 0 5px rgba(52,168,83,0.12)"></div>
+                  <div class="spk-tl-content">
+                    <span class="spk-tl-role">AI Team Lead</span>
+                    <span class="spk-tl-org">RevoU</span>
+                  </div>
+                </div>
+                <div class="spk-tl-item">
+                  <div class="spk-tl-meta"><span class="spk-tl-year">2025</span></div>
+                  <div class="spk-tl-dot" style="background:#4285F4"></div>
+                  <div class="spk-tl-content">
+                    <span class="spk-tl-role">AI Engineer</span>
+                    <span class="spk-tl-org">Paper.id</span>
+                  </div>
+                </div>
+                <div class="spk-tl-item">
+                  <div class="spk-tl-meta"><span class="spk-tl-year">2024</span></div>
+                  <div class="spk-tl-dot" style="background:#4285F4"></div>
+                  <div class="spk-tl-content">
+                    <span class="spk-tl-role">Computer Vision Engineer</span>
+                    <span class="spk-tl-org">Masa Geosciences</span>
+                  </div>
+                </div>
+                <div class="spk-tl-item">
+                  <div class="spk-tl-meta"><span class="spk-tl-year">2023</span></div>
+                  <div class="spk-tl-dot" style="background:#EA4335"></div>
+                  <div class="spk-tl-content">
+                    <span class="spk-tl-role">AI &amp; IoT Engineer</span>
+                    <span class="spk-tl-org">XL Axiata</span>
+                  </div>
+                </div>
+                <div class="spk-tl-item">
+                  <div class="spk-tl-meta"><span class="spk-tl-year">2022</span></div>
+                  <div class="spk-tl-dot" style="background:#FBBC04"></div>
+                  <div class="spk-tl-content">
+                    <span class="spk-tl-role">AI &amp; Software Engineer</span>
+                    <span class="spk-tl-org">Kementerian Pendidikan, Kebudayaan, Riset dan Teknologi RI</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Honors & Awards + Speakership in two columns -->
+            <div class="spk-bottom-row">
+              <div class="spk-section spk-section-half">
+                <div class="spk-section-header">
+                  <span class="spk-section-label">Honors &amp; Awards</span>
+                  <div class="spk-section-line"></div>
+                </div>
+                <div class="spk-awards spk-awards-col">
+                  <div class="spk-award spk-award-gold">
+                    <span class="spk-award-medal">🥇</span>
+                    <div class="spk-award-text">
+                      <span class="spk-award-title">1st Place — Open The Gate Hackathon</span>
+                      <span class="spk-award-year">2026</span>
+                    </div>
+                  </div>
+                  <div class="spk-award spk-award-silver">
+                    <span class="spk-award-medal">🥈</span>
+                    <div class="spk-award-text">
+                      <span class="spk-award-title">2nd Place — Binar Hackathon</span>
+                      <span class="spk-award-year">2025</span>
+                    </div>
+                  </div>
+                  <div class="spk-award">
+                    <span class="spk-award-medal">🏅</span>
+                    <div class="spk-award-text">
+                      <span class="spk-award-title">Best Creativity — TechnoArt AI Hackathon</span>
+                      <span class="spk-award-year">2025</span>
+                    </div>
+                  </div>
+                  <div class="spk-award">
+                    <span class="spk-award-medal">🏅</span>
+                    <div class="spk-award-text">
+                      <span class="spk-award-title">Top 10 — Healthkathon BPJS</span>
+                      <span class="spk-award-year">2022</span>
+                    </div>
+                  </div>
+                  <div class="spk-award">
+                    <span class="spk-award-medal">🏅</span>
+                    <div class="spk-award-text">
+                      <span class="spk-award-title">Top 20 — AI Talent Hub Indonesia</span>
+                      <span class="spk-award-year">2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="spk-section spk-section-half">
+                <div class="spk-section-header">
+                  <span class="spk-section-label">Speakership</span>
+                  <div class="spk-section-line"></div>
+                </div>
+                <div class="spk-speak-list">
+                  <div class="spk-speak-item">
+                    <span class="spk-speak-dot" style="background:#4285F4"></span>
+                    <div class="spk-speak-text">
+                      <span class="spk-speak-title">Speaker — Webinar of AI for Cybersecurity</span>
+                      <span class="spk-speak-org">BSSN · 2025</span>
+                    </div>
+                  </div>
+                  <div class="spk-speak-item">
+                    <span class="spk-speak-dot" style="background:#EA4335"></span>
+                    <div class="spk-speak-text">
+                      <span class="spk-speak-title">Speaker — Workshop of AI for Web Development</span>
+                      <span class="spk-speak-org">Unsulbar · 2025</span>
+                    </div>
+                  </div>
+                  <div class="spk-speak-item">
+                    <span class="spk-speak-dot" style="background:#FBBC04"></span>
+                    <div class="spk-speak-text">
+                      <span class="spk-speak-title">Speaker — AI Demo Day</span>
+                      <span class="spk-speak-org">Paper.id · 2025</span>
+                    </div>
+                  </div>
+                  <div class="spk-speak-item">
+                    <span class="spk-speak-dot" style="background:#34A853"></span>
+                    <div class="spk-speak-text">
+                      <span class="spk-speak-title">Speaker — AI &amp; IoT Visitation</span>
+                      <span class="spk-speak-org">XL Axiata · 2024</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3 — AGENDA -->
+      <section class="slide slide-agenda" id="slide-3">
+        <div class="slide-label">Agenda</div>
+        <div class="slide-content agenda-layout">
+          <div class="agenda-header">
+            <p class="agenda-eyebrow">What we'll cover today</p>
+            <h2 class="agenda-title">Agenda</h2>
+          </div>
+          <div class="agenda-chapters">
+            <div class="chapter-item">
+              <div class="chapter-num"><span class="chap-label">Chapter 1</span></div>
+              <div class="chapter-content">
+                <h3 class="chapter-title">AI Changed the Software Development Industry!</h3>
+              </div>
+              <div class="chapter-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#4285F4"
+                  stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4l3 3" />
+                </svg></div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num"><span class="chap-label">Chapter 2</span></div>
+              <div class="chapter-content">
+                <h3 class="chapter-title">Prompt and Context Engineering for Developers</h3>
+              </div>
+              <div class="chapter-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#EA4335"
+                  stroke-width="1.5">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg></div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num"><span class="chap-label">Chapter 3</span></div>
+              <div class="chapter-content">
+                <h3 class="chapter-title">Explore AI Applications with Gemini</h3>
+              </div>
+              <div class="chapter-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#FBBC04"
+                  stroke-width="1.5">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                </svg></div>
+            </div>
+            <div class="chapter-item">
+              <div class="chapter-num"><span class="chap-label">Chapter 4</span></div>
+              <div class="chapter-content">
+                <h3 class="chapter-title">AI-Driven Development with Antigravity</h3>
+              </div>
+              <div class="chapter-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#34A853"
+                  stroke-width="1.5">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg></div>
+            </div>
+          </div>
+          <div class="hands-on-card">
+            <div class="hands-on-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#4285F4"
+                stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M9 12l2 2 4-4" />
+              </svg></div>
+            <div class="hands-on-content">
+              <span class="hands-on-label">Hands-On</span>
+              <span class="hands-on-desc">Building a Prototype App with Prompting, Gemini & Antigravity</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4 — MOST IMPORTANT LANGUAGE (3 steps) -->
+      <section class="slide slide-reveal" id="slide-4" data-steps="3">
+        <div class="slide-label">Most Important Language</div>
+
+        <!-- Step 1: Question -->
+        <div class="reveal-step step-1 active-step">
+          <div class="reveal-bg">
+            <div class="reveal-dot-grid"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question">What Is the <br><span class="rq-highlight-blue">Most Important Language</span>
+              <br>in the Age of AI?
+            </h2>
+          </div>
+        </div>
+
+        <!-- Step 2: Answer reveal -->
+        <div class="reveal-step step-2">
+          <div class="reveal-bg">
+            <div class="reveal-dot-grid"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question reveal-question-sm">What Is the <span class="rq-highlight-blue">Most Important
+                Language</span> in the Age of AI?</h2>
+            <div class="reveal-answer-block reveal-answer-pop">
+              <div class="reveal-answer-heading">Natural Languages</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3: Language list -->
+        <div class="reveal-step step-3">
+          <div class="reveal-bg">
+            <div class="reveal-dot-grid"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question reveal-question-sm">What Is the <span class="rq-highlight-blue">Most Important
+                Language</span> in the Age of AI?</h2>
+            <div class="reveal-answer-block">
+              <div class="reveal-answer-heading">Natural Languages</div>
+              <div class="reveal-langs">
+                <span class="rl-pill">🇺🇸 English</span>
+                <span class="rl-pill">🇨🇳 Mandarin</span>
+                <span class="rl-pill">🇪🇸 Spanish</span>
+                <span class="rl-pill">🇸🇦 Arabic</span>
+                <span class="rl-pill">🇮🇩 Indonesian</span>
+                <span class="rl-pill rl-pill-muted">& more…</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 — WHY? (2 steps, smooth cross-fade) -->
+      <section class="slide slide-reveal slide-reveal-dark" id="slide-5" data-steps="2">
+        <div class="slide-label">Why Natural Language?</div>
+        <div class="reveal-step step-1 active-step">
+          <div class="reveal-bg reveal-bg-dark">
+            <div class="reveal-grid-lines"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question reveal-question-dark">Why?</h2>
+          </div>
+        </div>
+        <div class="reveal-step step-2 reveal-step-crossfade">
+          <div class="reveal-bg reveal-bg-dark">
+            <div class="reveal-grid-lines"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question reveal-question-dark reveal-question-sm why-question-persist">Why?</h2>
+            <div class="reveal-answer-block reveal-answer-dark reveal-answer-why-pop">
+              <div class="reveal-answer-heading reveal-answer-heading-dark">Because <span
+                  class="rq-highlight-blue-on-dark">AI</span> Has Changed the Way We <br><span
+                  class="rq-highlight-grad">Develop Software</span>!</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6 — CHAPTER 1 (commented out)
+      <section class="slide slide-chapter" id="slide-6">
+        <div class="slide-label">Chapter 1</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">01</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge"><span class="gdg-dot dot-blue"></span> Chapter 1</div>
+          <h2 class="chapter-heading">AI Changed the<br>Software Development Industry!</h2>
+          <p class="chapter-desc">Understanding the shift from traditional coding to AI-assisted development<br>and the
+            rise of natural language interfaces.</p>
+          <div class="chapter-accent-line"></div>
+        </div>
+      </section>
+      -->
+
+      <!-- SLIDE 7 — CHAPTER 2 (commented out)
+      <section class="slide slide-chapter chapter-red" id="slide-7">
+        <div class="slide-label">Chapter 2</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">02</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge" style="color:#EA4335"><span class="gdg-dot dot-red"></span> Chapter 2</div>
+          <h2 class="chapter-heading">Prompt &amp; Context<br>Engineering for Developers</h2>
+          <p class="chapter-desc">Mastering the art of crafting effective prompts and managing context<br>to maximize AI
+            model performance and reliability.</p>
+          <div class="chapter-accent-line" style="background:#EA4335"></div>
+        </div>
+      </section>
+      -->
+
+      <!-- SLIDE 8 — CHAPTER 3 (commented out)
+      <section class="slide slide-chapter chapter-yellow" id="slide-8">
+        <div class="slide-label">Chapter 3</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">03</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge" style="color:#FBBC04"><span class="gdg-dot dot-yellow"></span> Chapter 3</div>
+          <h2 class="chapter-heading">Explore AI Applications<br>with Gemini</h2>
+          <p class="chapter-desc">Exploring practical applications of Gemini, showcasing how to integrate<br>advanced AI
+            capabilities into modern products.</p>
+          <div class="chapter-accent-line" style="background:#FBBC04"></div>
+        </div>
+      </section>
+      -->
+
+      <!-- SLIDE 9 — CHAPTER 4 (commented out)
+      <section class="slide slide-chapter chapter-green" id="slide-9">
+        <div class="slide-label">Chapter 4</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">04</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge" style="color:#34A853"><span class="gdg-dot dot-green"></span> Chapter 4</div>
+          <h2 class="chapter-heading">AI-Driven Development<br>with Antigravity</h2>
+          <p class="chapter-desc">Unleashing the power of agentic coding with Antigravity to build complex<br>systems
+            through autonomous, multi-step execution.</p>
+          <div class="chapter-accent-line" style="background:#34A853"></div>
+        </div>
+      </section>
+      -->
+
+      <!-- SLIDE 10 — HANDS-ON (commented out)
+      <section class="slide slide-handson" id="slide-10">
+        <div class="slide-label">Hands-On</div>
+        <div class="handson-bg"></div>
+        <div class="slide-content handson-layout">
+          <div class="handson-badge">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+            Hands-On Session
+          </div>
+          <h2 class="handson-title">Build a Prototype App<br>with Prompting, Gemini & Antigravity</h2>
+          <p class="handson-subtitle">An interactive session where we combine all tools and techniques to build a fully
+            functional prototype from the ground up.</p>
+        </div>
+      </section>
+      -->
+
+      <!-- SLIDE 11 — CLOSING (commented out)
+      <section class="slide slide-closing" id="slide-11">
+        <div class="slide-label">Closing</div>
+        <div class="closing-bg">
+          <div class="closing-dots"></div>
+        </div>
+        <div class="slide-content closing-layout">
+          <div class="closing-gdg-dots">
+            <span class="gdg-dot dot-blue lg"></span>
+            <span class="gdg-dot dot-red lg"></span>
+            <span class="gdg-dot dot-yellow lg"></span>
+            <span class="gdg-dot dot-green lg"></span>
+          </div>
+          <h2 class="closing-title">"<em>AI won't replace developers</em>, <br>but developers who use AI will replace
+            those who don't"</h2>
+          <div class="closing-divider"></div>
+          <div class="closing-meta">
+            <div class="closing-speaker">
+              <img class="speaker-avatar sm" src="assets/images/muhammad haerul_formal photo_zoom_in.png"
+                alt="Muhammad Haerul" />
+              <div>
+                <strong>Muhammad Haerul</strong>
+                <span>AI Engineer · Co-Founder Aksarahub.id</span>
+              </div>
+            </div>
+            <div class="closing-event"><span>Build with AI · GDGoC Makassar 2026</span></div>
+          </div>
+        </div>
+      </section>
+      -->
+
+    </div><!-- /slides-container -->
+
+    <div class="slide-map" id="slideMap">
+      <button class="map-toggle" onclick="toggleSlideMap()" title="Slide overview">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7" />
+          <rect x="14" y="3" width="7" height="7" />
+          <rect x="14" y="14" width="7" height="7" />
+          <rect x="3" y="14" width="7" height="7" />
+        </svg>
+      </button>
+    </div>
+
+  </div><!-- /slide-scaler -->
+
+  <script src="scaler.js"></script>
+  <script src="base.js"></script>
+</body>
+
+</html>

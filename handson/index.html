@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hands-On — Smart License Plate Recognition · AI-Driven Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="handson.css" />
+</head>
+
+<body>
+
+    <div class="slide-scaler" id="slideScaler">
+
+        <div class="progress-bar" id="progressBar"></div>
+
+        <div class="slide-counter" id="slideCounter">
+            <span class="counter-chapter">Hands-On</span>
+            <span class="divider">·</span>
+            <span id="currentSlide">1</span>
+            <span class="divider">/</span>
+            <span id="totalSlides">15</span>
+        </div>
+
+        <div class="nav-controls">
+            <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+        </button>
+
+        <div class="slides-container" id="slidesContainer">
+
+            <!-- SLIDE 1 — HANDS-ON (moved from base.html) -->
+            <section class="slide slide-handson active" id="slide-1">
+                <div class="slide-label">Hands-On</div>
+                <div class="handson-bg"></div>
+                <div class="slide-content handson-layout">
+                    <div class="handson-badge">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M9 12l2 2 4-4" />
+                        </svg>
+                        Hands-On Session
+                    </div>
+                    <h2 class="handson-title">Build a Prototype App<br>with Prompting, Gemini & Antigravity</h2>
+                    <p class="handson-subtitle">An interactive session where we combine all tools and techniques to build a fully
+                        functional prototype from the ground up.</p>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 2 — HOOK: THE PROBLEM IN MAKASSAR
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-hook" id="slide-2">
+                <div class="slide-label">The Problem</div>
+                <div class="hook-bg">
+                    <div class="hook-grid"></div>
+                    <div class="hook-glow"></div>
+                </div>
+                <div class="slide-content hook-layout">
+
+                    <div class="hook-left">
+                        <div class="hook-eyebrow">
+                            <span class="gdg-dot dot-red"></span>
+                            Makassar · South Sulawesi
+                        </div>
+                        <h2 class="hook-title">What does this city<br />struggle with<br /><span
+                                class="hook-accent">every single day?</span></h2>
+                        <blockquote class="hook-quote">
+                            "Makassar is the gateway to Eastern Indonesia — over <strong>1.5 million vehicles</strong>,
+                            growing <strong>8% every year</strong>, and almost <strong>zero automated
+                                monitoring</strong>."
+                        </blockquote>
+                    </div>
+
+                    <div class="hook-right">
+                        <div class="hook-pain-label">The Core Pain Points</div>
+                        <div class="hook-pain-list">
+                            <div class="hook-pain-item">
+                                <div class="hook-pain-icon"
+                                    style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.08);">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335"
+                                        stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="12" y1="8" x2="12" y2="12" />
+                                        <line x1="12" y1="16" x2="12.01" y2="16" />
+                                    </svg>
+                                </div>
+                                <div class="hook-pain-text">
+                                    <strong>Unregistered vehicles enter freely</strong>
+                                    <span>No automated detection system exists</span>
+                                    <div class="hook-pain-source">(Source: Satlantas Polrestabes Makassar, 2024)</div>
+                                </div>
+                            </div>
+                            <div class="hook-pain-item">
+                                <div class="hook-pain-icon"
+                                    style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.08);">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335"
+                                        stroke-width="1.5">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                                        <line x1="16" y1="2" x2="16" y2="6" />
+                                        <line x1="8" y1="2" x2="8" y2="6" />
+                                        <line x1="3" y1="10" x2="21" y2="10" />
+                                    </svg>
+                                </div>
+                                <div class="hook-pain-text">
+                                    <strong>Parking recorded manually</strong>
+                                    <span>Slow, error-prone, easily bypassed</span>
+                                    <div class="hook-pain-source">(Source: Perumda Parkir Makassar Raya, 2024)</div>
+                                </div>
+                            </div>
+                            <div class="hook-pain-item">
+                                <div class="hook-pain-icon"
+                                    style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.08);">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335"
+                                        stroke-width="1.5">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg>
+                                </div>
+                                <div class="hook-pain-text">
+                                    <strong>No vehicle identification system</strong>
+                                    <span>Security is entirely human-dependent</span>
+                                    <div class="hook-pain-source">(Source: Makassar Smart City Index, 2024)</div>
+                                </div>
+                            </div>
+                            <div class="hook-pain-item">
+                                <div class="hook-pain-icon"
+                                    style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.08);">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA4335"
+                                        stroke-width="1.5">
+                                        <line x1="18" y1="20" x2="18" y2="10" />
+                                        <line x1="12" y1="20" x2="12" y2="4" />
+                                        <line x1="6" y1="20" x2="6" y2="14" />
+                                    </svg>
+                                </div>
+                                <div class="hook-pain-text">
+                                    <strong>No historical data collected</strong>
+                                    <span>No patterns, no anomaly detection</span>
+                                    <div class="hook-pain-source">(Source: Diskominfo Makassar, 2024)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hook-stat-row">
+                            <div class="hook-stat">
+                                <span class="hook-stat-num">1.5M+</span>
+                                <span class="hook-stat-label">Vehicles in Makassar</span>
+                            </div>
+                            <div class="hook-stat-div"></div>
+                            <div class="hook-stat">
+                                <span class="hook-stat-num" style="color:#EA4335;">+8.3%</span>
+                                <span class="hook-stat-label">Growth per year (BPS Sulsel, 2024)</span>
+                            </div>
+                            <div class="hook-stat-div"></div>
+                            <div class="hook-stat">
+                                <span class="hook-stat-num" style="color:#FBBC04;">~0</span>
+                                <span class="hook-stat-label">Automated monitoring systems</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 2 — VIDEO DEMO
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-demo" id="slide-3">
+                <div class="slide-label"></div>
+                <div class="demo-bg">
+                    <div class="demo-grid"></div>
+                </div>
+                <div class="slide-content demo-layout">
+                    <div class="demo-video-card">
+                        <div class="demo-video-chrome">
+                            <div class="demo-video-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="demo-video-url">assets/videos/Galaxy ALPR - Video Demo.mp4
+                            </div>
+                            <div class="demo-video-badge">Live Demo</div>
+                        </div>
+                        <div class="demo-video-frame">
+                            <video src="assets/videos/Galaxy ALPR - Video Demo.mp4" loop muted playsinline
+                                preload="none"></video>
+                        </div>
+                        <div class="demo-video-caption">
+                            <div class="demo-video-title">Galaxy ALPR — Video Demo</div>
+                            <div class="demo-video-badge"
+                                style="background:rgba(66,133,244,0.1); border-color:rgba(66,133,244,0.2); color:var(--blue);">
+                                Gemini Vision</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 3 — DESIGN & PIPELINE
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-sol-new" id="slide-4">
+                <div class="slide-label">The Design & Pipeline</div>
+                <div class="sol-new-bg">
+                    <div class="sol-new-grid"></div>
+                </div>
+                <div class="slide-content sol-new-layout">
+
+                    <div class="sol-new-main">
+                        <!-- Left Column: Architecture -->
+                        <div class="sol-new-column sol-new-arch">
+                            <div class="sol-new-sect-label">
+                                <span class="gdg-dot dot-blue"></span>
+                                System Design
+                            </div>
+                            <div class="arch-flow">
+                                <div class="arch-node node-browser">
+                                    <div class="arch-node-icon">🌐</div>
+                                    <div class="arch-node-info">
+                                        <div class="arch-node-title">Browser</div>
+                                        <div class="arch-node-sub">index.html (HTML + CSS + Vanilla JS)</div>
+                                    </div>
+                                </div>
+
+                                <div class="arch-conn-v">
+                                    <div class="arch-conn-line"></div>
+                                    <div class="arch-conn-labels">
+                                        <div class="arch-conn-main">HTTP POST /detect</div>
+                                        <div class="arch-conn-sub">multipart/form-data</div>
+                                    </div>
+                                    <div class="arch-conn-line"></div>
+                                </div>
+
+                                <div class="arch-node node-backend">
+                                    <div class="arch-node-icon">⚙️</div>
+                                    <div class="arch-node-info">
+                                        <div class="arch-node-title">Node.js + Express Backend</div>
+                                        <div class="arch-node-sub">main.js (API Server)</div>
+                                    </div>
+                                </div>
+
+                                <div class="arch-conn-v">
+                                    <div class="arch-conn-line"></div>
+                                    <div class="arch-conn-labels">
+                                        <div class="arch-conn-main">Gemini API Calls</div>
+                                    </div>
+                                    <div class="arch-conn-line"></div>
+                                </div>
+
+                                <div class="arch-node node-ai">
+                                    <div class="arch-node-icon">✨</div>
+                                    <div class="arch-node-info">
+                                        <div class="arch-node-title">Gemini 3 Flash</div>
+                                        <div class="arch-node-sub">Advanced Multimodal Reasoning</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Flowchart -->
+                        <div class="sol-new-column sol-new-pipe">
+                            <div class="sol-new-sect-label">
+                                <span class="gdg-dot dot-green"></span>
+                                3-Step AI Pipeline
+                            </div>
+                            <div class="pipe-flow-new">
+                                <!-- Step 1 -->
+                                <div class="pipe-node-new step-blue">
+                                    <div class="pipe-node-header">
+                                        <span class="pipe-node-num">01</span>
+                                        <span class="pipe-node-title">Vehicle Detection</span>
+                                    </div>
+                                    <div class="pipe-node-body">
+                                        <div class="pipe-io">
+                                            <span class="pipe-i">📷 Original Image</span>
+                                            <span class="pipe-arrow-s">↓</span>
+                                            <span class="pipe-o">vehicle_bbox → vehicle_crop</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pipe-connector-new"></div>
+
+                                <!-- Step 2 -->
+                                <div class="pipe-node-new step-yellow">
+                                    <div class="pipe-node-header">
+                                        <span class="pipe-node-num">02</span>
+                                        <span class="pipe-node-title">Plate Detection</span>
+                                    </div>
+                                    <div class="pipe-node-body">
+                                        <div class="pipe-io">
+                                            <span class="pipe-i">🚗 Vehicle Crop</span>
+                                            <span class="pipe-arrow-s">↓</span>
+                                            <span class="pipe-o">plate_bbox → plate_crop</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pipe-connector-new"></div>
+
+                                <!-- Step 3 -->
+                                <div class="pipe-node-new step-green">
+                                    <div class="pipe-node-header">
+                                        <span class="pipe-node-num">03</span>
+                                        <span class="pipe-node-title">OCR (Plate Reading)</span>
+                                    </div>
+                                    <div class="pipe-node-body">
+                                        <div class="pipe-io">
+                                            <span class="pipe-i">🆔 Plate Crop</span>
+                                            <span class="pipe-arrow-s">↓</span>
+                                            <span class="pipe-o">9-field JSON result</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Bar: Visualization & JSON -->
+                    <div class="sol-new-bottom">
+                        <div class="sol-new-sect-label">
+                            <span class="gdg-dot dot-yellow"></span>
+                            Pipeline Visuals & Expected JSON Output
+                        </div>
+
+                        <!-- 4 Image Frames -->
+                        <div class="sol-new-viz">
+                            <div class="viz-frame">
+                                <img src="assets/images/alpr_original_image.jpg" alt="Original">
+                                <div class="viz-label">Original Image</div>
+                            </div>
+                            <div class="viz-frame">
+                                <img src="assets/images/alpr_annotated_image.jpg" alt="Annotated">
+                                <div class="viz-label">Annotated Image</div>
+                            </div>
+                            <div class="viz-frame">
+                                <img src="assets/images/alpr_vehicle_cropped.jpg" alt="Vehicle">
+                                <div class="viz-label">Vehicle Image Cropped</div>
+                            </div>
+                            <div class="viz-frame">
+                                <img src="assets/images/alpr_plate_cropped.jpg" alt="Plate">
+                                <div class="viz-label">Plate Image Cropped</div>
+                            </div>
+                        </div>
+
+                        <div class="sol-json-card-new">
+                            <pre class="sol-json-body-new"><span class="jk">{</span>
+  <span class="jf">"vehicle_type"</span><span class="jp">:</span>           <span class="jv">"car"</span><span class="jp">,</span>
+  <span class="jf">"vehicle_bbox"</span><span class="jp">:</span>           <span class="jk">[</span><span class="jn">123</span><span class="jp">,</span> <span class="jn">45</span><span class="jp">,</span> <span class="jn">678</span><span class="jp">,</span> <span class="jn">901</span><span class="jk">]</span><span class="jp">,</span>
+  <span class="jf">"plate_bbox"</span><span class="jp">:</span>             <span class="jk">[</span><span class="jn">456</span><span class="jp">,</span> <span class="jn">78</span><span class="jp">,</span> <span class="jn">567</span><span class="jp">,</span> <span class="jn">123</span><span class="jk">]</span><span class="jp">,</span>
+  <span class="jf">"plate_number"</span><span class="jp">:</span>           <span class="jv">"B 1234 ABC"</span><span class="jp">,</span>
+  <span class="jf">"plate_date"</span><span class="jp">:</span>             <span class="jv">"08/29"</span><span class="jp">,</span>
+  <span class="jf">"plate_text_color"</span><span class="jp">:</span>       <span class="jv">"black"</span><span class="jp">,</span>
+  <span class="jf">"plate_background_color"</span><span class="jp">:</span> <span class="jv">"white"</span><span class="jp">,</span>
+  <span class="jf">"plate_blue_strip"</span><span class="jp">:</span>       <span class="jv">"no"</span><span class="jp">,</span>
+  <span class="jf">"plate_type"</span><span class="jp">:</span>             <span class="jv">"private"</span><span class="jp">,</span>
+  <span class="jf">"confidence_score"</span><span class="jp">:</span>       <span class="jn">0.94</span>
+<span class="jk">}</span></pre>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 4 — BUILD PLAN (TIMELINE)
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-plan" id="slide-5">
+                <div class="slide-label">30-Minute Build Plan</div>
+                <div class="plan-bg">
+                    <div class="plan-grid"></div>
+                    <div class="plan-bg-num">30</div>
+                </div>
+                <div class="slide-content plan-layout">
+
+                    <div class="plan-header">
+                        <div class="plan-badge"><span class="gdg-dot dot-blue"></span> The Plan</div>
+                        <h2 class="plan-title">From Zero to Working AI App</h2>
+                    </div>
+
+                    <div class="plan-stages">
+                        <div class="plan-stage">
+                            <div class="plan-stage-time">00–05</div>
+                            <div class="plan-stage-bar" style="background:var(--blue)"></div>
+                            <div class="plan-stage-body">
+                                <div class="plan-stage-num" style="color:var(--blue)">Stage 1</div>
+                                <div class="plan-stage-name">Planning &amp; Requirements</div>
+                                <div class="plan-stage-tech">Persona &amp; System + Chain of Thought</div>
+                            </div>
+                            <div class="plan-stage-tag"
+                                style="color:var(--blue);border-color:rgba(66,133,244,0.25);background:rgba(66,133,244,0.07);">
+                                5 min</div>
+                        </div>
+                        <div class="plan-stage">
+                            <div class="plan-stage-time">05–10</div>
+                            <div class="plan-stage-bar" style="background:var(--red)"></div>
+                            <div class="plan-stage-body">
+                                <div class="plan-stage-num" style="color:var(--red)">Stage 2</div>
+                                <div class="plan-stage-name">Architecture &amp; Design</div>
+                                <div class="plan-stage-tech">Few Shot + Tree of Thought</div>
+                            </div>
+                            <div class="plan-stage-tag"
+                                style="color:var(--red);border-color:rgba(234,67,53,0.25);background:rgba(234,67,53,0.07);">
+                                5 min</div>
+                        </div>
+                        <div class="plan-stage plan-stage-big">
+                            <div class="plan-stage-time">10–20</div>
+                            <div class="plan-stage-bar" style="background:var(--yellow)"></div>
+                            <div class="plan-stage-body">
+                                <div class="plan-stage-num" style="color:#9A7400">Stage 3</div>
+                                <div class="plan-stage-name">Implementation</div>
+                                <div class="plan-stage-tech">Multi-Stage Prompting</div>
+                                <div class="plan-stage-substeps">
+                                    <span class="plan-substep">→ Step 1: Frontend (index.html)</span>
+                                    <span class="plan-substep">→ Step 2: Backend (server.js skeleton)</span>
+                                    <span class="plan-substep">→ Step 3: AI Integration (Gemini pipeline)</span>
+                                </div>
+                            </div>
+                            <div class="plan-stage-tag"
+                                style="color:#9A7400;border-color:rgba(251,188,4,0.3);background:rgba(251,188,4,0.08);">
+                                10 min</div>
+                        </div>
+                        <div class="plan-stage">
+                            <div class="plan-stage-time">20–25</div>
+                            <div class="plan-stage-bar" style="background:var(--green)"></div>
+                            <div class="plan-stage-body">
+                                <div class="plan-stage-num" style="color:var(--green)">Stage 4</div>
+                                <div class="plan-stage-name">Testing</div>
+                                <div class="plan-stage-tech">Chain of Thought Debugging</div>
+                            </div>
+                            <div class="plan-stage-tag"
+                                style="color:var(--green);border-color:rgba(52,168,83,0.25);background:rgba(52,168,83,0.07);">
+                                5 min</div>
+                        </div>
+                        <div class="plan-stage">
+                            <div class="plan-stage-time">25–30</div>
+                            <div class="plan-stage-bar" style="background:#7C3AED"></div>
+                            <div class="plan-stage-body">
+                                <div class="plan-stage-num" style="color:#7C3AED">Stage 5</div>
+                                <div class="plan-stage-name">Review &amp; Demo</div>
+                                <div class="plan-stage-tech">Checklist Review + Live Demo</div>
+                            </div>
+                            <div class="plan-stage-tag"
+                                style="color:#7C3AED;border-color:rgba(124,58,237,0.25);background:rgba(124,58,237,0.07);">
+                                5 min</div>
+                        </div>
+                    </div>
+
+                    <div class="plan-note">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 8v4M12 16h.01" />
+                        </svg>
+                        Every stage uses a different prompt engineering technique from Chapter 2. Watch for them.
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 5 — STAGE 1: PLANNING
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-6">
+                <div class="slide-label">Stage 1 — Planning & Requirements</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge badge-planning">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 8v4l3 3" />
+                                </svg>
+                                Stage 1 · 5 min
+                            </div>
+                            <h2 class="tutorial-main-title">Planning & Requirements</h2>
+                            <p class="tutorial-sub-title">Persona & System + Chain of Thought</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Establish a rock-solid, focused project scope
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Define the core AI reasoning pipeline
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do (Checklist)</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Write Product Brief</div>
+                                        <div class="tutorial-step-desc">Describe the LPR app, target users (Makassar
+                                            city), and core problem in plain language.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Expand into PRD</div>
+                                        <div class="tutorial-step-desc">Prompt AI to generate user stories, and
+                                            acceptance criteria (e.g. 95% OCR accuracy).</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Define Scope & Priorities</div>
+                                        <div class="tutorial-step-desc">Mark core LPR as P0. Explicitly tell AI what NOT
+                                            to build (e.g. mobile app).</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">04</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Human Review</div>
+                                        <div class="tutorial-step-desc">Review every line. Edit until it reflects your
+                                            intent. Save as <code>PRD.md</code>.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> After generating the PRD,
+                                    ask AI: <em>"What edge cases am I missing? What assumptions am I making?"</em> to
+                                    catch gaps early.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Prompt & Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Stage 1 — Planning Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Persona + Chain of Thought</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">SYSTEM:</span>
+<span class="c-str">You are a Senior PM for AI Smart City apps.
+Goal: Scope a 30-min MVP for Makassar LPR.</span>
+
+<span class="c-kw">USER:</span>
+<span class="c-str">Design a Product Requirement Document (PRD).
+Use Chain of Thought:
+1. Define ONE core user flow (Gate entry).
+2. List P0 requirements (OCR speed/accuracy).
+3. Specify AI pipeline (Vehicle -> Plate -> Data).
+4. List Out-of-Scope items for today.</span></pre>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Expected Output</div>
+                            <div class="tutorial-output-card">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        <code>PRD.md</code> (Structured Requirements)
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        Defined Scope (P0/P1/P2 features)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">PRD.md</div>
+                                <div class="p-header"># PRD: Makassar AI-LPR System</div><br />
+                                <div class="p-key">1. Goal:</div>
+                                <div class="p-val">Automate port entry logging via vision AI.</div><br />
+                                <div class="p-key">2. User Story:</div>
+                                <div class="p-val">As a Guard, I want to scan a plate</div><br />
+                                <div class="p-val">&nbsp;&nbsp;&nbsp;&nbsp;instantly to verify vehicle authorization.
+                                </div><br />
+                                <div class="p-key">3. P0 Specs:</div>
+                                <div class="p-val">- BBox Detection (Vehicle/Plate)</div><br />
+                                <div class="p-val">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- OCR
+                                    (Plate Number, Province, Expiry)</div><br />
+                                <div class="p-key">4. Non-Functional:</div>
+                                <div class="p-val">- Latency < 2s</div><br />
+                                        <div class="p-val">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-
+                                            Works in low-light/night.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 6 — STAGE 2: DESIGN
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-7">
+                <div class="slide-label">Stage 2 — Architecture &amp; Design</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge badge-architecture">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                                Stage 2 · 5 min
+                            </div>
+                            <h2 class="tutorial-main-title">Architecture &amp; Design</h2>
+                            <p class="tutorial-sub-title">Few Shot + Tree of Thought</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--red)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Design the POST /detect API contract
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--red)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Blueprint the 3-step reasoning pipeline
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do (Checklist)</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Recommend Tech Stack</div>
+                                        <div class="tutorial-step-desc">Paste PRD and ask AI to recommend stack
+                                            (FastAPI, React/Vanilla JS, Gemini API).</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Database & API Contract</div>
+                                        <div class="tutorial-step-desc">Generate schema (ERD) and API endpoints (POST
+                                            /detect) with request/response shapes.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Map System Layers</div>
+                                        <div class="tutorial-step-desc">Define layers: Frontend UI → Backend Server → AI
+                                            Integration Pipeline.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">04</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Finalize Blueprint</div>
+                                        <div class="tutorial-step-desc">Human review AI's technical choices and save as
+                                            <code>DESIGN.md</code>.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> Ask AI: <em>"What would
+                                        break at 10,000 users? What can we simplify for a 1-week MVP?"</em> to
+                                    prioritize ruthlessly.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visuals & Expected Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Stage 2 — Architecture &amp; Design Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Tree of Thought + Few Shot</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">USER:</span>
+<span class="c-str">Using PRD.md, design the system architecture.
+Use Tree of Thought to evaluate 3 stacks:
+- Option A: Node.js + Express + Vanilla JS
+- Option B: Node.js + Next.js (App Router)
+- Option C: Node.js + NestJS (MVC)
+
+Evaluate: Speed, SDK support, UI flexibility.
+Output: DESIGN.md with chosen stack, API
+contracts, and OCR JSON schema.</span></pre>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Expected Output</div>
+                            <div class="tutorial-output-card">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        <code>DESIGN.md</code> (Tech Stack + Schema)
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        API Contract (JSON Specification)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">DESIGN.md</div>
+                                <div class="p-key">Stack:</div>
+                                <div class="p-val">Node.js + Express + Gemini 3 Flash</div><br />
+                                <div class="p-key">Architecture:</div>
+                                <div class="p-val">RESTful API (multipart/form-data)</div><br />
+                                <div class="p-key">Pipeline:</div>
+                                <div class="p-val">Vehicle Detect → Plate OCR → JSON Output</div><br />
+                                <div class="p-key">Data Schema:</div>
+                                <div class="p-val">{ "plate": string, "confidence": float }</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 7 — STAGE 3: IMPLEMENTATION OVERVIEW
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-8">
+                <div class="slide-label">Stage 3 — Implementation</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge badge-implementation">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"></polyline>
+                                    <polyline points="8 6 2 12 8 18"></polyline>
+                                </svg>
+                                Stage 3 · 10 min
+                            </div>
+                            <h2 class="tutorial-main-title">Implementation</h2>
+                            <p class="tutorial-sub-title">Multi-Stage Prompting · Build order: UI → Backend → AI</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A7400"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Build a functional end-to-end AI application
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A7400"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Verify each component independently
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do (Checklist)</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--blue)">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Load Context First</div>
+                                        <div class="tutorial-step-desc">Paste <code>PRD.md</code> +
+                                            <code>DESIGN.md</code> into AI before writing any code.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--red)">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Build Layer by Layer</div>
+                                        <div class="tutorial-step-desc">Order: Frontend → Backend → AI Integration.
+                                            Checkpoint after each.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--green)">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">One Task at a Time</div>
+                                        <div class="tutorial-step-desc">Complete → Checkpoint → Commit → Proceed. Never
+                                            queue multiple tasks.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> Always checkpoint and
+                                    commit your code after each layer (UI → Backend → AI) is functional.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visuals & Expected Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Stage 3 — Setup Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Context Loading</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">USER:</span>
+<span class="c-str">I am starting implementation.
+Please read PRD.md and DESIGN.md.
+Acknowledge that you understand the 3-step
+AI pipeline and the chosen tech stack.
+Do not write code yet.</span></pre>
+                            </div>
+                        </div>
+                        <div class="tutorial-section" style="margin-top: 16px;">
+                            <div class="tutorial-section-title">Implementation Strategy</div>
+                            <div class="checkpoint-card"
+                                style="margin-top: 8px; border-color: rgba(251,188,4,0.3); background: rgba(251,188,4,0.04);">
+                                <div class="checkpoint-header" style="color: #9A7400;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                    </svg>
+                                    Vibe Coding Workflow
+                                </div>
+                                <div class="checkpoint-items" style="gap: 12px; margin-top: 8px;">
+                                    <p style="font-size: 14px; line-height: 1.5; color: var(--text-secondary);">Focus on
+                                        <strong>intent</strong> while the AI handles the code. Review every line as the
+                                        <strong>Architect</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Expected Output</div>
+                            <div class="tutorial-output-card">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        Functional Codebase (Frontend + Backend)
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        Integrated AI Reasoning Pipeline
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">Folder Structure</div>
+                                <div class="p-val">├── public/ (index.html, styles.css)</div><br />
+                                <div class="p-val">├── server.js (Express API Server)</div><br />
+                                <div class="p-val">├── package.json (Dependencies)</div><br />
+                                <div class="p-val">└── docs/ (PRD.md, DESIGN.md)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 8 — STEP 1: FRONTEND PROMPT
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-9">
+                <div class="slide-label">Implementation Step 1 — Frontend</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge"
+                                style="background:rgba(66,133,244,0.08); color:var(--blue); border:1px solid rgba(66,133,244,0.2);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                                Frontend · index.html
+                            </div>
+                            <h2 class="tutorial-main-title">Build the Frontend</h2>
+                            <p class="tutorial-sub-title">Modern UI with Drag & Drop + Loading States</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Setup basic UI structure & Components
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Checkpoint: UI renders correctly
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Drag & Drop Upload</div>
+                                        <div class="tutorial-step-desc">Setup the drop zone and click-to-upload handlers
+                                            with image preview.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Dynamic Loading</div>
+                                        <div class="tutorial-step-desc">Create the cycling step indicators (Step 1 → 2 →
+                                            3) to mask AI latency.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Result Grid</div>
+                                        <div class="tutorial-step-desc">Build the 9-field card to display structured LPR
+                                            data and confidence scores.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> Use AI to generate modern
+                                    CSS transitions for loading states — it makes the "AI thinking time" feel like a
+                                    premium feature.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visuals & Expected Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Step 1 — Frontend Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">UI Generation Prompt</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">USER:</span>
+<span class="c-str">Build 'index.html' for the LPR dashboard.
+1. Drag & drop zone with image preview.
+2. 'Scan' button for backend POST /detect.
+3. Loading animation cycling through:
+   "Detecting Vehicle...", "Isolating
+   Plate...", "Reading OCR..."
+4. Results grid: Plate No, Type, Color.
+Use Vanilla JS + Modern CSS (Dark Theme).</span></pre>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Expected Output</div>
+                            <div class="tutorial-output-card">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        Interactive LPR Scanning Interface
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        ✅ UI Renders Correctly
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">index.html</div>
+                                <div class="p-header">&lt;form id="scan-form"&gt;</div><br />
+                                <div class="p-val">&nbsp;&nbsp;&lt;input type="file" accept="image/*" /&gt;</div><br />
+                                <div class="p-val">&nbsp;&nbsp;&lt;div id="loader" class="hidden"&gt;...&lt;/div&gt;
+                                </div><br />
+                                <div class="p-header">&lt;/form&gt;</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 9 — STEP 2: BACKEND PROMPT
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-10">
+                <div class="slide-label">Implementation Step 2 — Backend</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge"
+                                style="background:rgba(234,67,53,0.08); color:var(--red); border:1px solid rgba(234,67,53,0.2);">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                </svg>
+                                Backend · server.js
+                            </div>
+                            <h2 class="tutorial-main-title">Build the Backend</h2>
+                            <p class="tutorial-sub-title">Node.js + Express + Multer</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--red)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Setup Server, DB & API Endpoints
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--red)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Checkpoint: API Responds
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--red)">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Express Setup</div>
+                                        <div class="tutorial-step-desc">Initialize Express and add <code>cors</code>
+                                            middleware to allow frontend requests.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--red)">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Utility Logic</div>
+                                        <div class="tutorial-step-desc">Implement <code>cleanJSON</code> to strip AI
+                                            markdown and <code>geminiCrop</code> for BBox crops.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--red)">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Stub Response</div>
+                                        <div class="tutorial-step-desc">Create the `/detect` route with a dummy response
+                                            to verify end-to-end wiring.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> Ask AI to add robust error
+                                    handling for "No Vehicle Found" scenarios so your frontend doesn't crash on
+                                    malformed images.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visuals & Expected Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Step 2 — Backend Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Express Skeleton Prompt</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">USER:</span>
+<span class="c-str">Write 'server.js' using Node.js and Express.
+1. POST /detect endpoint for image uploads.
+2. Utility: 'geminiCrop(image, bbox)' for
+   normalized [y1, x1, y2, x2] cropping.
+3. Utility: 'cleanJSON(text)' to strip
+   markdown from AI responses.
+4. Stub the AI logic with success JSON.
+5. Setup CORS for frontend connection.</span></pre>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Expected Output</div>
+                            <div class="tutorial-output-card"
+                                style="border-color: rgba(234,67,53,0.15); background: rgba(234,67,53,0.04);">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)"
+                                            stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        Express Server with /detect Route
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--red)"
+                                            stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        ✅ API Responds with OK
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">server.js</div>
+                                <div class="p-header">app.post('/detect', upload.single('img'), (req, res) => {</div>
+                                <br />
+                                <div class="p-val">&nbsp;&nbsp;const crop = await gemini.detectVehicle(req.file);</div>
+                                <br />
+                                <div class="p-val">&nbsp;&nbsp;const result = await gemini.ocrPlate(crop);</div><br />
+                                <div class="p-val">&nbsp;&nbsp;res.json(result);</div><br />
+                                <div class="p-header">});</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 10 — STEP 3: AI INTEGRATION
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-11">
+                <div class="slide-label">Implementation Step 3 — AI Integration</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge badge-implementation">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                AI Integration · Gemini 3 Flash
+                            </div>
+                            <h2 class="tutorial-main-title">AI Integration (The Pipeline)</h2>
+                            <p class="tutorial-sub-title">Chaining Multi-Step Visual Reasoning</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A7400"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Connect Gemini & Implement Logic
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A7400"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Checkpoint: E2E Works
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--blue)">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Vehicle Detection</div>
+                                        <div class="tutorial-step-desc">Call Gemini to find the main vehicle and crop
+                                            the image to focus context.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--yellow)">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Plate Isolation</div>
+                                        <div class="tutorial-step-desc">Call Gemini on the vehicle crop to find the
+                                            license plate and crop again.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--green)">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Final OCR</div>
+                                        <div class="tutorial-step-desc">Call Gemini on the plate crop to extract 9
+                                            structured data fields as JSON.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> Cropping is "context
+                                    engineering". Feeding a 224x224 crop of a plate to Gemini is 10x more accurate than
+                                    a full 4K image.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visuals & Expected Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Step 3 — AI Pipeline Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Multi-Stage Reasoning</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">USER:</span>
+<span class="c-str">Implement 3-step Gemini 3 Flash pipeline:
+1. Detect Vehicle: "Return [y1, x1, y2, x2]
+   of the main vehicle." -> Crop.
+2. Detect Plate: "In this vehicle crop,
+   find the plate bbox." -> Crop.
+3. OCR: "Extract Plate Number, Expiry,
+   Color. Return ONLY as JSON."
+Handle errors if no vehicle/plate found.</span></pre>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Expected Output</div>
+                            <div class="tutorial-output-card"
+                                style="border-color: rgba(52, 168, 83, 0.15); background: rgba(52, 168, 83, 0.04);">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="var(--green)" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        3-Step AI Reasoning Pipeline
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="var(--green)" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        ✅ End-to-End Flow Works
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">AI Logic</div>
+                                <div class="p-key">Model:</div>
+                                <div class="p-val">gemini-3-flash (Agentic Mode)</div><br />
+                                <div class="p-key">Mode:</div>
+                                <div class="p-val">Multimodal (Multipart Stream)</div><br />
+                                <div class="p-key">Strategy:</div>
+                                <div class="p-val">Structured Output (Response Schema)</div><br />
+                                <div class="p-key">Safety:</div>
+                                <div class="p-val">Block Non-Vehicle Visuals</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 11 — STAGE 4: TESTING
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-12">
+                <div class="slide-label">Stage 4 — Testing & Debugging</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge badge-testing">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Stage 4 · 5 min
+                            </div>
+                            <h2 class="tutorial-main-title">Testing & Debugging</h2>
+                            <p class="tutorial-sub-title">Edge Case Validation · Robustness Testing</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Ensure accuracy across diverse real-world conditions
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--green)"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Verify system stability and error handling
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do (Checklist)</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--green)">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Unit & Integration Tests</div>
+                                        <div class="tutorial-step-desc">Paste code → ask AI to write tests for happy
+                                            path and edge cases (Night, Rain).</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--green)">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">AI Feature Tests (HITL)</div>
+                                        <div class="tutorial-step-desc">Manually test AI outputs for OCR accuracy. Your
+                                            judgment is the final checkpoint.</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:var(--green)">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Bug Report & UAT</div>
+                                        <div class="tutorial-step-desc">Paste failing logs → ask AI to fix. Generate UAT
+                                            checklist from PRD.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> Feed the AI your failing
+                                    logs and ask for a "Root Cause Analysis". It's better at explaining <em>why</em> it
+                                    failed than just fixing it.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Visuals & Expected Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Stage 4 — Testing Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Chain of Thought Debugging</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">USER:</span>
+<span class="c-str">Generate 'tests/api.test.js' for server.js. Include test cases for:
+1. Valid plate image (Happy Path).
+2. Image with no vehicle.
+3. Night-time image (Low Contrast).
+4. Motorbike plate (Different shape).
+Also, explain how to fix common OCR
+failures (e.g., '1' vs 'I') in the prompt.</span></pre>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Expected Output</div>
+                            <div class="tutorial-output-card">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        <code>tests/</code> (Unit & E2E Test Suite)
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        <code>bug_report.md</code> (Verification Log)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">test_report.md</div>
+                                <div class="p-val">✅ PASS: Standard Plate (Daylight)</div><br />
+                                <div class="p-val">✅ PASS: Angled Plate (Perspective Fix)</div><br />
+                                <div class="p-val">⚠️ WARN: Low Light (Requires extra sharpening)</div><br />
+                                <div class="p-key">Action:</div>
+                                <div class="p-val">Update Prompt with Night Examples</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="slide slide-stage slide-stage-tutorial" id="slide-13">
+                <div class="slide-label">Stage 5 — Review & Polish</div>
+                <div class="slide-content tutorial-layout">
+
+                    <!-- Left Column: Goals & Instructions -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-header">
+                            <div class="tutorial-badge badge-review">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                Stage 5 · 5 min
+                            </div>
+                            <h2 class="tutorial-main-title">Review & Polish</h2>
+                            <p class="tutorial-sub-title">Final Optimization · Performance & UX Audit</p>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Goals</div>
+                            <div class="tutorial-goals-list">
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Refine the user experience for maximum impact
+                                </div>
+                                <div class="tutorial-goal-item">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7C3AED"
+                                        stroke-width="2.5">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                    Optimize AI performance and token usage
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">What To Do (Checklist)</div>
+                            <div class="tutorial-step-list">
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:#7C3AED">01</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Security & Performance Audit</div>
+                                        <div class="tutorial-step-desc">Ask AI to identify vulnerabilities (Injection)
+                                            and bottlenecks (N+1 queries).</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:#7C3AED">02</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">PRD Alignment Check</div>
+                                        <div class="tutorial-step-desc">Paste PRD + features → ask AI: "What's missing?
+                                            What doesn't match the spec?"</div>
+                                    </div>
+                                </div>
+                                <div class="tutorial-step">
+                                    <div class="tutorial-step-num" style="background:#7C3AED">03</div>
+                                    <div class="tutorial-step-content">
+                                        <div class="tutorial-step-title">Iteration & Polish</div>
+                                        <div class="tutorial-step-desc">Add micro-interactions. Repeat loop until all P0
+                                            criteria are met.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-pro-tip">
+                                <div class="tutorial-pro-tip-icon">✦</div>
+                                <div class="tutorial-pro-tip-text"><strong>Pro Tip:</strong> Ask AI for a "Security
+                                    Audit" specifically looking for <em>Prompt Injection</em> vulnerabilities in your
+                                    OCR processing pipeline.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Recap & Expected Output -->
+                    <div class="tutorial-column">
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Stage 5 — Review Prompt</div>
+                            <div class="code-block" style="margin-top: 8px;">
+                                <div class="code-header">
+                                    <div class="code-dots"><span></span><span></span><span></span></div>
+                                    <span class="code-lang">Checklist Review</span>
+                                </div>
+                                <pre class="code-body"><span class="c-kw">USER:</span>
+<span class="c-str">Perform a final audit of the codebase:
+1. Security: Handle large image uploads?
+2. Reliability: Retry logic for API?
+3. UX: Loading animation synced with API?
+4. Accuracy: Few-shot examples for plates?
+Suggest 3 high-impact polish items for the
+Live Demo (e.g., sound effects, dark mode).</span></pre>
+                            </div>
+                        </div>
+
+                        <div class="tutorial-section">
+                            <div class="tutorial-section-title">Final Result</div>
+                            <div class="tutorial-output-card">
+                                <div class="tutorial-output-items">
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        Production-Ready Application
+                                    </div>
+                                    <div class="tutorial-output-item">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2.5">
+                                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                        </svg>
+                                        Final Performance & Security Sign-off
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tutorial-file-preview">
+                                <div class="tutorial-file-preview-label">Sign-off</div>
+                                <div class="p-key">Performance:</div>
+                                <div class="p-val">Avg 1.8s E2E (Target met)</div><br />
+                                <div class="p-key">Reliability:</div>
+                                <div class="p-val">Retries added for API timeouts</div><br />
+                                <div class="p-key">Polish:</div>
+                                <div class="p-val">Glassmorphism UI + Confetti on success</div><br />
+                                <div class="p-header">🚀 APPROVED FOR DEPLOYMENT</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- ══════════════════════════════════════════
+           SLIDE 13 — CLOSING INSIGHT
+           ══════════════════════════════════════════ -->
+            <section class="slide slide-closing-insight" id="slide-14">
+                <div class="slide-label">Key Takeaways</div>
+                <div class="ci-bg">
+                    <div class="ci-grid"></div>
+                    <div class="ci-glow-l"></div>
+                    <div class="ci-glow-r"></div>
+                </div>
+                <div class="slide-content ci-layout">
+
+                    <div class="ci-three">
+                        <div class="ci-insight">
+                            <div class="ci-insight-num" style="color:var(--blue)">01</div>
+                            <h3 class="ci-insight-title">Pipeline Thinking</h3>
+                            <p class="ci-insight-body">Complex AI tasks are just simple steps chained together. Vehicle
+                                detect → plate detect → OCR. Break every problem into the smallest possible steps.</p>
+                        </div>
+                        <div class="ci-insight-div"></div>
+                        <div class="ci-insight">
+                            <div class="ci-insight-num" style="color:var(--red)">02</div>
+                            <h3 class="ci-insight-title">Context Is Everything</h3>
+                            <p class="ci-insight-body">Gemini reads a plate more accurately when it sees just the plate
+                                — not the full original image. Cropping <em>is</em> context engineering, not just image
+                                processing.</p>
+                        </div>
+                        <div class="ci-insight-div"></div>
+                        <div class="ci-insight">
+                            <div class="ci-insight-num" style="color:var(--green)">03</div>
+                            <h3 class="ci-insight-title">The Prompt Is the Product</h3>
+                            <p class="ci-insight-body">A precise, well-structured prompt is the core intellectual
+                                property of an AI application. The prompt is more valuable than the code around it.</p>
+                        </div>
+                    </div>
+
+                    <div class="ci-divider"></div>
+
+                    <div class="ci-quote-block">
+                        <blockquote class="ci-quote">
+                            "A year ago this required a CV engineer, a custom-trained OCR model, weeks of labeled
+                            data, and ML infrastructure. Today it required a clear prompt, the right context, Gemini
+                            Vision, and <span class="ci-quote-hl">30 minutes</span>."
+                        </blockquote>
+                        <div class="ci-cta">
+                            <span class="ci-cta-text">Now go build something for Makassar.</span>
+                            <span class="ci-rocket">🚀</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+      <!-- SLIDE 15 — CLOSING (from base.html slide 11) -->
+      <section class="slide slide-closing" id="slide-15">
+        <div class="slide-label">Closing</div>
+        <div class="closing-bg">
+          <div class="closing-dots"></div>
+        </div>
+        <div class="slide-content closing-layout">
+          <div class="closing-gdg-dots">
+            <span class="gdg-dot dot-blue lg"></span>
+            <span class="gdg-dot dot-red lg"></span>
+            <span class="gdg-dot dot-yellow lg"></span>
+            <span class="gdg-dot dot-green lg"></span>
+          </div>
+          <h2 class="closing-title">"<em>AI won't replace developers</em>, <br>but developers who use AI will replace
+            those who don't"</h2>
+          <div class="closing-divider"></div>
+          <div class="closing-meta">
+            <div class="closing-speaker">
+                            <img class="speaker-avatar sm" src="assets/images/muhammad haerul_formal photo_zoom_in.png"
+                alt="Muhammad Haerul" />
+              <div>
+                <strong>Muhammad Haerul</strong>
+                <span>AI Engineer · Co-Founder Aksarahub.id</span>
+              </div>
+            </div>
+            <div class="closing-event"><span>Build with AI · GDGoC Makassar 2026</span></div>
+          </div>
+        </div>
+      </section>
+
+        </div><!-- /slides-container -->
+
+    </div><!-- /slide-scaler -->
+
+    <script src="scaler.js"></script>
+    <script src="handson.js"></script>
+</body>
+
+</html>

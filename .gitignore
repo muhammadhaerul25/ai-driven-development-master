@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.env
+.DS_Store
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
+*.swp
+*.bak
+scratch/
+handson-session/
+assets/videos/*.mp4
+!assets/videos/Creating in Flow _ How to use Google’s new AI Filmmaking Tool.mp4
+!assets/videos/Using Workflows _ Runway Academy.mp4

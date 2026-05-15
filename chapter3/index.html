@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 3 — Explore AI Applications with Gemini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Google+Sans+Display:wght@400;700&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="chapter3.css" />
+</head>
+
+<body>
+
+  <!-- Slide Scaler — Fixed 16:9 -->
+  <div class="slide-scaler" id="slideScaler">
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">
+      <span class="counter-chapter">Ch.3</span>
+      <span class="divider">·</span>
+      <span id="currentSlide">1</span>
+      <span class="divider">/</span>
+      <span id="totalSlides">10</span>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="nav-controls">
+      <button class="nav-btn" id="prevBtn" onclick="prevSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <button class="nav-btn" id="nextBtn" onclick="nextSlide()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Fullscreen Button -->
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+      </svg>
+    </button>
+
+    <div class="slides-container" id="slidesContainer">
+
+      <!-- SLIDE 1 — CHAPTER 3 COVER (moved from base.html) -->
+      <section class="slide slide-chapter chapter-yellow active" id="slide-1">
+        <div class="slide-label">Chapter 3</div>
+        <div class="chapter-bg">
+          <div class="chapter-bg-number">03</div>
+        </div>
+        <div class="slide-content chapter-layout">
+          <div class="chapter-badge" style="color:#FBBC04"><span class="gdg-dot dot-yellow"></span> Chapter 3</div>
+          <h2 class="chapter-heading">Explore AI Applications<br>with Gemini</h2>
+          <p class="chapter-desc">Exploring practical applications of Gemini, showcasing how to integrate<br>advanced AI
+            capabilities into modern products.</p>
+          <div class="chapter-accent-line" style="background:#FBBC04"></div>
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-1 — GEMINI INTRODUCTION
+         ============================ -->
+      <section class="slide slide-gemini-intro" id="slide-2">
+        <div class="slide-label">Gemini — Google's Most Capable AI Model</div>
+        <div class="gem-intro-bg">
+          <div class="gem-intro-grid"></div>
+          <div class="gem-intro-glow"></div>
+        </div>
+        <div class="slide-content gem-intro-layout">
+
+          <div class="gem-intro-left">
+            <h2 class="gem-intro-title">
+              <span class="gem-grad">Google Gemini</span>
+            </h2>
+            <p class="gem-intro-desc">
+              Gemini is Google's most capable and general AI model family — natively multimodal, designed to understand
+              text, images, audio, video, and code simultaneously.
+            </p>
+            <div class="gem-intro-stats">
+              <div class="gem-stat">
+                <span class="gem-stat-num">20+</span>
+                <span class="gem-stat-label">Models in the<br />Gemini family</span>
+              </div>
+              <div class="gem-stat-divider"></div>
+              <div class="gem-stat">
+                <span class="gem-stat-num">1M+</span>
+                <span class="gem-stat-label">Token context<br />window</span>
+              </div>
+              <div class="gem-stat-divider"></div>
+              <div class="gem-stat">
+                <span class="gem-stat-num">180+</span>
+                <span class="gem-stat-label">Countries<br />available</span>
+              </div>
+            </div>
+            <div class="gem-intro-pills">
+              <span class="pill pill-yellow">🌐 Multimodal</span>
+              <span class="pill pill-blue">💻 Code Generation</span>
+              <span class="pill pill-green">🎙️ Audio &amp; Voice</span>
+              <span class="pill pill-red">🎬 Video Understanding</span>
+              <span class="pill pill-yellow">🤖 Agentic Reasoning</span>
+            </div>
+          </div>
+
+          <!-- RIGHT: Video embed -->
+          <div class="gem-intro-right">
+            <div class="gem-video-wrapper">
+              <div class="gem-video-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="5 3 19 12 5 21 5 3" />
+                </svg>
+                Live Demo
+              </div>
+              <div class="gem-video-frame">
+                <video src="assets/videos/Google's newest AI in 90 seconds _ Gemini.mp4" loop muted playsinline
+                  preload="none"></video>
+              </div>
+              <div class="gem-video-caption">Google's newest AI in 90 seconds — Official Gemini Demo</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-2 — GEMINI MODEL CATALOG
+         ============================ -->
+      <section class="slide slide-catalog" id="slide-3">
+        <div class="slide-label">Gemini Model Catalog</div>
+        <div class="catalog-bg">
+          <div class="catalog-dot-grid"></div>
+        </div>
+
+        <!-- Legends — top right corner -->
+        <div class="catalog-legends">
+          <!-- Status Legend -->
+          <div class="catalog-legend legend-status">
+            <div class="catalog-legend-title">Status</div>
+            <div class="catalog-legend-rows">
+              <div class="catalog-legend-row">
+                <span class="catalog-model-status status-stable" style="font-size:10px;padding:2px 8px;">Stable</span>
+                <span class="catalog-legend-desc">Production ready</span>
+              </div>
+              <div class="catalog-legend-row">
+                <span class="catalog-model-status status-preview" style="font-size:10px;padding:2px 8px;">Preview</span>
+                <span class="catalog-legend-desc">Early access</span>
+              </div>
+              <div class="catalog-legend-row">
+                <span class="catalog-model-status status-new" style="font-size:10px;padding:2px 8px;">New ✦</span>
+                <span class="catalog-legend-desc">Just launched</span>
+              </div>
+              <div class="catalog-legend-row">
+                <span class="catalog-model-status status-deprecated" style="font-size:10px;padding:2px 8px;">Deprecated</span>
+                <span class="catalog-legend-desc">Scheduled for removal</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tiers Legend -->
+          <div class="catalog-legend legend-tiers">
+            <div class="catalog-legend-title">Model Tiers</div>
+            <div class="catalog-legend-rows">
+              <div class="catalog-legend-row">
+                <span class="catalog-tier-name tier-pro">Pro</span>
+                <span class="catalog-legend-desc">Complex reasoning & tasks</span>
+              </div>
+              <div class="catalog-legend-row">
+                <span class="catalog-tier-name tier-flash">Flash</span>
+                <span class="catalog-legend-desc">Speed & cost-efficiency</span>
+              </div>
+              <div class="catalog-legend-row">
+                <span class="catalog-tier-name tier-flash-lite">Flash-Lite</span>
+                <span class="catalog-legend-desc">Lightweight & fast</span>
+              </div>
+              <div class="catalog-legend-row">
+                <span class="catalog-tier-name tier-live">Live</span>
+                <span class="catalog-legend-desc">Real-time streaming</span>
+              </div>
+              <div class="catalog-legend-row">
+                <span class="catalog-tier-name tier-tts">TTS</span>
+                <span class="catalog-legend-desc">Speech synthesis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="slide-content catalog-layout">
+
+          <div class="catalog-header">
+            <p class="catalog-eyebrow">Google AI Developer Platform</p>
+            <h2 class="catalog-title">Gemini Model Catalog</h2>
+          </div>
+
+          <div class="catalog-grid">
+
+            <!-- Multimodal Models -->
+            <div class="catalog-category cat-multimodal">
+              <div class="catalog-cat-header">
+                <div class="catalog-cat-icon"
+                  style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="catalog-cat-name">🌐 Multimodal Models</div>
+                  <div class="catalog-cat-sub">Text + vision + audio understanding</div>
+                </div>
+              </div>
+              <!-- Model type description -->
+              <div class="catalog-model-type">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4l3 3" />
+                </svg>
+                Foundation · General purpose LMM with multimodal reasoning
+              </div>
+              <div class="catalog-models">
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 3.1 Pro</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 3 Flash</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 2.5 Pro</span>
+                  <span class="catalog-model-status status-stable">Stable</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 2.5 Flash</span>
+                  <span class="catalog-model-status status-stable">Stable</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 2.5 Flash-Lite</span>
+                  <span class="catalog-model-status status-stable">Stable</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audio Models -->
+            <div class="catalog-category cat-audio">
+              <div class="catalog-cat-header">
+                <div class="catalog-cat-icon"
+                  style="background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="catalog-cat-name">🔊 Audio Models</div>
+                  <div class="catalog-cat-sub">Speech input/output, TTS, live voice</div>
+                </div>
+              </div>
+              <div class="catalog-model-type"
+                style="border-color:rgba(52,168,83,0.15); background:rgba(52,168,83,0.04); color:#34A853;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                </svg>
+                Speech · Real-time voice synthesis &amp; streaming audio I/O
+              </div>
+              <div class="catalog-models">
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 3.1 Flash Live</span>
+                  <span class="catalog-model-status status-new">New ✦</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 3.1 Flash TTS</span>
+                  <span class="catalog-model-status status-new">New ✦</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 2.5 Flash Live</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 2.5 Flash TTS</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini 2.5 Pro TTS</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Generative Media -->
+            <div class="catalog-category cat-media">
+              <div class="catalog-cat-header">
+                <div class="catalog-cat-icon"
+                  style="background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="catalog-cat-name">🎨 Generative Media</div>
+                  <div class="catalog-cat-sub">Image &amp; video generation models</div>
+                </div>
+              </div>
+              <div class="catalog-model-type"
+                style="border-color:rgba(234,67,53,0.15); background:rgba(234,67,53,0.04); color:#EA4335;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+                Generative · Text-to-image &amp; text-to-video diffusion models
+              </div>
+              <div class="catalog-models">
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Imagen 4</span>
+                  <span class="catalog-model-status status-stable">Stable</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Nano Banana 2.5</span>
+                  <span class="catalog-model-status status-stable">Stable</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Nano Banana Pro</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Veo 3.1</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Veo 3.1 Lite</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tools & Agents -->
+            <div class="catalog-category cat-tools">
+              <div class="catalog-cat-header">
+                <div class="catalog-cat-icon"
+                  style="background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                    <path
+                      d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="catalog-cat-name">🛠️ Tool &amp; Agent Models</div>
+                  <div class="catalog-cat-sub">Autonomous reasoning &amp; research</div>
+                </div>
+              </div>
+              <div class="catalog-model-type"
+                style="border-color:rgba(251,188,4,0.2); background:rgba(251,188,4,0.04); color:#9A7400;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="2">
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+                </svg>
+                Agentic · Multi-step planning, tool use &amp; computer control
+              </div>
+              <div class="catalog-models">
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Computer Use</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Deep Research</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Deep Research Max</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Embedding Models -->
+            <div class="catalog-category cat-embed">
+              <div class="catalog-cat-header">
+                <div class="catalog-cat-icon"
+                  style="background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="catalog-cat-name">🔢 Embedding Models</div>
+                  <div class="catalog-cat-sub">Semantic vector representations</div>
+                </div>
+              </div>
+              <div class="catalog-model-type"
+                style="border-color:rgba(66,133,244,0.15); background:rgba(66,133,244,0.04); color:#4285F4;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="2">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                </svg>
+                Embedding · Dense vector encoders for semantic similarity search
+              </div>
+              <div class="catalog-models">
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini Embedding 2</span>
+                  <span class="catalog-model-status status-stable">Stable</span>
+                </div>
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini Embedding</span>
+                  <span class="catalog-model-status status-stable">Stable</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Robotics -->
+            <div class="catalog-category cat-robotics">
+              <div class="catalog-cat-header">
+                <div class="catalog-cat-icon"
+                  style="background:rgba(52,168,83,0.08); border-color:rgba(52,168,83,0.2);">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M20 21a8 8 0 1 0-16 0" />
+                    <path d="M12 12v5" />
+                    <path d="M9 17l3 4 3-4" />
+                  </svg>
+                </div>
+                <div>
+                  <div class="catalog-cat-name">🤖 Robotics &amp; Edge</div>
+                  <div class="catalog-cat-sub">On-device &amp; physical AI</div>
+                </div>
+              </div>
+              <div class="catalog-model-type"
+                style="border-color:rgba(52,168,83,0.15); background:rgba(52,168,83,0.04); color:#34A853;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="2">
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M20 21a8 8 0 1 0-16 0" />
+                </svg>
+                Embodied · Physical world reasoning &amp; real-time robot control
+              </div>
+              <div class="catalog-models">
+                <div class="catalog-model-row">
+                  <span class="catalog-model-name">Gemini Robotics-ER 1.6</span>
+                  <span class="catalog-model-status status-preview">Preview</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-3 — USE CASES OVERVIEW
+         ============================ -->
+      <section class="slide slide-usecases" id="slide-4">
+        <div class="slide-label">What Can We Build with Gemini?</div>
+        <div class="uc-bg">
+          <div class="uc-dot-grid"></div>
+          <div class="uc-glow"></div>
+        </div>
+        <div class="slide-content usecases-layout">
+
+          <div class="uc-header">
+            <p class="uc-eyebrow">Gemini AI Applications</p>
+            <h2 class="uc-title">5 Powerful AI App Categories</h2>
+          </div>
+
+          <!-- 3 on top, 2 on bottom — equal proportions -->
+          <div class="uc-cards uc-cards-3-2">
+
+            <!-- Row 1: 3 cards -->
+            <div class="uc-card uc-card-1">
+              <div class="uc-card-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.07);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  <path d="M8 10h8M8 14h5" />
+                </svg>
+              </div>
+              <div class="uc-card-title">RAG Chatbot</div>
+              <div class="uc-card-desc">Retrieval-Augmented Generation — an AI chatbot that fetches relevant documents
+                from a knowledge base before generating answers, so responses are grounded in your actual data.</div>
+              <div class="uc-card-tag"
+                style="color:#9A7400; border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.06);">Retrieval +
+                Generation</div>
+            </div>
+
+            <div class="uc-card uc-card-2">
+              <div class="uc-card-icon" style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                  <rect x="5" y="2" width="14" height="20" rx="2" />
+                  <path d="M9 7h6M9 11h6M9 15h4" />
+                </svg>
+              </div>
+              <div class="uc-card-title">Multimodal OCR</div>
+              <div class="uc-card-desc">Extract structured data from documents, receipts, invoices, and forms using
+                Gemini's vision capabilities — far beyond traditional OCR engines.</div>
+              <div class="uc-card-tag"
+                style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.05);">Vision +
+                Extraction</div>
+            </div>
+
+            <div class="uc-card uc-card-3">
+              <div class="uc-card-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.06);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg>
+              </div>
+              <div class="uc-card-title">Multimodal Search Engine</div>
+              <div class="uc-card-desc">Search across text, images, and audio using semantic embeddings — find results
+                by meaning, not just keywords or file names.</div>
+              <div class="uc-card-tag"
+                style="color:#34A853; border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.05);">Semantic
+                Search</div>
+            </div>
+
+            <!-- Row 2: 2 cards — wider -->
+            <div class="uc-card uc-card-4 uc-card-wide">
+              <div class="uc-card-icon" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.06);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+              </div>
+              <div class="uc-card-title">Assets Generator</div>
+              <div class="uc-card-desc">Generate images, icons, illustrations, and marketing assets from text prompts
+                using Imagen 4 and Nano Banana models. No design skills required.</div>
+              <div class="uc-card-tag"
+                style="color:#EA4335; border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.05);">Generative
+                Media</div>
+            </div>
+
+            <div class="uc-card uc-card-5 uc-card-wide">
+              <div class="uc-card-icon" style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.06);">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
+              <div class="uc-card-title">Browser Automation Agent</div>
+              <div class="uc-card-desc">An AI agent that controls a browser — clicking, typing, scrolling, and
+                navigating to complete complex web tasks autonomously with Computer Use API.</div>
+              <div class="uc-card-tag"
+                style="color:#4285F4; border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.05);">Agentic ·
+                Computer Use</div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-4 — RAG CHATBOT DETAIL
+         ============================ -->
+      <section class="slide slide-app-detail" id="slide-5">
+        <div class="slide-label">App 01 — RAG Chatbot</div>
+        <div class="slide-content app-detail-layout">
+
+          <!-- LEFT COLUMN -->
+          <div class="app-detail-left">
+            <div class="app-badge"
+              style="color:#9A7400; background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.3);">
+              App 1
+            </div>
+            <h2 class="app-title">RAG Chatbot</h2>
+            <p class="app-def">RAG (Retrieval-Augmented Generation) connects a language model to an external knowledge
+              base — every answer is grounded in real, up-to-date information rather than hallucinated facts.</p>
+
+            <div class="app-pipeline">
+              <div class="app-pipeline-label">How It Works</div>
+              <div class="rag-steps">
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(251,188,4,0.12); color:#9A7400; border-color:rgba(251,188,4,0.3);">01</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">User Query</div>
+                    <div class="rag-step-desc">User submits a natural language question</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(66,133,244,0.1); color:#4285F4; border-color:rgba(66,133,244,0.25);">02</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Vectorize</div>
+                    <div class="rag-step-desc">Query encoded via Gemini Embedding model</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(234,67,53,0.08); color:#EA4335; border-color:rgba(234,67,53,0.2);">03</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Retrieve</div>
+                    <div class="rag-step-desc">Vector DB returns top-K relevant chunks</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(52,168,83,0.08); color:#34A853; border-color:rgba(52,168,83,0.2);">04</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Generate</div>
+                    <div class="rag-step-desc">Gemini produces a grounded, cited answer</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-usecases">
+              <div class="app-uc-label">Use Cases</div>
+              <div class="rag-uc-pills">
+                <span class="pill pill-yellow">📚 Document Q&amp;A</span>
+                <span class="pill pill-yellow">🏢 Internal Knowledge Base</span>
+                <span class="pill pill-yellow">⚖️ Legal Research</span>
+                <span class="pill pill-yellow">🏥 Medical Assistant</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN -->
+          <div class="app-detail-right">
+            <div class="app-arch-label">System Design</div>
+            <div class="rag-arch" style="margin-top:12px;">
+
+              <div class="rag-arch-node" style="border-color:rgba(251,188,4,0.25); background:rgba(251,188,4,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.08);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">User Interface</div>
+                  <div class="rag-arch-sub">Web / Mobile · Chat widget</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#9A7400; background:rgba(251,188,4,0.07); border-color:rgba(251,188,4,0.2);">query</div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(66,133,244,0.2);">
+                <div class="rag-arch-icon"
+                  style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Gemini Embedding 2</div>
+                  <div class="rag-arch-sub">Query → vector representation</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.2);">embedding
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-split">
+                <div class="rag-arch-node" style="border-color:rgba(234,67,53,0.2); flex:1;">
+                  <div class="rag-arch-icon"
+                    style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.07);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                      <ellipse cx="12" cy="5" rx="9" ry="3" />
+                      <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+                      <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                    </svg>
+                  </div>
+                  <div class="rag-arch-text">
+                    <div class="rag-arch-name">Vector DB</div>
+                    <div class="rag-arch-sub">Pinecone · pgvector</div>
+                  </div>
+                </div>
+                <div style="display:flex;align-items:center;padding:0 6px;color:var(--border);font-size:14px;">↔</div>
+                <div class="rag-arch-node" style="border-color:rgba(52,168,83,0.2); flex:1;">
+                  <div class="rag-arch-icon"
+                    style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.07);">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                      <polyline points="14 2 14 8 20 8" />
+                    </svg>
+                  </div>
+                  <div class="rag-arch-text">
+                    <div class="rag-arch-name">Doc Store</div>
+                    <div class="rag-arch-sub">PDF · MD · HTML</div>
+                  </div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.08);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Gemini 2.5 Flash / Pro</div>
+                  <div class="rag-arch-sub">Prompt + context → grounded answer</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.2);">answer</div>
+              </div>
+            </div>
+            <!-- Video Demo Section -->
+            <div class="rag-demo-video" style="margin-top: 10px;">
+              <div class="app-arch-label">Video Demo</div>
+              <div class="rag-video-frame" style="margin-top: 8px;">
+                <video src="assets/videos/AI Chatbot - Personalized Chatbot using RAG on FlowiseAI - Video Demo.mp4"
+                  loop muted playsinline preload="none"></video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-5 — MULTIMODAL OCR DETAIL
+         ============================ -->
+      <section class="slide slide-app-detail slide-ocr" id="slide-6">
+        <div class="slide-label">App 02 — Multimodal OCR</div>
+        <div class="slide-content app-detail-layout ocr-3-col-layout">
+
+          <div class="app-detail-left">
+            <div class="app-badge"
+              style="color:#4285F4; background:rgba(66,133,244,0.08); border-color:rgba(66,133,244,0.2);">
+              App 2
+            </div>
+            <h2 class="app-title">Multimodal OCR</h2>
+            <p class="app-def">Multimodal OCR uses Gemini's native vision capabilities to understand document structure,
+              extract structured fields, and handle complex layouts — invoices, receipts, medical records, and more.</p>
+
+            <div class="app-pipeline">
+              <div class="app-pipeline-label">How It Works</div>
+              <div class="rag-steps">
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(251,188,4,0.12); color:#9A7400; border-color:rgba(251,188,4,0.3);">01</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Ingest</div>
+                    <div class="rag-step-desc">Upload document (PDF, image, scan)</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(66,133,244,0.1); color:#4285F4; border-color:rgba(66,133,244,0.25);">02</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Analyze</div>
+                    <div class="rag-step-desc">Gemini Vision processes page layout</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(234,67,53,0.08); color:#EA4335; border-color:rgba(234,67,53,0.2);">03</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Extract</div>
+                    <div class="rag-step-desc">Extract structured JSON fields</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(52,168,83,0.08); color:#34A853; border-color:rgba(52,168,83,0.2);">04</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Route</div>
+                    <div class="rag-step-desc">Validate &amp; route to downstream systems</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-usecases">
+              <div class="app-uc-label">Use Cases</div>
+              <div class="app-uc-pills">
+                <span class="pill pill-blue">🧾 Invoice Processing</span>
+                <span class="pill pill-blue">🪪 ID Verification</span>
+                <span class="pill pill-blue">🏥 Medical Records</span>
+                <span class="pill pill-blue">📋 Form Digitization</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-detail-right">
+            <div class="app-arch-label">System Design</div>
+            <div class="rag-arch" style="margin-top:12px;">
+              <div class="rag-arch-node" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(234,67,53,0.3); background:rgba(234,67,53,0.08);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                    <rect x="5" y="2" width="14" height="20" rx="2" />
+                    <path d="M9 7h6M9 11h6M9 15h4" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Document Input</div>
+                  <div class="rag-arch-sub">PDF · Image · Scanned Form</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(66,133,244,0.2);">
+                <div class="rag-arch-icon"
+                  style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Gemini 2.5 Flash / Pro</div>
+                  <div class="rag-arch-sub">Vision Analysis + Layout Parsing</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.2);">multimodal
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(52,168,83,0.2);">
+                <div class="rag-arch-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <polyline points="16 3 21 3 21 8" />
+                    <line x1="4" y1="20" x2="21" y2="3" />
+                    <polyline points="21 16 21 21 16 21" />
+                    <line x1="15" y1="15" x2="21" y2="21" />
+                    <line x1="4" y1="4" x2="9" y2="9" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Schema Mapping</div>
+                  <div class="rag-arch-sub">JSON Extraction · Field Validation</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.08);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Target System</div>
+                  <div class="rag-arch-sub">Database · CRM · API Integration</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.2);">structured
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 3: VIDEO DEMO -->
+          <div class="ocr-video-col">
+            <div class="app-arch-label">Video Demo</div>
+            <div class="rag-demo-video" style="margin-top: 10px;">
+              <div class="rag-video-frame">
+                <video src="assets/videos/AI-Powered Split Bills _ Video Demo.mp4" loop muted playsinline
+                  preload="none"></video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-6 — MULTIMODAL SEARCH ENGINE
+         ============================ -->
+      <section class="slide slide-search slide-app-detail" id="slide-7">
+        <div class="slide-label">App 03 — Multimodal Search Engine</div>
+        <!-- search-bg removed -->
+        <div class="slide-content search-layout">
+
+          <div class="app-detail-left">
+            <div class="app-badge"
+              style="color:#9A7400; background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.2);">
+              <span style="font-family:var(--font-mono); font-size:13px; font-weight:700;"></span> APP 3
+            </div>
+            <h2 class="app-title">Multimodal Search Engine</h2>
+            <p class="app-def">A multimodal search engine understands queries in text, image, or audio form — and
+              retrieves semantically relevant results across different media types simultaneously.</p>
+
+            <div class="app-pipeline">
+              <div class="app-pipeline-label">How It Works</div>
+              <div class="rag-steps">
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(251,188,4,0.12); color:#9A7400; border-color:rgba(251,188,4,0.3);">01</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Input</div>
+                    <div class="rag-step-desc">User enters text / uploads image query</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(66,133,244,0.1); color:#4285F4; border-color:rgba(66,133,244,0.25);">02</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Embed</div>
+                    <div class="rag-step-desc">Gemini Embedding 2 encodes to vector</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(234,67,53,0.08); color:#EA4335; border-color:rgba(234,67,53,0.2);">03</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Search</div>
+                    <div class="rag-step-desc">ANN search across multimodal index</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(52,168,83,0.08); color:#34A853; border-color:rgba(52,168,83,0.2);">04</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Rank</div>
+                    <div class="rag-step-desc">Ranked results: text + image + video</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-usecases">
+              <div class="app-uc-label">Use Cases</div>
+              <div class="app-uc-pills">
+                <span class="pill pill-yellow">🛍️ Visual Product Search</span>
+                <span class="pill pill-yellow">📁 Media Archive Search</span>
+                <span class="pill pill-yellow">🎵 Audio Similarity</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-detail-right">
+            <div class="app-arch-label">System Design</div>
+            <div class="rag-arch" style="margin-top:12px;">
+              <div class="rag-arch-node" style="border-color:rgba(251,188,4,0.25); background:rgba(251,188,4,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.08);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    <path d="M12 18v2M12 4v2M4 12H2M22 12h-2" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Multimodal Query</div>
+                  <div class="rag-arch-sub">Text · Image · Audio Clip</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(66,133,244,0.2);">
+                <div class="rag-arch-icon"
+                  style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path
+                      d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Gemini Embedding 2</div>
+                  <div class="rag-arch-sub">Joint Multimodal Space</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.2);">vector
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                    <ellipse cx="12" cy="5" rx="9" ry="3" />
+                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Multimodal Index</div>
+                  <div class="rag-arch-sub">Vector DB · ANN Search</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(52,168,83,0.2); background:rgba(52,168,83,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <polyline points="21 15 16 10 5 21" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Ranked Results</div>
+                  <div class="rag-arch-sub">Cross-Media Semantic Match</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.2);">results
+                </div>
+              </div>
+            </div>
+            <!-- Video Demo Section -->
+            <div class="rag-demo-video" style="margin-top: 10px;">
+              <div class="app-arch-label">Video Demo</div>
+              <div class="rag-video-frame" style="margin-top: 8px;">
+                <video src="assets/videos/Movie Search Engine.mp4" loop muted playsinline preload="none"></video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-7 — ASSETS GENERATOR
+         ============================ -->
+      <section class="slide slide-app-detail slide-assets" id="slide-8">
+        <div class="slide-label">App 04 — Assets Generator</div>
+        <div class="slide-content assets-layout">
+
+          <div class="app-detail-left">
+            <div class="app-badge"
+              style="color:#EA4335; background:rgba(234,67,53,0.08); border-color:rgba(234,67,53,0.2);">
+              <span style="font-family:var(--font-mono); font-size:13px; font-weight:700;"></span> APP 4
+            </div>
+            <h2 class="app-title">Assets Generator</h2>
+            <p class="app-def">Turn text prompts into production-ready images, icons, illustrations, and marketing
+              materials using Gemini's Imagen 4 and Nano Banana models — no design skills required.</p>
+
+            <div class="app-pipeline">
+              <div class="app-pipeline-label">How It Works</div>
+              <div class="rag-steps">
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(251,188,4,0.12); color:#9A7400; border-color:rgba(251,188,4,0.3);">01</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Describe</div>
+                    <div class="rag-step-desc">Describe asset in natural language</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(66,133,244,0.1); color:#4285F4; border-color:rgba(66,133,244,0.25);">02</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Generate</div>
+                    <div class="rag-step-desc">Imagen 4 / Nano generates images</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(234,67,53,0.08); color:#EA4335; border-color:rgba(234,67,53,0.2);">03</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Refine</div>
+                    <div class="rag-step-desc">Refine with iterative prompting</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(52,168,83,0.08); color:#34A853; border-color:rgba(52,168,83,0.2);">04</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Export</div>
+                    <div class="rag-step-desc">Export &amp; integrate into product</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-usecases">
+              <div class="app-uc-label">Use Cases</div>
+              <div class="app-uc-pills">
+                <span class="pill pill-red">🎨 Marketing Banners</span>
+                <span class="pill pill-red">🖼️ Product Thumbnails</span>
+                <span class="pill pill-red">🖋️ Illustrations</span>
+                <span class="pill pill-red">📱 UI Assets</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-detail-right">
+            <div class="app-arch-label">System Design</div>
+            <div class="rag-arch" style="margin-top:12px;">
+              <div class="rag-arch-node" style="border-color:rgba(251,188,4,0.25); background:rgba(251,188,4,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.08);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Text Prompt</div>
+                  <div class="rag-arch-sub">Style · Subject · Aspect Ratio</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(66,133,244,0.2);">
+                <div class="rag-arch-icon"
+                  style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Imagen 4 / Nano Banana</div>
+                  <div class="rag-arch-sub">Diffusion Generation Engine</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.2);">imagen
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                    <path d="M12 20v-6M6 20V10M18 20V4" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Refinement Loop</div>
+                  <div class="rag-arch-sub">Upscaling · Inpainting · Variant Gen</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(52,168,83,0.2); background:rgba(52,168,83,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Asset Delivery</div>
+                  <div class="rag-arch-sub">PNG · SVG · High-Res Marketing</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.2);">export</div>
+              </div>
+            </div>
+            <!-- Video Demo Section -->
+            <div class="rag-demo-video" style="margin-top: 10px;">
+              <div class="app-arch-label">Video Demo</div>
+              <div class="rag-video-frame" style="margin-top: 8px;">
+                <video src="assets/videos/Eatitude.mp4" loop muted playsinline preload="none"></video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-8 — BROWSER AUTOMATION AGENT
+         ============================ -->
+      <section class="slide slide-browser slide-app-detail" id="slide-9">
+        <div class="slide-label">App 05 — Browser Automation Agent</div>
+        <!-- browser-bg removed -->
+        <div class="slide-content browser-layout">
+
+          <div class="app-detail-left">
+            <div class="app-badge"
+              style="color:#9A7400; background:rgba(251,188,4,0.08); border-color:rgba(251,188,4,0.2);">
+              <span style="font-family:var(--font-mono); font-size:13px; font-weight:700;"></span> APP 5
+            </div>
+            <h2 class="app-title">Browser Automation Agent</h2>
+            <p class="app-def">A Browser Automation Agent uses Gemini's Computer Use capability to operate a real
+              browser — it can click, type, scroll, fill forms, and navigate complex multi-step web workflows completely
+              autonomously.</p>
+
+            <div class="app-pipeline">
+              <div class="app-pipeline-label">How It Works</div>
+              <div class="rag-steps">
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(251,188,4,0.12); color:#9A7400; border-color:rgba(251,188,4,0.3);">01</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Goal</div>
+                    <div class="rag-step-desc">User gives goal in natural language</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(66,133,244,0.1); color:#4285F4; border-color:rgba(66,133,244,0.25);">02</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Plan</div>
+                    <div class="rag-step-desc">Gemini plans actions step-by-step</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(234,67,53,0.08); color:#EA4335; border-color:rgba(234,67,53,0.2);">03</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Act</div>
+                    <div class="rag-step-desc">Computer Use API executes interactions</div>
+                  </div>
+                </div>
+                <div class="rag-step-connector"></div>
+                <div class="rag-step">
+                  <div class="rag-step-num"
+                    style="background:rgba(52,168,83,0.08); color:#34A853; border-color:rgba(52,168,83,0.2);">04</div>
+                  <div class="rag-step-body">
+                    <div class="rag-step-title">Loop</div>
+                    <div class="rag-step-desc">Agent observes result and continues</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-usecases">
+              <div class="app-uc-label">Use Cases</div>
+              <div class="app-uc-pills">
+                <span class="pill pill-yellow">📊 Web Scraping</span>
+                <span class="pill pill-yellow">🛒 E-commerce Automation</span>
+                <span class="pill pill-yellow">📝 Form Filling</span>
+                <span class="pill pill-yellow">🔍 Research Agent</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="app-detail-right">
+            <div class="app-arch-label">System Design</div>
+            <div class="rag-arch" style="margin-top:12px;">
+              <div class="rag-arch-node" style="border-color:rgba(251,188,4,0.25); background:rgba(251,188,4,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(251,188,4,0.3); background:rgba(251,188,4,0.08);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A7400" stroke-width="1.5">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">High-Level Goal</div>
+                  <div class="rag-arch-sub">"Find and purchase cheapest tickets"</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(66,133,244,0.2);">
+                <div class="rag-arch-icon"
+                  style="border-color:rgba(66,133,244,0.25); background:rgba(66,133,244,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4285F4" stroke-width="1.5">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Gemini Agentic Planning</div>
+                  <div class="rag-arch-sub">Step-by-step reasoning (ToT)</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#4285F4; background:rgba(66,133,244,0.07); border-color:rgba(66,133,244,0.2);">planning
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(234,67,53,0.2); background:rgba(234,67,53,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(234,67,53,0.25); background:rgba(234,67,53,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EA4335" stroke-width="1.5">
+                    <path d="M15 6a3 3 0 1 0-6 0v6a3 3 0 0 0 6 0V6zM19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Computer Use API</div>
+                  <div class="rag-arch-sub">Browser Interaction Layer</div>
+                </div>
+              </div>
+              <div class="rag-arch-arrow">↓</div>
+              <div class="rag-arch-node" style="border-color:rgba(52,168,83,0.2); background:rgba(52,168,83,0.03);">
+                <div class="rag-arch-icon" style="border-color:rgba(52,168,83,0.25); background:rgba(52,168,83,0.07);">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34A853" stroke-width="1.5">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div class="rag-arch-text">
+                  <div class="rag-arch-name">Action Execution</div>
+                  <div class="rag-arch-sub">Click · Type · Extract · Complete</div>
+                </div>
+                <div class="rag-arch-badge"
+                  style="color:#34A853; background:rgba(52,168,83,0.07); border-color:rgba(52,168,83,0.2);">success
+                </div>
+              </div>
+            </div>
+            <!-- Video Demo Section -->
+            <div class="rag-demo-video" style="margin-top: 10px;">
+              <div class="app-arch-label">Video Demo</div>
+              <div class="rag-video-frame" style="margin-top: 8px;">
+                <video src="assets/videos/Browser Automation Agent.mp4" loop muted playsinline preload="none"></video>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============================
+         SLIDE C3-9 — CLOSING REVEAL (2 steps)
+         ============================ -->
+      <section class="slide slide-closing-reveal" id="slide-10" data-steps="2">
+        <div class="slide-label">Now, How Do We Build It?</div>
+
+        <div class="reveal-step step-1 active-step">
+          <div class="reveal-bg">
+            <div class="reveal-dot-grid"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question">
+              Now, We Know<br />
+              <span class="rq-highlight-yellow">What</span> We Can Build<br />
+              with Gemini
+            </h2>
+          </div>
+        </div>
+
+        <div class="reveal-step step-2">
+          <div class="reveal-bg">
+            <div class="reveal-dot-grid"></div>
+          </div>
+          <div class="slide-content reveal-center">
+            <h2 class="reveal-question reveal-question-sm">
+              Now, We Know <span class="rq-highlight-yellow">What</span> We Can Build with Gemini
+            </h2>
+            <div class="reveal-answer-block">
+              <div class="reveal-answer-heading">
+                But, <span class="rh-grad">How</span> Do We Build It?
+              </div>
+              <div class="reveal-answer-pills"></div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div><!-- /slides-container -->
+
+  </div><!-- /slide-scaler -->
+
+  <script src="scaler.js"></script>
+  <script src="chapter3.js"></script>
+</body>
+
+</html>

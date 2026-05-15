@@ -1,0 +1,361 @@
+You are an award-winning senior frontend engineer and presentation designer.
+
+Create a pixel-perfect conference presentation website using only plain HTML, CSS, and JavaScript.
+
+The presentation style must feel like:
+- Google I/O keynote presentation
+- Modern enterprise-tech editorial design
+- Minimal yet premium
+- Calm and spacious
+- Professional developer conference aesthetic
+- Elegant and highly readable
+- Designed for live presentation and PDF export
+
+==================================================
+GOAL
+==================================================
+
+Build a full-screen slide presentation website for a tech talk titled:
+
+“AI-Driven Development: Building Software in the Age of AI”
+
+The presentation should feel like a blend of:
+- Google I/O
+- Stripe
+- Vercel
+- Linear
+- Google Material 3
+- Editorial magazine layouts
+
+The slides must look world-class, modern, and presentation-ready.
+
+==================================================
+VISUAL STYLE
+==================================================
+
+Design principles:
+- Spacious layouts
+- Strong typography hierarchy
+- Minimal clutter
+- Large headlines
+- Editorial whitespace
+- Soft contrast
+- Elegant transitions
+- Professional developer aesthetics
+- Subtle animations
+- High readability during live presentations
+
+Mood:
+- Intelligent
+- Calm
+- Innovative
+- Trustworthy
+- Technical but approachable
+
+==================================================
+COLOR SYSTEM
+==================================================
+
+Use a primarily neutral interface with subtle Google Developer Group accent colors.
+
+Use:
+- 85% neutral colors
+- 15% GDG accent colors
+
+Primary neutral palette:
+- Background: #F8F9FA
+- Surface: #FFFFFF
+- Text Primary: #202124
+- Text Secondary: #5F6368
+- Border: #E0E3E7
+
+Google Developer Group accent palette:
+- Blue: #4285F4
+- Red: #EA4335
+- Yellow: #FBBC04
+- Green: #34A853
+
+Rules:
+- Never overuse accent colors
+- Use accents for:
+  - active states
+  - highlights
+  - badges
+  - diagrams
+  - timeline markers
+  - subtle gradients
+  - hover interactions
+- Maintain a premium minimal appearance
+
+==================================================
+TYPOGRAPHY
+==================================================
+
+Use:
+- Google Sans for headings
+- Inter for body text
+
+Typography style:
+- Large bold keynote-style headlines
+- Tight visual hierarchy
+- Spacious line-height
+- High readability
+
+Heading examples:
+- Massive presentation titles
+- Bold chapter headings
+- Minimal subtitles
+
+==================================================
+LAYOUT SYSTEM
+==================================================
+
+Create a responsive full-screen slide system.
+
+Each slide:
+- 16:9 aspect ratio optimized
+- Full viewport height
+- Large internal padding
+- Clean grid system
+- Editorial spacing
+- Strong alignment
+
+Use a combination of:
+- Editorial layouts
+- Bento-grid sections
+- Split-screen layouts
+- Full-width hero slides
+- Timeline sections
+- Large quote slides
+- Diagram sections
+
+Slides must feel dynamic and visually varied while maintaining consistency.
+
+==================================================
+ANIMATION SYSTEM
+==================================================
+
+Animation style:
+- Google I/O inspired
+- Smooth
+- Elegant
+- Subtle
+- Premium
+
+Use:
+- Fade transitions
+- Slide-up reveals
+- Scale-in effects
+- Soft stagger animations
+- Smooth page transitions
+- Floating subtle gradients
+- Motion with restraint
+
+Avoid:
+- Excessive motion
+- Cheap effects
+- Overly playful animation
+
+Animation timing:
+- Smooth easing
+- 200ms–700ms transitions
+
+==================================================
+SLIDE TRANSITIONS
+==================================================
+
+Implement:
+- Keyboard navigation
+- Arrow key support
+- Mouse wheel navigation
+- Smooth slide transitions
+- Presentation mode behavior
+- Fullscreen-friendly design
+
+Slides should transition elegantly like:
+- Google keynote
+- Apple keynote
+- Linear motion system
+
+==================================================
+COMPONENTS
+==================================================
+
+Create reusable presentation components:
+- Hero sections
+- Chapter title slides
+- Agenda slides
+- Timeline components
+- Quote cards
+- Statistics cards
+- Code block sections
+- Terminal UI
+- AI workflow diagrams
+- Architecture diagrams
+- Speaker intro sections
+- Demo showcase sections
+- Comparison tables
+- Minimal charts
+- Process flow cards
+
+==================================================
+CODE BLOCK DESIGN
+==================================================
+
+Code blocks should look like:
+- Modern IDE
+- Clean terminal aesthetic
+- Syntax highlighted
+- Rounded corners
+- Minimal chrome
+- Elegant shadows
+
+Use subtle GDG accent colors in syntax highlights.
+
+==================================================
+ICONS & VISUALS
+==================================================
+
+Use:
+- Minimal SVG icons
+- Thin strokes
+- Material-inspired iconography
+- Subtle geometric backgrounds
+- AI-inspired abstract shapes
+- Soft gradients
+- Dot grids
+- Developer-oriented visuals
+
+Avoid:
+- Stock illustration feel
+- Cartoon style
+- Overly colorful visuals
+
+==================================================
+PRESENTATION FEATURES
+==================================================
+
+Implement:
+- Keyboard navigation
+- Slide progress indicator
+- Smooth scrolling
+- Auto-fit content
+- Presenter-friendly spacing
+- PDF export compatibility
+- Fullscreen optimization
+- Lazy-loaded animations
+- Responsive typography scaling
+
+==================================================
+TECHNICAL REQUIREMENTS
+==================================================
+
+Use only:
+- HTML
+- CSS
+- Vanilla JavaScript
+
+No frameworks.
+
+Structure:
+- Clean architecture
+- Modular CSS
+- Reusable classes
+- Presentation engine logic separated clearly
+
+Must include:
+- index.html
+- styles.css
+- script.js
+
+Code quality:
+- Production-ready
+- Clean
+- Maintainable
+- Semantic HTML
+- Performance optimized
+
+==================================================
+SLIDE DESIGN REQUIREMENTS
+==================================================
+
+Every slide must:
+- Feel visually unique
+- Maintain consistent design language
+- Avoid repetitive layouts
+- Maintain strong hierarchy
+- Be readable from a distance
+- Look premium on projector screens
+
+==================================================
+CONTENT STYLE
+==================================================
+
+The presentation topic is:
+AI-Driven Development
+
+Topics include:
+- AI changing software development
+- Prompt engineering
+- Context engineering
+- AI workflows
+- AI agents
+- Gemini applications
+- AI prototyping
+- AI-assisted coding
+- Future of software engineering
+
+Tone:
+- Visionary
+- Educational
+- Modern
+- Technical
+- Inspiring
+
+==================================================
+INSPIRATION REFERENCES
+==================================================
+
+Visual inspiration:
+- Google I/O keynote
+- Google Material 3
+- Stripe presentations
+- Vercel design system
+- Linear.app aesthetics
+- Apple keynote layouts
+- Notion editorial spacing
+
+==================================================
+IMPORTANT DESIGN RULES
+==================================================
+
+DO:
+- Use whitespace aggressively
+- Make slides breathable
+- Emphasize typography
+- Use subtle GDG accents
+- Create presentation rhythm
+- Think like a conference keynote designer
+
+DO NOT:
+- Make it look like PowerPoint
+- Overcrowd slides
+- Use generic templates
+- Overuse gradients
+- Overuse colors
+- Add unnecessary UI clutter
+
+==================================================
+OUTPUT FORMAT
+==================================================
+
+Generate:
+1. Full HTML structure
+2. Complete CSS styling
+3. Full JavaScript presentation logic
+4. Multiple example slides
+5. Smooth navigation system
+6. Transition animations
+7. Reusable presentation components
+
+The final result must feel like a real Google I/O conference presentation website.
